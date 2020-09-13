@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>course</title>
-    <url>/2020/09/13/course/</url>
-    <content><![CDATA[<h2 id="学校课程"><a href="#学校课程" class="headerlink" title="学校课程"></a>学校课程</h2>]]></content>
-      <categories>
-        <category>school</category>
-      </categories>
-      <tags>
-        <tag>school</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>关于页面</title>
     <url>/2020/09/23/about/</url>
     <content><![CDATA[<h2 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h2><h4 id="关于1"><a href="#关于1" class="headerlink" title="关于1"></a>关于1</h4><pre><code>  - 关于1关于1关于1关于1关于1关于1关于1关于1关于1
@@ -43,6 +32,17 @@
       </categories>
       <tags>
         <tag>about</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>course</title>
+    <url>/2020/09/13/course/</url>
+    <content><![CDATA[<h2 id="学校课程"><a href="#学校课程" class="headerlink" title="学校课程"></a>学校课程</h2>]]></content>
+      <categories>
+        <category>school</category>
+      </categories>
+      <tags>
+        <tag>school</tag>
       </tags>
   </entry>
   <entry>
