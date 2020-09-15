@@ -1,24 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2020/09/13/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>关于页面</title>
     <url>/2020/09/23/about/</url>
     <content><![CDATA[<h2 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h2><h4 id="关于1"><a href="#关于1" class="headerlink" title="关于1"></a>关于1</h4><pre><code>  - 关于1关于1关于1关于1关于1关于1关于1关于1关于1
@@ -64,6 +46,24 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2020/09/13/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>roommate</title>
     <url>/2020/09/13/roommate/</url>
     <content><![CDATA[<h2 id="室友"><a href="#室友" class="headerlink" title="室友"></a>室友</h2>]]></content>
@@ -85,6 +85,29 @@
       </categories>
       <tags>
         <tag>home</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>关于博客搭建</title>
+    <url>/2020/09/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h2 id="这篇文章希望记录一下我搭建Hexo博客的过程"><a href="#这篇文章希望记录一下我搭建Hexo博客的过程" class="headerlink" title="这篇文章希望记录一下我搭建Hexo博客的过程"></a>这篇文章希望记录一下我搭建Hexo博客的过程</h2><h3 id="第一步，配置GitHub"><a href="#第一步，配置GitHub" class="headerlink" title="第一步，配置GitHub"></a>第一步，配置GitHub</h3><p>登录到 github ，新建一个库，库的名称建立用自己的用户名+github.io 命名，如 jack.github.io 作为库的名称，之后部署成功之后，就可以通过 <a href="https://jack.github.io/">https://jack.github.io</a> 访问你的博客站点啦。</p>
+<h3 id="第二步，安装-node环境和git代码管理工具"><a href="#第二步，安装-node环境和git代码管理工具" class="headerlink" title="第二步，安装 node环境和git代码管理工具"></a>第二步，安装 node环境和git代码管理工具</h3><p>node.js 直接在官网下载即可：<a href="https://nodejs.org/en/%EF%BC%8Cgit">https://nodejs.org/en/，git</a> 也可以自己去官网下载，我是学前端的，学习vue和node的时候就已经安装好了，git 是我们日常开发工作中托管代码必不可少的工具，有关 git 的常用命令，可以参考廖雪峰老师i教程：<a href="https://www.liaoxuefeng.com/wiki/896043488029600">https://www.liaoxuefeng.com/wiki/896043488029600</a></p>
+<h3 id="第三步，安装-hexo-cli"><a href="#第三步，安装-hexo-cli" class="headerlink" title="第三步，安装 hexo-cli"></a>第三步，安装 hexo-cli</h3><p>我们需要全局安装 hexo-cli 搭建我们的 hexo 博客，通过npm安装，直接在终端窗口中键入 npm install –g hexo-cli。</p>
+<p>接着新建一个博客目录，如直接桌面上新建一个 MyHexoBolgs 文件夹，然后进入到这个空目录下，通过 hexo init，创建一个hexo项目，或者也可以直接通过 hexo init  MyHexoBlogs 来创建，这样就不用我们手动创建博客目录了。</p>
+<p>安装的过程很慢，需要耐心等待下。（当时半天安装不下来，就一直按回车键，结果还报错了，后来重新安装，并在安装过程中去网上寻找解决方法，结果在去寻找其他方式提高下载速度的过程中，发现它已经安装好了，但是速度确实挺慢的）</p>
+<h3 id="第四步：测试"><a href="#第四步：测试" class="headerlink" title="第四步：测试"></a>第四步：测试</h3><p>在 创建好 hexo 项目后，source 目录下已经有一个 Hello world 文件，所以直接执行 hexo g ，接着启动本地服务器 hexo s ，并根据它的提示在浏览器访问 localhost：4000 既可以看到这个 hexo 博客网站以及上面的一篇 hello world 文章了。</p>
+<h3 id="第五步：github-远程仓库中添加-key"><a href="#第五步：github-远程仓库中添加-key" class="headerlink" title="第五步：github 远程仓库中添加 key"></a>第五步：github 远程仓库中添加 key</h3><p>在根目录下（博客根目录文件夹）大家终端窗口，键入 ssh-keygen -t rsa -C “Github的绑定的邮箱”，一路Enter，就在 .ssh 目录下创建了一个 id_rsa_pub ，用记事本或者其他文本编辑器打开该文件，然后复制文件中的内容，并添加的我们自己的 github 仓库中。</p>
+<h3 id="第六步：配置博客部署信息并托管到githhub上"><a href="#第六步：配置博客部署信息并托管到githhub上" class="headerlink" title="第六步：配置博客部署信息并托管到githhub上"></a>第六步：配置博客部署信息并托管到githhub上</h3><p>打开根目录下的 .config.yml 文件，这是 hexo 博客的配置文件，这里需要配置的 deploy 信息：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">deploy：</span><br><span class="line">	type：git</span><br><span class="line">	reop：github仓库的地址，如 https:<span class="regexp">//gi</span>thub.com<span class="regexp">/jack/</span>jack.github.io</span><br><span class="line">	branch：master</span><br></pre></td></tr></table></figure>
+
+<p>然后在博客根目录中执行 hexo clean，hexo g ，hexo d，就可以将可以部署到github上了，浏览器直接访问 <a href="https://github用户名.github.io/">https://github用户名.github.io</a> 就可以访问到自己创建的hexo 博客项目了。</p>
+<p>下面就是博客的配置和美化了</p>
+]]></content>
+      <categories>
+        <category>about</category>
+      </categories>
+      <tags>
+        <tag>blog</tag>
       </tags>
   </entry>
   <entry>
@@ -133,29 +156,6 @@
 
 <p>最后，这个静态博客还有很多不完善的地方，比如，托管在 github 上速度太慢，于是我通过 gulp 做了静态资源的打包压缩，但访问依然还是很慢，日后我会将它部署到 gitee 上试试。hexo 搭建的博客还可以进行 CDN 的加速，但是新版本的CDN加速似乎和之前版本的配置不太一样，这里我配置过程中，遇到了一些问题，日后全部解决了再分享出来。</p>
 <p>最后的最后，本站已经开启评论功能，欢迎大家多多指正。</p>
-]]></content>
-      <categories>
-        <category>about</category>
-      </categories>
-      <tags>
-        <tag>blog</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>关于博客搭建</title>
-    <url>/2020/09/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<h2 id="这篇文章希望记录一下我搭建Hexo博客的过程"><a href="#这篇文章希望记录一下我搭建Hexo博客的过程" class="headerlink" title="这篇文章希望记录一下我搭建Hexo博客的过程"></a>这篇文章希望记录一下我搭建Hexo博客的过程</h2><h3 id="第一步，配置GitHub"><a href="#第一步，配置GitHub" class="headerlink" title="第一步，配置GitHub"></a>第一步，配置GitHub</h3><p>登录到 github ，新建一个库，库的名称建立用自己的用户名+github.io 命名，如 jack.github.io 作为库的名称，之后部署成功之后，就可以通过 <a href="https://jack.github.io/">https://jack.github.io</a> 访问你的博客站点啦。</p>
-<h3 id="第二步，安装-node环境和git代码管理工具"><a href="#第二步，安装-node环境和git代码管理工具" class="headerlink" title="第二步，安装 node环境和git代码管理工具"></a>第二步，安装 node环境和git代码管理工具</h3><p>node.js 直接在官网下载即可：<a href="https://nodejs.org/en/%EF%BC%8Cgit">https://nodejs.org/en/，git</a> 也可以自己去官网下载，我是学前端的，学习vue和node的时候就已经安装好了，git 是我们日常开发工作中托管代码必不可少的工具，有关 git 的常用命令，可以参考廖雪峰老师i教程：<a href="https://www.liaoxuefeng.com/wiki/896043488029600">https://www.liaoxuefeng.com/wiki/896043488029600</a></p>
-<h3 id="第三步，安装-hexo-cli"><a href="#第三步，安装-hexo-cli" class="headerlink" title="第三步，安装 hexo-cli"></a>第三步，安装 hexo-cli</h3><p>我们需要全局安装 hexo-cli 搭建我们的 hexo 博客，通过npm安装，直接在终端窗口中键入 npm install –g hexo-cli。</p>
-<p>接着新建一个博客目录，如直接桌面上新建一个 MyHexoBolgs 文件夹，然后进入到这个空目录下，通过 hexo init，创建一个hexo项目，或者也可以直接通过 hexo init  MyHexoBlogs 来创建，这样就不用我们手动创建博客目录了。</p>
-<p>安装的过程很慢，需要耐心等待下。（当时半天安装不下来，就一直按回车键，结果还报错了，后来重新安装，并在安装过程中去网上寻找解决方法，结果在去寻找其他方式提高下载速度的过程中，发现它已经安装好了，但是速度确实挺慢的）</p>
-<h3 id="第四步：测试"><a href="#第四步：测试" class="headerlink" title="第四步：测试"></a>第四步：测试</h3><p>在 创建好 hexo 项目后，source 目录下已经有一个 Hello world 文件，所以直接执行 hexo g ，接着启动本地服务器 hexo s ，并根据它的提示在浏览器访问 localhost：4000 既可以看到这个 hexo 博客网站以及上面的一篇 hello world 文章了。</p>
-<h3 id="第五步：github-远程仓库中添加-key"><a href="#第五步：github-远程仓库中添加-key" class="headerlink" title="第五步：github 远程仓库中添加 key"></a>第五步：github 远程仓库中添加 key</h3><p>在根目录下（博客根目录文件夹）大家终端窗口，键入 ssh-keygen -t rsa -C “Github的绑定的邮箱”，一路Enter，就在 .ssh 目录下创建了一个 id_rsa_pub ，用记事本或者其他文本编辑器打开该文件，然后复制文件中的内容，并添加的我们自己的 github 仓库中。</p>
-<h3 id="第六步：配置博客部署信息并托管到githhub上"><a href="#第六步：配置博客部署信息并托管到githhub上" class="headerlink" title="第六步：配置博客部署信息并托管到githhub上"></a>第六步：配置博客部署信息并托管到githhub上</h3><p>打开根目录下的 .config.yml 文件，这是 hexo 博客的配置文件，这里需要配置的 deploy 信息：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">deploy：</span><br><span class="line">	type：git</span><br><span class="line">	reop：github仓库的地址，如 https:<span class="regexp">//gi</span>thub.com<span class="regexp">/jack/</span>jack.github.io</span><br><span class="line">	branch：master</span><br></pre></td></tr></table></figure>
-
-<p>然后在博客根目录中执行 hexo clean，hexo g ，hexo d，就可以将可以部署到github上了，浏览器直接访问 <a href="https://github用户名.github.io/">https://github用户名.github.io</a> 就可以访问到自己创建的hexo 博客项目了。</p>
-<p>下面就是博客的配置和美化了</p>
 ]]></content>
       <categories>
         <category>about</category>
