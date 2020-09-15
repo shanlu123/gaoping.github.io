@@ -22,18 +22,21 @@
     var CONFIG = {"hostname":"github.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="movies">
-<meta property="og:url" content="https://github.com/shanlu123/movies/index.html">
+  <meta name="description" content="这篇文章希望记录一下我搭建Hexo博客的过程第一步，配置GitHub登录到 github ，新建一个库，库的名称建立用自己的用户名+github.io 命名，如 jack.github.io 作为库的名称，之后部署成功之后，就可以通过 https:&#x2F;&#x2F;jack.github.io 访问你的博客站点啦。 第二步，安装 node环境和git代码管理工具node.js 直接在官网下载即可：https:&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于博客搭建">
+<meta property="og:url" content="https://github.com/shanlu123/2020/09/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/index.html">
 <meta property="og:site_name" content="shanlu的博客">
+<meta property="og:description" content="这篇文章希望记录一下我搭建Hexo博客的过程第一步，配置GitHub登录到 github ，新建一个库，库的名称建立用自己的用户名+github.io 命名，如 jack.github.io 作为库的名称，之后部署成功之后，就可以通过 https:&#x2F;&#x2F;jack.github.io 访问你的博客站点啦。 第二步，安装 node环境和git代码管理工具node.js 直接在官网下载即可：https:&#x2F;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-09-12T17:11:46.000Z">
-<meta property="article:modified_time" content="2020-09-13T05:28:28.290Z">
+<meta property="article:published_time" content="2020-09-14T13:59:21.335Z">
+<meta property="article:modified_time" content="2020-09-14T15:47:45.939Z">
 <meta property="article:author" content="shanlu">
+<meta property="article:tag" content="blog">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://github.com/shanlu123/movies/">
+<link rel="canonical" href="https://github.com/shanlu123/2020/09/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
 
 
 <script class="page-configurations">
@@ -41,13 +44,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>movies | shanlu的博客
-</title>
+  <title>关于博客搭建 | shanlu的博客</title>
   
 
 
@@ -227,7 +229,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -239,6 +241,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%99%E7%AF%87%E6%96%87%E7%AB%A0%E5%B8%8C%E6%9C%9B%E8%AE%B0%E5%BD%95%E4%B8%80%E4%B8%8B%E6%88%91%E6%90%AD%E5%BB%BAHexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="nav-number">1.</span> <span class="nav-text">这篇文章希望记录一下我搭建Hexo博客的过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%8C%E9%85%8D%E7%BD%AEGitHub"><span class="nav-number">1.1.</span> <span class="nav-text">第一步，配置GitHub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%8C%E5%AE%89%E8%A3%85-node%E7%8E%AF%E5%A2%83%E5%92%8Cgit%E4%BB%A3%E7%A0%81%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7"><span class="nav-number">1.2.</span> <span class="nav-text">第二步，安装 node环境和git代码管理工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%8C%E5%AE%89%E8%A3%85-hexo-cli"><span class="nav-number">1.3.</span> <span class="nav-text">第三步，安装 hexo-cli</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%EF%BC%9A%E6%B5%8B%E8%AF%95"><span class="nav-number">1.4.</span> <span class="nav-text">第四步：测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%94%E6%AD%A5%EF%BC%9Agithub-%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E4%B8%AD%E6%B7%BB%E5%8A%A0-key"><span class="nav-number">1.5.</span> <span class="nav-text">第五步：github 远程仓库中添加 key</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%85%AD%E6%AD%A5%EF%BC%9A%E9%85%8D%E7%BD%AE%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E4%BF%A1%E6%81%AF%E5%B9%B6%E6%89%98%E7%AE%A1%E5%88%B0githhub%E4%B8%8A"><span class="nav-number">1.6.</span> <span class="nav-text">第六步：配置博客部署信息并托管到githhub上</span></a></li></ol></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -333,47 +336,163 @@
 </noscript>
 
 
-    <div class="main-inner page posts-expand">
+    <div class="main-inner post posts-expand">
       
-  
-  
 
       
 
     
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
     
     
-    <div class="post-block" lang="zh-CN">
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          关于博客搭建
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">movies
-</h1>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
 
-<div class="post-meta-container">
+      <time title="创建时间：2020-09-14 21:59:21 / 修改时间：23:47:45" itemprop="dateCreated datePublished" datetime="2020-09-14T21:59:21+08:00">2020-09-14</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/about/" itemprop="url" rel="index"><span itemprop="name">about</span></a>
+        </span>
+    </span>
+
   
-
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 </div>
 
-</header>
+        </div>
+      </header>
 
-      
-      
-      
-      <div class="post-body">
-          
-      </div>
-      
-      
-      
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="这篇文章希望记录一下我搭建Hexo博客的过程"><a href="#这篇文章希望记录一下我搭建Hexo博客的过程" class="headerlink" title="这篇文章希望记录一下我搭建Hexo博客的过程"></a>这篇文章希望记录一下我搭建Hexo博客的过程</h2><h3 id="第一步，配置GitHub"><a href="#第一步，配置GitHub" class="headerlink" title="第一步，配置GitHub"></a>第一步，配置GitHub</h3><p>登录到 github ，新建一个库，库的名称建立用自己的用户名+github.io 命名，如 jack.github.io 作为库的名称，之后部署成功之后，就可以通过 <a target="_blank" rel="noopener" href="https://jack.github.io/">https://jack.github.io</a> 访问你的博客站点啦。</p>
+<h3 id="第二步，安装-node环境和git代码管理工具"><a href="#第二步，安装-node环境和git代码管理工具" class="headerlink" title="第二步，安装 node环境和git代码管理工具"></a>第二步，安装 node环境和git代码管理工具</h3><p>node.js 直接在官网下载即可：<a target="_blank" rel="noopener" href="https://nodejs.org/en/%EF%BC%8Cgit">https://nodejs.org/en/，git</a> 也可以自己去官网下载，我是学前端的，学习vue和node的时候就已经安装好了，git 是我们日常开发工作中托管代码必不可少的工具，有关 git 的常用命令，可以参考廖雪峰老师i教程：<a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600">https://www.liaoxuefeng.com/wiki/896043488029600</a></p>
+<h3 id="第三步，安装-hexo-cli"><a href="#第三步，安装-hexo-cli" class="headerlink" title="第三步，安装 hexo-cli"></a>第三步，安装 hexo-cli</h3><p>我们需要全局安装 hexo-cli 搭建我们的 hexo 博客，通过npm安装，直接在终端窗口中键入 npm install –g hexo-cli。</p>
+<p>接着新建一个博客目录，如直接桌面上新建一个 MyHexoBolgs 文件夹，然后进入到这个空目录下，通过 hexo init，创建一个hexo项目，或者也可以直接通过 hexo init  MyHexoBlogs 来创建，这样就不用我们手动创建博客目录了。</p>
+<p>安装的过程很慢，需要耐心等待下。（当时半天安装不下来，就一直按回车键，结果还报错了，后来重新安装，并在安装过程中去网上寻找解决方法，结果在去寻找其他方式提高下载速度的过程中，发现它已经安装好了，但是速度确实挺慢的）</p>
+<h3 id="第四步：测试"><a href="#第四步：测试" class="headerlink" title="第四步：测试"></a>第四步：测试</h3><p>在 创建好 hexo 项目后，source 目录下已经有一个 Hello world 文件，所以直接执行 hexo g ，接着启动本地服务器 hexo s ，并根据它的提示在浏览器访问 localhost：4000 既可以看到这个 hexo 博客网站以及上面的一篇 hello world 文章了。</p>
+<h3 id="第五步：github-远程仓库中添加-key"><a href="#第五步：github-远程仓库中添加-key" class="headerlink" title="第五步：github 远程仓库中添加 key"></a>第五步：github 远程仓库中添加 key</h3><p>在根目录下（博客根目录文件夹）大家终端窗口，键入 ssh-keygen -t rsa -C “Github的绑定的邮箱”，一路Enter，就在 .ssh 目录下创建了一个 id_rsa_pub ，用记事本或者其他文本编辑器打开该文件，然后复制文件中的内容，并添加的我们自己的 github 仓库中。</p>
+<h3 id="第六步：配置博客部署信息并托管到githhub上"><a href="#第六步：配置博客部署信息并托管到githhub上" class="headerlink" title="第六步：配置博客部署信息并托管到githhub上"></a>第六步：配置博客部署信息并托管到githhub上</h3><p>打开根目录下的 .config.yml 文件，这是 hexo 博客的配置文件，这里需要配置的 deploy 信息：</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy：</span><br><span class="line">	type：git</span><br><span class="line">	reop：github仓库的地址，如 https:<span class="regexp">//gi</span>thub.com<span class="regexp">/jack/</span>jack.github.io</span><br><span class="line">	branch：master</span><br></pre></td></tr></table></figure>
+
+<p>然后在博客根目录中执行 hexo clean，hexo g ，hexo d，就可以将可以部署到github上了，浏览器直接访问 <a target="_blank" rel="noopener" href="https://github用户名.github.io/">https://github用户名.github.io</a> 就可以访问到自己创建的hexo 博客项目了。</p>
+<p>下面就是博客的配置和美化了</p>
+
     </div>
-    
 
     
     
     
+
+    
+      <div>
+       <div>
+  
+    <div style="text-align:center;color:#bfbfbf;font-size:16px;">
+      <span>-------- 本文结束 </span>
+      <i class="fa fa-snowflake-o"></i>
+      <span> 感谢阅读 --------</span>
+    </div>
+  
+</div>
+      </div>
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div></div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="shanlu 微信">
+        <span>微信</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/blog/" rel="tag"><i class="fa fa-tag"></i> blog</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/09/13/welcome/" rel="prev" title="Welcom">
+                  <i class="fa fa-chevron-left"></i> Welcom
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/09/14/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%BE%8E%E5%8C%96/" rel="next" title="博客配置与美化">
+                  博客配置与美化 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
 
 
       
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -483,7 +602,7 @@ NexT.utils.loadComments('#valine-comments', () => {
   NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
     new Valine(Object.assign({
       el  : '#valine-comments',
-      path: "/movies/",
+      path: "/2020/09/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/",
     }, {"enable":true,"appId":"M0TTE46ti90I3BUUJqD5WYyD-gzGzoHsz","appKey":"UelegRsJXosPYDakAbUdO5e8","placeholder":"留下评论吧","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-cn","visitor":false,"comment_count":true,"recordIP":false,"serverURLs":null,"enableQQ":false,"requiredFields":[]}
     ));
   }, window.Valine);
