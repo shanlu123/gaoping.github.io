@@ -1,93 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>关于页面</title>
-    <url>/2020/09/23/about/</url>
-    <content><![CDATA[<h2 id="关于"><a href="#关于" class="headerlink" title="关于"></a>关于</h2><h4 id="关于1"><a href="#关于1" class="headerlink" title="关于1"></a>关于1</h4><pre><code>  - 关于1关于1关于1关于1关于1关于1关于1关于1关于1
-  - 关于1关于1关于1关于1关于1关于1关于1关于1关于1
-  - 关于1关于1关于1关于1关于1关于1关于1关于1关于1</code></pre>
-<h4 id="关于1-1"><a href="#关于1-1" class="headerlink" title="关于1"></a>关于1</h4><pre><code>  - 关于1关于1关于1关于1关于1关于1关于1
-  - 关于1关于1关于1关于1关于1关于1关于1
-  - 关于1关于1关于1关于1关于1关于1关于1
-  - 关于1关于1关于1关于1关于1关于1关于1</code></pre>
-<h4 id="关于1-2"><a href="#关于1-2" class="headerlink" title="关于1"></a>关于1</h4><pre><code>  - 关于1关于1关于1关于1关于1关于1关于1
-  - 关于1关于1关于1关于1关于1关于1关于1关于1
-  - 关于1关于1关于1关于1关于1关于1关于1关于1
-  - 关于1关于1关于1关于1关于1关于1关于1关于1</code></pre>
-<h4 id="关于1-3"><a href="#关于1-3" class="headerlink" title="关于1"></a>关于1</h4><pre><code>  - 关于1关于1关于1关于1关于1关于1关于1
-  - 关于1关于1关于1关于1关于1关于1关于1关于1
-  - 关于1关于1关于1关于1关于1关于1关于1关于1
-  - 关于1关于1关于1关于1关于1关于1关于1关于1</code></pre>
-<h4 id="关于1-4"><a href="#关于1-4" class="headerlink" title="关于1"></a>关于1</h4><pre><code>  - 关于1关于1关于1关于1关于1关于1关于1
-  - 关于1关于1关于1关于1关于1关于1关于1关于1
-  - 关于1关于1关于1关于1关于1关于1关于1关于1
-  - 关于1关于1关于1关于1关于1关于1关于1关于1</code></pre>
-<h4 id="关于1-5"><a href="#关于1-5" class="headerlink" title="关于1"></a>关于1</h4><pre><code>  - 关于1关于1关于1关于1关于1关于1关于1
-  - 关于1关于1关于1关于1关于1关于1关于1关于1
-  - 关于1关于1关于1关于1关于1关于1关于1关于1
-  - 关于1关于1关于1关于1关于1关于1关于1关于1</code></pre>
-<h2 id="关于-1"><a href="#关于-1" class="headerlink" title="关于"></a>关于</h2>]]></content>
-      <categories>
-        <category>about</category>
-      </categories>
-      <tags>
-        <tag>about</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>course</title>
-    <url>/2020/09/13/course/</url>
-    <content><![CDATA[<h2 id="学校课程"><a href="#学校课程" class="headerlink" title="学校课程"></a>学校课程</h2>]]></content>
-      <categories>
-        <category>school</category>
-      </categories>
-      <tags>
-        <tag>school</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/09/13/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>roommate</title>
-    <url>/2020/09/13/roommate/</url>
-    <content><![CDATA[<h2 id="室友"><a href="#室友" class="headerlink" title="室友"></a>室友</h2>]]></content>
-      <categories>
-        <category>school</category>
-      </categories>
-      <tags>
-        <tag>school</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Welcom</title>
-    <url>/2020/09/13/welcome/</url>
-    <content><![CDATA[<h2 id="欢迎来访"><a href="#欢迎来访" class="headerlink" title="欢迎来访"></a>欢迎来访</h2><p>这是使用 Hexo+Next 主题，并通过 github 部署的静态博客，搭建这个博客花了一个周末，两天的时间，完成度是目前所呈现出来的，日后会继续完善。</p>
-<p>搭建好自己的博客之后，我将会将自己的日常学习和生活娱乐等等记录下来，既能帮助建议，也希望锻炼到自己的写作能力，和大家学习交流，一起进步，加油！</p>
-<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
-      <categories>
-        <category>home</category>
-      </categories>
-      <tags>
-        <tag>home</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>关于博客搭建</title>
     <url>/2020/09/14/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<h2 id="这篇文章希望记录一下我搭建Hexo博客的过程"><a href="#这篇文章希望记录一下我搭建Hexo博客的过程" class="headerlink" title="这篇文章希望记录一下我搭建Hexo博客的过程"></a>这篇文章希望记录一下我搭建Hexo博客的过程</h2><h3 id="第一步，配置GitHub"><a href="#第一步，配置GitHub" class="headerlink" title="第一步，配置GitHub"></a>第一步，配置GitHub</h3><p>登录到 github ，新建一个库，库的名称建立用自己的用户名+github.io 命名，如 jack.github.io 作为库的名称，之后部署成功之后，就可以通过 <a href="https://jack.github.io/">https://jack.github.io</a> 访问你的博客站点啦。</p>
@@ -114,7 +27,7 @@
     <title>博客配置与美化</title>
     <url>/2020/09/14/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%BE%8E%E5%8C%96/</url>
     <content><![CDATA[<p>首先，Hexo搭配Nexo 主题的博客的简约风格是我特别喜欢的，所以这里我选择的是 Next 主题，并且这也是最多人使用的，所以配置过程中遇到问题也可以方便的找到解决方式。</p>
-<p>其次，配置过程主要依赖的是Next 官方文档，<a href="http://theme-next.iissnan.com/getting-started.html%EF%BC%8C%E6%A0%B9%E6%8D%AE%E6%96%87%E6%A1%A3%E7%9A%84%E6%95%99%E7%A8%8B%E4%B8%80%E6%AD%A5%E4%B8%80%E6%AD%A5%E6%9D%A5%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E8%AE%A9%E8%87%AA%E5%B7%B1%E7%9A%84%E7%BD%91%E7%AB%99%E6%9C%89%E4%B8%AA%E5%88%9D%E6%AD%A5%E7%9A%84%E9%9B%8F%E5%BD%A2%E4%BA%86%E3%80%82%E8%BF%99%E9%87%8C%E6%88%91%E9%85%8D%E7%BD%AE%E7%9A%84Next">http://theme-next.iissnan.com/getting-started.html，根据文档的教程一步一步来，就可以让自己的网站有个初步的雏形了。这里我配置的Next</a> 主题是 Gemini，即打开 最后一个的注释，其他的都加上注释，可以参考一下。</p>
+<p>其次，配置过程主要依赖的是Next 官方文档<a href="http://theme-next.iissnan.com/getting-started.html%EF%BC%8C">http://theme-next.iissnan.com/getting-started.html，</a>  根据文档的教程一步一步来，就可以让自己的网站有个初步的雏形了。这里我配置的Next 主题是 Gemini，即打开 最后一个的注释，其他的都加上注释，可以参考一下。</p>
 <figure class="highlight vala"><table><tr><td class="code"><pre><span class="line"><span class="meta"># Schemes</span></span><br><span class="line"><span class="meta"># scheme: Muse</span></span><br><span class="line"><span class="meta">#scheme: Mist</span></span><br><span class="line"><span class="meta">#scheme: Pisces</span></span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
 
 <h5 id="美化1，文章页末美化"><a href="#美化1，文章页末美化" class="headerlink" title="美化1，文章页末美化"></a>美化1，文章页末美化</h5><p>文章页末默认是一个# 标签名，这里是希望将 # 改成其他图标，在  themes/next/layout_macro/post.njk 文件中，找到 tab.name处，修改为：</p>
