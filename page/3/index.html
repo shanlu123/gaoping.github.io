@@ -145,11 +145,6 @@
     <a href="/%E5%89%8D%E7%AB%AF/" rel="section"><i class="fa fa-cloud fa-fw"></i>前端</a>
 
   </li>
-        <li class="menu-item menu-item-数据库">
-
-    <a href="/%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="section"><i class="fa fa-cloud fa-fw"></i>数据库</a>
-
-  </li>
         <li class="menu-item menu-item-生活">
 
     <a href="/%E7%94%9F%E6%B4%BB/" rel="section"><i class="fa fa-user fa-fw"></i>生活</a>
@@ -246,20 +241,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">29</span>
+          <span class="site-state-item-count">38</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -329,6 +324,1193 @@
       
 
       
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/19/DML/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/19/DML/" class="post-title-link" itemprop="url">数据操作语言DML</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-19 00:00:00 / 修改时间：22:19:51" itemprop="dateCreated datePublished" datetime="2020-09-19T00:00:00+08:00">2020-09-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/19/DML/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/19/DML/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="数据操作语言"><a href="#数据操作语言" class="headerlink" title="数据操作语言"></a>数据操作语言</h3><ul>
+<li>插入(insert)，修改(update)，删除(delete)</li>
+</ul>
+<h3 id="插入语句"><a href="#插入语句" class="headerlink" title="插入语句"></a><strong>插入语句</strong></h3><ul>
+<li><p>方式1插入</p>
+<ul>
+<li><p>语法</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> 表名(列名,...) <span class="keyword">VALUES</span>(值<span class="number">1</span>,...);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>插入的值的类型与列的类型一致或兼容</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> book(<span class="keyword">id</span>,book_NAME,book_price,authorId,publish_date)</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="number">1</span>,<span class="string">&#x27;红楼梦&#x27;</span>,<span class="number">56</span>,<span class="string">&#x27;001&#x27;</span>,<span class="string">&#x27;1990-07-09&#x27;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>不可以为Null 的列必须插入值，可为 Null 的列 有两种插入值的方式</p>
+<ul>
+<li><p>方式1，将不可为null的列的键对应的值设为Null</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> book(<span class="keyword">id</span>,book_NAME,book_price,authorId,publish_date)</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="number">3</span>,<span class="string">&#x27;三国演义&#x27;</span>,<span class="literal">NULL</span>,<span class="string">&#x27;003&#x27;</span>,<span class="string">&#x27;1978-9-8&#x27;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方式2，插入值时不可为null的键值不写入</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> book(<span class="keyword">id</span>,book_NAME,authorId,publish_date)</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="number">4</span>,<span class="string">&#x27;西游记&#x27;</span>,<span class="string">&#x27;004&#x27;</span>,<span class="string">&#x27;1978-9-8&#x27;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>插入时列的顺序可以调换</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#将publish_date 和 authorId 顺序调换</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> book(<span class="keyword">id</span>,book_NAME,publish_date,authorId)</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="number">5</span>,<span class="string">&#x27;平凡的世界&#x27;</span>,<span class="string">&#x27;1979-9-7&#x27;</span>,<span class="string">&#x27;005&#x27;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>列的个数和值的个数必须一致</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#报错</span></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> book(<span class="keyword">id</span>,book_NAME,publish_date,authorId)</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="number">6</span>,<span class="string">&#x27;白鹿原&#x27;</span>,<span class="string">&#x27;1979-9-7&#x27;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>可以省略列名，默认所有列，而且列的顺序和表中列的顺序一致</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> book</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="number">7</span>,<span class="string">&#x27;放风筝的人&#x27;</span>,<span class="number">59</span>,<span class="string">&#x27;001&#x27;</span>,<span class="string">&#x27;1990-07-09&#x27;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>方式2插入</p>
+<ul>
+<li><p>语法</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> 表名</span><br><span class="line"><span class="keyword">SET</span> 列名=值,列名=值,...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>两种方式插入的区别</p>
+<ul>
+<li><p>方式1插入支持多行插入，方式2不支持多行插入</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> book</span><br><span class="line"><span class="keyword">VALUES</span>(<span class="number">9</span>,<span class="string">&#x27;神雕侠侣&#x27;</span>,<span class="number">78</span>,<span class="string">&#x27;009&#x27;</span>,<span class="string">&#x27;1990-07-09&#x27;</span>),</span><br><span class="line">(<span class="number">9</span>,<span class="string">&#x27;神雕侠侣&#x27;</span>,<span class="number">78</span>,<span class="string">&#x27;009&#x27;</span>,<span class="string">&#x27;1990-07-09&#x27;</span>),</span><br><span class="line">(<span class="number">10</span>,<span class="string">&#x27;射雕英雄传&#x27;</span>,<span class="number">78</span>,<span class="string">&#x27;009&#x27;</span>,<span class="string">&#x27;1990-07-09&#x27;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>方式1支持子查询，方式2不支持子查询</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> book(<span class="keyword">id</span>,book_Name,book_price,authorId,publish_date)</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>,book_Name,book_price,authorId,publish_date</span><br><span class="line"><span class="keyword">FROM</span> book2 <span class="keyword">WHERE</span> <span class="keyword">id</span>&lt;<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="修改语句"><a href="#修改语句" class="headerlink" title="修改语句"></a><strong>修改语句</strong></h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/19/DML/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/19/%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/19/%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2/" class="post-title-link" itemprop="url">分页查询</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-19 00:00:00 / 修改时间：13:51:04" itemprop="dateCreated datePublished" datetime="2020-09-19T00:00:00+08:00">2020-09-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/19/%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/19/%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="分页查询"><a href="#分页查询" class="headerlink" title="分页查询"></a>分页查询</h3><ol>
+<li>应用场景：当要显示的数据，一页显示不全，需要分页提交sql请求</li>
+<li>语法：</li>
+</ol>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 查询列表</span><br><span class="line"><span class="keyword">FROM</span> 表</span><br><span class="line">【<span class="keyword">join</span> <span class="keyword">TYPE</span> <span class="keyword">JOIN</span> 表<span class="number">2</span></span><br><span class="line"><span class="keyword">ON</span> 连接条件</span><br><span class="line"><span class="keyword">WHERE</span> 筛选条件</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> 分组字段</span><br><span class="line"><span class="keyword">HAVING</span> 分组后的筛选</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> 排序的字段】</span><br><span class="line"><span class="keyword">LIMIT</span> 【<span class="keyword">offset</span>,】<span class="keyword">size</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li>​        offset ：显示条目的起始索引（起始索引从0开始）</li>
+<li>​        size：显示的条目个数</li>
+<li>​       limit 子句要放在查询语句的最后</li>
+<li>​      公式：显示的页数 page，每页的条目数 size</li>
+</ul>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> 查询列表</span><br><span class="line"><span class="keyword">FROM</span> 表</span><br><span class="line"><span class="keyword">LIMIT</span> (page<span class="number">-1</span>)*<span class="keyword">size</span>,<span class="keyword">size</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/19/%E5%88%86%E9%A1%B5%E6%9F%A5%E8%AF%A2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/19/%E5%AD%90%E6%9F%A5%E8%AF%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/19/%E5%AD%90%E6%9F%A5%E8%AF%A2/" class="post-title-link" itemprop="url">子查询</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-19 00:00:00 / 修改时间：17:01:40" itemprop="dateCreated datePublished" datetime="2020-09-19T00:00:00+08:00">2020-09-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/19/%E5%AD%90%E6%9F%A5%E8%AF%A2/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/19/%E5%AD%90%E6%9F%A5%E8%AF%A2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li>主查询：外部的查询语句，称为主查询或外查询</li>
+<li>子查询：一条查询语句中又嵌套了另一条完整的select语句，其中被嵌套的select语句，称为子查询或内查询<ul>
+<li>子查询的执行优先于主查询执行，主查询的条件用到了子查询的结果</li>
+<li>子查询放在小括号内</li>
+<li>子查询可以放在from后面，select后面，where后面，having后面，但一般放在条件的右侧</li>
+</ul>
+</li>
+</ul>
+<h3 id="子查询分类："><a href="#子查询分类：" class="headerlink" title="子查询分类："></a>子查询分类：</h3><ul>
+<li>按结果集的行列数不同：<ul>
+<li>标量子查询：结果集只有一行一列，一般搭配单行操作符使用(&gt;  &lt;   &gt;=   &lt;=   =   &lt;&gt;)</li>
+<li>列子查询：结果集只有一列多行，一般搭配多行操作符使用(in，any/some，all)</li>
+<li>行子查询：结果集只有一行多列</li>
+<li>表子查询：结果集一般为多行多列</li>
+</ul>
+</li>
+<li>按子查询出现的位置分：<ul>
+<li>select 后：仅仅支持标量子查询</li>
+<li>from 后：支持表子查询</li>
+<li>where或having 后：标量子查询+列子查询+行子查询</li>
+<li>exitsts后（相关子查询）：表子查询</li>
+</ul>
+</li>
+</ul>
+<h3 id="where或having后的子查询"><a href="#where或having后的子查询" class="headerlink" title="where或having后的子查询"></a>where或having后的子查询</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/19/%E5%AD%90%E6%9F%A5%E8%AF%A2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/19/%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/19/%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2/" class="post-title-link" itemprop="url">联合查询</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-19 00:00:00 / 修改时间：14:09:49" itemprop="dateCreated datePublished" datetime="2020-09-19T00:00:00+08:00">2020-09-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/19/%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/19/%E8%81%94%E5%90%88%E6%9F%A5%E8%AF%A2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="联合查询"><a href="#联合查询" class="headerlink" title="联合查询"></a>联合查询</h3><ol>
+<li><p>union：将多条查询语句的结果合并成一个结果</p>
+</li>
+<li><p>语法：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">查询语句1</span><br><span class="line">UNION</span><br><span class="line">查询语句2</span><br><span class="line">UNION</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>应用场景：要查询的结果来自于多个表，且多个表没有直接的连接关系，但查询的信息一致时。</p>
+</li>
+<li><p>使用：</p>
+<ol>
+<li>要求多条查询语句的查询列数是一致的。</li>
+<li>要求多条查询语句的查询的每一列的类型和顺序最好一致</li>
+<li>union 关键字默认去重，如果使用 union all 可以包含重复项</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查询部门编号&gt;90或邮箱包含a的员工信息</span></span><br><span class="line"></span><br><span class="line">方式1，or</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> email <span class="keyword">LIKE</span> <span class="string">&#x27;%a%&#x27;</span> <span class="keyword">OR</span> department_id&gt;<span class="number">90</span>;</span><br><span class="line"></span><br><span class="line">方式2，union</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> employees  <span class="keyword">WHERE</span> email <span class="keyword">LIKE</span> <span class="string">&#x27;%a%&#x27;</span></span><br><span class="line"><span class="keyword">UNION</span></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> employees  <span class="keyword">WHERE</span> department_id&gt;<span class="number">90</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查询中国用户中男性的信息以及外国用户中男性的用户信息</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">id</span>,cname <span class="keyword">FROM</span> t_ca <span class="keyword">WHERE</span> csex=<span class="string">&#x27;男&#x27;</span></span><br><span class="line"><span class="keyword">UNION</span> <span class="keyword">ALL</span></span><br><span class="line"><span class="keyword">SELECT</span> t_id,tname <span class="keyword">FROM</span> t_ua <span class="keyword">WHERE</span> tGender=<span class="string">&#x27;male&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/18/%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/18/%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/" class="post-title-link" itemprop="url">分组查询</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-18 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-18T00:00:00+08:00">2020-09-18</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-19 00:30:19" itemprop="dateModified" datetime="2020-09-19T00:30:19+08:00">2020-09-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/18/%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/18/%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span>  查询列表</span><br><span class="line"><span class="keyword">from</span> 	表</span><br><span class="line">【<span class="keyword">where</span> 筛选条件】</span><br><span class="line"><span class="keyword">group</span> <span class="keyword">by</span> 分组的字段</span><br><span class="line">【<span class="keyword">order</span> <span class="keyword">by</span> 排序的字段】</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><ul>
+<li>和分组函数一同查询的字段必须是group by 后出现的字段</li>
+<li>筛选分类两类：<ul>
+<li>分组前筛选：针对原始表，连接的关键字是where，group by 前</li>
+<li>分组后筛选：针对 group by后的结果集，连接的关键字是having，group by后</li>
+</ul>
+</li>
+<li>尽量使用分组前筛选</li>
+<li>分组可以按单个字段也可以按多个字段</li>
+<li>分组可以搭配排序使用</li>
+</ul>
+<h3 id="GROUP-BY-子句语法"><a href="#GROUP-BY-子句语法" class="headerlink" title="GROUP BY 子句语法"></a>GROUP BY 子句语法</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/18/%E5%88%86%E7%BB%84%E6%9F%A5%E8%AF%A2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/18/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%EF%BC%88%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/18/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%EF%BC%88%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2)/" class="post-title-link" itemprop="url">多表(连接)查询</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-18 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-18T00:00:00+08:00">2020-09-18</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-19 02:05:58" itemprop="dateModified" datetime="2020-09-19T02:05:58+08:00">2020-09-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/18/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%EF%BC%88%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2)/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/18/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%EF%BC%88%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h3><ul>
+<li>又称多表查询，当查询的字段来自于多个表时，就需要用到连接查询</li>
+<li>分类：<ul>
+<li>按年代分类：<ul>
+<li>sql92 标准：仅支持内连接</li>
+<li>sql99 标准：支持内连接 + 外连接 + 交叉连接</li>
+</ul>
+</li>
+<li>按功能分类：<ul>
+<li>内连接：等值连接、非等值连接、自连接</li>
+<li>外连接：左外连接、右外连接、全外连接</li>
+<li>交叉连接</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>笛卡尔乘积现象<ul>
+<li>表1有m行，表2有n行，连接后结果为 m*n 行</li>
+<li>原因：没有添加有效的连接条件</li>
+<li>解决：可以在Where 子句中加入有效的连接条件</li>
+</ul>
+</li>
+<li>sql92和sql99<ul>
+<li>sql99 支持的更多</li>
+<li>sql99 实现连接条件和筛选条件的分离，可读性较高</li>
+</ul>
+</li>
+</ul>
+<h3 id="等值连接（sql-92"><a href="#等值连接（sql-92" class="headerlink" title="等值连接（sql 92)"></a>等值连接（sql 92)</h3><ul>
+<li>等值连接的结果为多个表的交集部分</li>
+<li>n个表连接，至少需要 n-1 个连接条件</li>
+<li>多表连接，对顺序没有要求</li>
+<li>一般需要为每个表起别名</li>
+<li>可以搭配排序，分组，筛选等子句使用</li>
+</ul>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查询员工名和对应的部门名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name,department_name</span><br><span class="line"><span class="keyword">FROM</span> employees,departments</span><br><span class="line"><span class="keyword">WHERE</span> employees.<span class="string">`department_id`</span>=departments.<span class="string">`department_id`</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/18/%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2%EF%BC%88%E8%BF%9E%E6%8E%A5%E6%9F%A5%E8%AF%A2)/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/18/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0(%E5%8D%95%E8%A1%8C%E5%87%BD%E6%95%B0)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/18/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0(%E5%8D%95%E8%A1%8C%E5%87%BD%E6%95%B0)/" class="post-title-link" itemprop="url">常见函数(单行函数)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-18 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-18T00:00:00+08:00">2020-09-18</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-19 00:18:39" itemprop="dateModified" datetime="2020-09-19T00:18:39+08:00">2020-09-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/18/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0(%E5%8D%95%E8%A1%8C%E5%87%BD%E6%95%B0)/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/18/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0(%E5%8D%95%E8%A1%8C%E5%87%BD%E6%95%B0)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li><p>常见函数：类似于方法，将一组逻辑语句封装在方法体中，对外暴露方法名</p>
+</li>
+<li><p>调用：select   函数名(实参列表)  [ from  表 ]</p>
+</li>
+<li><p>分类：</p>
+<p>​    单行函数：concat，length，if null 等</p>
+<p>​    分组函数：做统计使用，又称为统计函数、聚合函数、组函数</p>
+</li>
+</ul>
+<h3 id="单行函数"><a href="#单行函数" class="headerlink" title="单行函数"></a>单行函数</h3><ol>
+<li><p><strong>字符函数</strong></p>
+<ol>
+<li><p>length 获取参数值的字节个数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">LENGTH</span>(<span class="string">&#x27;john&#x27;</span>);</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">LENGTH</span>(<span class="string">&#x27;张三john&#x27;</span>);</span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">&#x27;%char%&#x27;</span> <span class="comment">#查看字符集</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>concat 拼接字符串</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CONCAT</span>(last_name,<span class="string">&#x27;_&#x27;</span>,first_name) 姓名 <span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>upper，lower</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">UPPER</span>(<span class="string">&#x27;john&#x27;</span>);</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">LOWER</span>(<span class="string">&#x27;JOHN&#x27;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>substt，substring</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#截取从指定索引处后面所有字符 注意：索引从1开始</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUBSTR</span>(<span class="string">&#x27;你好，Tom&#x27;</span>,<span class="number">2</span>)  out_put;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#截取从指定索引处指定字符长度的字符 左右闭合</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUBSTR</span>(<span class="string">&#x27;你好，Tom&#x27;</span>,<span class="number">1</span>,<span class="number">3</span>) out_put;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>instr  返回子串第一次出现的索引，如果找不到返回0</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">INSTR</span>(<span class="string">&#x27;你好，Tom&#x27;</span>,<span class="string">&#x27;T&#x27;</span>) <span class="keyword">AS</span> out_put;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">INSTR</span>(<span class="string">&#x27;你好，Tom&#x27;</span>,<span class="string">&#x27;X&#x27;</span>) <span class="keyword">AS</span> out_put;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>trim</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">TRIM</span>(<span class="string">&#x27;    张三    &#x27;</span>) <span class="keyword">AS</span> out_put; <span class="comment"># 去掉左右两边空格</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">TRIM</span>(<span class="string">&#x27;a&#x27;</span> <span class="keyword">FROM</span> <span class="string">&#x27;aaaaaaaaa张aa三aaaaaaa&#x27;</span>)  <span class="keyword">AS</span> out_put; <span class="comment"># 去掉左右两边的a字符</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>lpad，用指定的字符实现左填充指定长度</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">LPAD</span>(<span class="string">&#x27;hello，张三&#x27;</span>,<span class="number">14</span>,<span class="string">&#x27;*&#x27;</span>) <span class="keyword">AS</span> out_put;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>rpad，用指定的字符实现右填充指定长度</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> RPAD(<span class="string">&#x27;hello，张三&#x27;</span>,<span class="number">14</span>,<span class="string">&#x27;ab&#x27;</span>) <span class="keyword">AS</span> out_put;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>replace，替换</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">REPLACE</span>(<span class="string">&#x27;hello，张三&#x27;</span>,<span class="string">&#x27;张三&#x27;</span>,<span class="string">&#x27;李四&#x27;</span>) <span class="keyword">AS</span> out_put;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p><strong>数学函数</strong></p>
+<ol>
+<li><p>round，四舍五入</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">ROUND</span>(<span class="number">-1.55</span>);</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">ROUND</span>(<span class="number">1.567</span>,<span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ceil，向上取整，返回 &gt;= 该参数的最小整数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CEIL</span>(<span class="number">-1.02</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>floor，向下取整，返回 &lt;= 该参数的最大整数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">FLOOR</span>(<span class="number">-9.99</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>truncate，截断</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">TRUNCATE</span>(<span class="number">1.69999</span>,<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>mod 取余</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># mod(a,b) = a-a/b *b</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MOD</span>(<span class="number">10</span>,<span class="number">-3</span>);</span><br><span class="line"><span class="keyword">SELECT</span> <span class="number">10</span>%<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p><strong>日期函数</strong></p>
+<ol>
+<li><p>now，返回当前系统日期+时间</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">NOW</span>();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>curdate，返回当前系统日期，不包含时间</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CURDATE</span>();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>curtime，返回当前系统时间，不包含日期</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">CURTIME</span>();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>获取指定的部分，年，月，日，小时，分钟，秒</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">YEAR</span>(<span class="keyword">NOW</span>()) 年;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">YEAR</span>(<span class="string">&#x27;1998-1-1&#x27;</span>) 年;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MONTH</span>(<span class="keyword">NOW</span>()) 月;</span><br><span class="line"><span class="keyword">SELECT</span> MONTHNAME(<span class="keyword">NOW</span>()) 月;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>str_to_date，将字符通过指定的格式转换成日期</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">STR_TO_DATE</span>(<span class="string">&#x27;1998-3-2&#x27;</span>,<span class="string">&#x27;%Y-%c-%d&#x27;</span>) <span class="keyword">AS</span> out_put;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查询入职日期为1992--4-3的员工信息</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> hiredate = <span class="string">&#x27;1992-4-3&#x27;</span>;</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> hiredate = <span class="keyword">STR_TO_DATE</span>(<span class="string">&#x27;4-3 1992&#x27;</span>,<span class="string">&#x27;%c-%d %Y&#x27;</span>);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>date_format，将日期转换成字符</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DATE_FORMAT</span>(<span class="keyword">NOW</span>(),<span class="string">&#x27;%y年%m月%d日&#x27;</span>) <span class="keyword">AS</span> out_put</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查询有奖金的员工名和入职日期(xx月/xx日 xx年)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name,<span class="keyword">DATE_FORMAT</span>(hiredate,<span class="string">&#x27;%m月/%d日 %y年&#x27;</span>) 入职日期</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> commission_pct <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p><strong>流程控制函数</strong></p>
+<ol>
+<li><p>if 函数，处理双分支</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">IF</span>(<span class="number">10</span>&lt;<span class="number">5</span>,<span class="string">&#x27;大&#x27;</span>,<span class="string">&#x27;小&#x27;</span>);</span><br><span class="line"><span class="keyword">SELECT</span> last_name,commission_pct,<span class="keyword">IF</span>(commission_pct <span class="keyword">IS</span> <span class="literal">NULL</span>,<span class="string">&#x27;没奖金&#x27;</span>,<span class="string">&#x27;有奖金&#x27;</span>) 备注</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>case 语句，处理多分支</p>
+<p>语法：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">case 要判断的字段或表达式</span><br><span class="line">when 常量1 then 要显示的值1或语句1;</span><br><span class="line">when 常量2 then 要显示的值2或语句2;</span><br><span class="line">...</span><br><span class="line">else 要显示的值n或语句n;</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 例1：查询员工的工资，要求（处理等值判断）</span></span><br><span class="line">部门号=30，显示的工资为1.1倍</span><br><span class="line">部门号=40，显示的工资为1.2倍</span><br><span class="line">部门号=50，显示的工资为1.3倍</span><br><span class="line">其他部门，显示的工资为原工资</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> salary 原始工资,department_id,</span><br><span class="line"><span class="keyword">CASE</span> department_id</span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">30</span> <span class="keyword">THEN</span> salary*<span class="number">1.1</span></span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">40</span> <span class="keyword">THEN</span> salary*<span class="number">1.2</span></span><br><span class="line"><span class="keyword">WHEN</span> <span class="number">50</span> <span class="keyword">THEN</span> salary*<span class="number">1.3</span></span><br><span class="line"><span class="keyword">ELSE</span> salary</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">AS</span> 新工资</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#例2：查询员工的工资的情况（处理条件判断）</span></span><br><span class="line">如果工资&gt;20000,显示A级别</span><br><span class="line">如果工资&gt;15000,显示B级别</span><br><span class="line">如果工资&gt;10000，显示C级别</span><br><span class="line">否则，显示D级别</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> salary,</span><br><span class="line"><span class="keyword">CASE</span> </span><br><span class="line"><span class="keyword">WHEN</span> salary&gt;<span class="number">20000</span> <span class="keyword">THEN</span> <span class="string">&#x27;A&#x27;</span></span><br><span class="line"><span class="keyword">WHEN</span> salary&gt;<span class="number">15000</span> <span class="keyword">THEN</span> <span class="string">&#x27;B&#x27;</span></span><br><span class="line"><span class="keyword">WHEN</span> salary&gt;<span class="number">10000</span> <span class="keyword">THEN</span> <span class="string">&#x27;C&#x27;</span></span><br><span class="line"><span class="keyword">ELSE</span> <span class="string">&#x27;D&#x27;</span></span><br><span class="line"><span class="keyword">END</span> <span class="keyword">AS</span> 工资级别</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p><strong>其他函数</strong> </p>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">VERSION</span>();  <span class="comment">#版本</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DATABASE</span>(); <span class="comment">#当前库</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">USER</span>();     <span class="comment">#当前连接用户</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/18/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0(%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/18/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0(%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0)/" class="post-title-link" itemprop="url">常见函数(分组函数)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-18 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-18T00:00:00+08:00">2020-09-18</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-19 00:27:40" itemprop="dateModified" datetime="2020-09-19T00:27:40+08:00">2020-09-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/18/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0(%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0)/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/18/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0(%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li>分组函数：用作统计使用，又称为聚合函数、统计函数、组函数。分组函数作用于一组数据，并对一组数据返回一个值</li>
+<li>分类：sum 求和，avg 求平均，max 求最大值，min 求最小值，count 求个数</li>
+<li>使用：<ul>
+<li>sum，avg 一般用于处理数值型，max，min，count 可以处理任何类型</li>
+<li>除了 count(*)，其他分组函数都忽略 null 值，即 null 值不参与运算</li>
+<li>可以和 distinct 搭配实现去重的运算</li>
+<li>和分组函数一同查询的字段要求是 group by 后的字段</li>
+</ul>
+</li>
+</ul>
+<h3 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h3><blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUM</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">AVG</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MIN</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUM</span>(salary) 和,<span class="keyword">ROUND</span>(<span class="keyword">AVG</span>(salary),<span class="number">2</span>) 平均,<span class="keyword">MAX</span>(salary) 最高,<span class="keyword">MIN</span>(salary) 最低,<span class="keyword">COUNT</span>(salary) 个数</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="和-distinct-搭配"><a href="#和-distinct-搭配" class="headerlink" title="和 distinct 搭配"></a>和 distinct 搭配</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/18/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0(%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0)/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/17/%E5%9F%BA%E7%A1%80%E6%9F%A5%E8%AF%A2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/17/%E5%9F%BA%E7%A1%80%E6%9F%A5%E8%AF%A2/" class="post-title-link" itemprop="url">基础查询</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-17 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-17T00:00:00+08:00">2020-09-17</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-18 10:43:52" itemprop="dateModified" datetime="2020-09-18T10:43:52+08:00">2020-09-18</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/17/%E5%9F%BA%E7%A1%80%E6%9F%A5%E8%AF%A2/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/17/%E5%9F%BA%E7%A1%80%E6%9F%A5%E8%AF%A2/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="基础查询语法"><a href="#基础查询语法" class="headerlink" title="基础查询语法"></a>基础查询语法</h3><blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> 查询列表  <span class="keyword">from</span>  表名;</span><br></pre></td></tr></table></figure>
+
+</blockquote>
+<blockquote>
+<p>查询列表可以是表中的字段、常量值、表达式、函数，查询的结果是一个虚拟的表格</p>
+</blockquote>
+<p><strong>查询表中的单个字段</strong></p>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> first_name <span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/17/%E5%9F%BA%E7%A1%80%E6%9F%A5%E8%AF%A2/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -445,842 +1627,10 @@
   
   
 
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/17/%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/17/%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/" class="post-title-link" itemprop="url">条件查询</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-17 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-17T00:00:00+08:00">2020-09-17</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-18 10:44:21" itemprop="dateModified" datetime="2020-09-18T10:44:21+08:00">2020-09-18</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/17/%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/17/%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="条件查询语法"><a href="#条件查询语法" class="headerlink" title="条件查询语法"></a>条件查询语法</h3><blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">	查询列表</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">	表名</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">	筛选条件;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p><strong>按条件表达式筛选</strong></p>
-<blockquote>
-<p>简单条件运算符：&gt; &lt;  =  !=  &lt;&gt;  &gt;=   &lt;=</p>
-</blockquote>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查询工资&gt;12000的员工信息</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary&gt;<span class="number">12000</span>;</span><br></pre></td></tr></table></figure>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/17/%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/16/Vue%E7%BB%84%E4%BB%B6/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/16/Vue%E7%BB%84%E4%BB%B6/" class="post-title-link" itemprop="url">Vue组件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-16 00:05:20 / 修改时间：00:17:43" itemprop="dateCreated datePublished" datetime="2020-09-16T00:05:20+08:00">2020-09-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/16/Vue%E7%BB%84%E4%BB%B6/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/16/Vue%E7%BB%84%E4%BB%B6/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="组件基础"><a href="#组件基础" class="headerlink" title="组件基础"></a>组件基础</h2><h4 id="基本示例"><a href="#基本示例" class="headerlink" title="基本示例"></a>基本示例</h4><h4 id="组件的复用"><a href="#组件的复用" class="headerlink" title="组件的复用"></a>组件的复用</h4><h4 id="组件的组织"><a href="#组件的组织" class="headerlink" title="组件的组织"></a>组件的组织</h4><h4 id="通过Prop向子组件传递数据"><a href="#通过Prop向子组件传递数据" class="headerlink" title="通过Prop向子组件传递数据"></a>通过Prop向子组件传递数据</h4>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/16/Vue%E7%BB%84%E4%BB%B6/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/16/Vue%E5%AE%9E%E4%BE%8B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/16/Vue%E5%AE%9E%E4%BE%8B/" class="post-title-link" itemprop="url">Vue实例</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-16 00:04:39 / 修改时间：00:07:06" itemprop="dateCreated datePublished" datetime="2020-09-16T00:04:39+08:00">2020-09-16</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E5%89%8D%E7%AB%AF/" itemprop="url" rel="index"><span itemprop="name">前端</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/16/Vue%E5%AE%9E%E4%BE%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/16/Vue%E5%AE%9E%E4%BE%8B/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/16/Mysql%E5%AE%89%E8%A3%85%E3%80%81%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%90%AF%E5%8A%A8%E5%92%8C%E7%99%BB%E5%BD%95/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/16/Mysql%E5%AE%89%E8%A3%85%E3%80%81%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%90%AF%E5%8A%A8%E5%92%8C%E7%99%BB%E5%BD%95/" class="post-title-link" itemprop="url">Mysql安装、服务的启动与登录</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-16 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-16T00:00:00+08:00">2020-09-16</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-18 12:29:32" itemprop="dateModified" datetime="2020-09-18T12:29:32+08:00">2020-09-18</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/16/Mysql%E5%AE%89%E8%A3%85%E3%80%81%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%90%AF%E5%8A%A8%E5%92%8C%E7%99%BB%E5%BD%95/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/16/Mysql%E5%AE%89%E8%A3%85%E3%80%81%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%90%AF%E5%8A%A8%E5%92%8C%E7%99%BB%E5%BD%95/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="Mysql-的安装与启动mysql服务"><a href="#Mysql-的安装与启动mysql服务" class="headerlink" title="Mysql 的安装与启动mysql服务"></a>Mysql 的安装与启动mysql服务</h3><p>这里我使用的是 phpStudy 集成环境中的 mysql，5.7版本，启动服务，只需要界面上点击启动即可。</p>
-<img src="https://wx2.sinaimg.cn/mw690/007gSPK8gy1giuoto98cfj30rv0lr76a.jpg" alt="03.png" style="zoom:50%;">
-
-<p>此外，mysql 还可以通过配置服务启动等方式</p>
-<h3 id="登录到-mysql-服务"><a href="#登录到-mysql-服务" class="headerlink" title="登录到 mysql 服务"></a>登录到 mysql 服务</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/16/Mysql%E5%AE%89%E8%A3%85%E3%80%81%E6%9C%8D%E5%8A%A1%E7%9A%84%E5%90%AF%E5%8A%A8%E5%92%8C%E7%99%BB%E5%BD%95/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/16/Mysql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/16/Mysql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="post-title-link" itemprop="url">Mysql常用命令</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-16 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-16T00:00:00+08:00">2020-09-16</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-18 12:35:51" itemprop="dateModified" datetime="2020-09-18T12:35:51+08:00">2020-09-18</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/16/Mysql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/16/Mysql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p><strong>查看当前所有的数据库</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show databases;</span><br></pre></td></tr></table></figure>
-
-<p><strong>打开指定的数据库</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use 库名;</span><br></pre></td></tr></table></figure>
-
-<p><img src="https://wx3.sinaimg.cn/mw690/007gSPK8gy1giup1pxszkj305w020mwz.jpg" alt="06.png"></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/16/Mysql%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/16/%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%AE%A2%E6%88%B7%E7%AB%AF%E3%80%81Mysql%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/16/%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%AE%A2%E6%88%B7%E7%AB%AF%E3%80%81Mysql%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83/" class="post-title-link" itemprop="url">图形化界面客户端、Mysql语法规范</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-16 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-16T00:00:00+08:00">2020-09-16</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-18 12:28:17" itemprop="dateModified" datetime="2020-09-18T12:28:17+08:00">2020-09-18</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/16/%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%AE%A2%E6%88%B7%E7%AB%AF%E3%80%81Mysql%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/16/%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%AE%A2%E6%88%B7%E7%AB%AF%E3%80%81Mysql%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="图形化界面："><a href="#图形化界面：" class="headerlink" title="图形化界面："></a>图形化界面：</h3><p>Sql yog </p>
-<img src="https://wx1.sinaimg.cn/mw690/007gSPK8gy1giuo8yctidj30jb0fejw1.jpg" alt="01.png" style="zoom:50%;">
-
-<p>Navicat</p>
-<img src="https://wx3.sinaimg.cn/mw690/007gSPK8gy1giuougxbyej30j30gm3yr.jpg" alt="02.png" style="zoom:50%;">
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/16/%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%AE%A2%E6%88%B7%E7%AB%AF%E3%80%81Mysql%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/15/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/15/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" class="post-title-link" itemprop="url">关于博客搭建</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-15 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-15T00:00:00+08:00">2020-09-15</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-18 10:41:01" itemprop="dateModified" datetime="2020-09-18T10:41:01+08:00">2020-09-18</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/about/" itemprop="url" rel="index"><span itemprop="name">about</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/15/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/15/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h2 id="这篇文章希望记录一下我搭建Hexo博客的过程"><a href="#这篇文章希望记录一下我搭建Hexo博客的过程" class="headerlink" title="这篇文章希望记录一下我搭建Hexo博客的过程"></a>这篇文章希望记录一下我搭建Hexo博客的过程</h2><h3 id="第一步，配置GitHub"><a href="#第一步，配置GitHub" class="headerlink" title="第一步，配置GitHub"></a>第一步，配置GitHub</h3><p>登录到 github ，新建一个库，库的名称建立用自己的用户名+github.io 命名，如 jack.github.io 作为库的名称，之后部署成功之后，就可以通过 <a target="_blank" rel="noopener" href="https://jack.github.io/">https://jack.github.io</a> 访问你的博客站点啦。</p>
-<h3 id="第二步，安装-node环境和git代码管理工具"><a href="#第二步，安装-node环境和git代码管理工具" class="headerlink" title="第二步，安装 node环境和git代码管理工具"></a>第二步，安装 node环境和git代码管理工具</h3><p>node.js 直接在官网下载即可：<a target="_blank" rel="noopener" href="https://nodejs.org/en/%EF%BC%8Cgit">https://nodejs.org/en/，git</a> 也可以自己去官网下载，我是学前端的，学习vue和node的时候就已经安装好了，git 是我们日常开发工作中托管代码必不可少的工具，有关 git 的常用命令，可以参考廖雪峰老师i教程：<a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/896043488029600">https://www.liaoxuefeng.com/wiki/896043488029600</a></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/15/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/14/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%BE%8E%E5%8C%96/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/14/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%BE%8E%E5%8C%96/" class="post-title-link" itemprop="url">博客配置与美化</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-14 22:48:52" itemprop="dateCreated datePublished" datetime="2020-09-14T22:48:52+08:00">2020-09-14</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-15 18:11:58" itemprop="dateModified" datetime="2020-09-15T18:11:58+08:00">2020-09-15</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/about/" itemprop="url" rel="index"><span itemprop="name">about</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/14/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%BE%8E%E5%8C%96/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/14/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%BE%8E%E5%8C%96/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>首先，Hexo搭配Nexo 主题的博客的简约风格是我特别喜欢的，所以这里我选择的是 Next 主题，并且这也是最多人使用的，所以配置过程中遇到问题也可以方便的找到解决方式。</p>
-<p>其次，配置过程主要依赖的是Next 官方文档<a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/getting-started.html%EF%BC%8C">http://theme-next.iissnan.com/getting-started.html，</a>  根据文档的教程一步一步来，就可以让自己的网站有个初步的雏形了。这里我配置的Next 主题是 Gemini，即打开 最后一个的注释，其他的都加上注释，可以参考一下。</p>
-<figure class="highlight vala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta"># Schemes</span></span><br><span class="line"><span class="meta"># scheme: Muse</span></span><br><span class="line"><span class="meta">#scheme: Mist</span></span><br><span class="line"><span class="meta">#scheme: Pisces</span></span><br><span class="line">scheme: Gemini</span><br></pre></td></tr></table></figure>
-
-<h5 id="美化1，文章页末美化"><a href="#美化1，文章页末美化" class="headerlink" title="美化1，文章页末美化"></a>美化1，文章页末美化</h5><p>文章页末默认是一个# 标签名，这里是希望将 # 改成其他图标，在  themes/next/layout_macro/post.njk 文件中，找到 tab.name处，修改为：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/14/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%BE%8E%E5%8C%96/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
