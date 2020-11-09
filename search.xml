@@ -341,17 +341,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Vue实例</title>
-    <url>/2020/09/16/Vue%E5%AE%9E%E4%BE%8B/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Vue</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>TCL事务控制语言</title>
     <url>/2020/09/20/TCL/</url>
     <content><![CDATA[<h3 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h3><ul>
@@ -498,6 +487,17 @@
 <h4 id="全局注册"><a href="#全局注册" class="headerlink" title="全局注册"></a>全局注册</h4><h4 id="局部注册"><a href="#局部注册" class="headerlink" title="局部注册"></a>局部注册</h4><h4 id="模块系统"><a href="#模块系统" class="headerlink" title="模块系统"></a>模块系统</h4><p>​    <em>在模块系统中局部注册</em></p>
 <p>​    <em>基础组件的自动化全局注册</em></p>
 <h4 id="动态组件-1"><a href="#动态组件-1" class="headerlink" title="动态组件"></a>动态组件</h4><h4 id="异步组件"><a href="#异步组件" class="headerlink" title="异步组件"></a>异步组件</h4>]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Vue实例</title>
+    <url>/2020/09/16/Vue%E5%AE%9E%E4%BE%8B/</url>
+    <content><![CDATA[]]></content>
       <categories>
         <category>前端</category>
       </categories>
@@ -780,6 +780,60 @@
       </tags>
   </entry>
   <entry>
+    <title>v-if 和 v-show 区别</title>
+    <url>/2020/11/08/v-if%20%E5%92%8C%20v-show/</url>
+    <content><![CDATA[<p>博客园：<a href="https://www.cnblogs.com/shanlu0000/p/13455491.html">https://www.cnblogs.com/shanlu0000/p/13455491.html</a></p>
+<h2 id="v-if-和-v-show-区别"><a href="#v-if-和-v-show-区别" class="headerlink" title="v-if 和 v-show 区别"></a>v-if 和 v-show 区别</h2><ol>
+<li><p>作用原理：</p>
+<ul>
+<li>v-if指令完全根据表达式的值在DOM中生成或移除一个元素，v-if 表达式赋值为 false，对应的元素就会从DOM中移除，否则 对应元素的一个克隆将被重新插入DOM中。v-if 是真实的条件渲染，因为它会确保条件块再切换时合适的销毁与重建条件快内的事件监听器和子组件</li>
+<li>v-show 指令是根据表达式的值来显示或者隐藏HTML元素，v-show 赋值为 false时，元素被隐藏（display：none）</li>
+</ul>
+</li>
+<li><p>对 templat 标签的支持</p>
+<ul>
+<li>v-if 支持使用  template 元素作为包装元素，在template上使用 v-if，最终渲染结果不会包含它</li>
+<li>v-show 不支持 tempalte 语法</li>
+</ul>
+</li>
+<li><p>对 v-else 支持</p>
+<ul>
+<li><p>v-if 支持和 v-else 一起使用</p>
+</li>
+<li><p>v-show 用在组件上时，因为指令的优先级 v-else会出现问题，所以一般不将 v-else 和 v-show一起使用，如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;custom-component v-show=<span class="string">&quot;condition&quot;</span>&gt;&lt;/custom-component&gt;</span><br><span class="line">&lt;p v-<span class="keyword">else</span>&gt; 这可能是一个组件&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解决方法是：用另一个 v-show 替换 v-else</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;custom-component v-show=<span class="string">&quot;condition&quot;</span>&gt;&lt;/custom-component&gt;</span><br><span class="line">&lt;p v-show=<span class="string">&quot;!condition&quot;</span>&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>v-if 是惰性的，初始渲染条件为假，则什么也不做，条件第一次为真时才开始局部编译（编译会被缓存起来）</p>
+</li>
+<li><p>v-show，元素始终被编译并保留，只是简单的基于CSS切换</p>
+</li>
+<li><p>代价上：</p>
+<ul>
+<li>v-if 有更高的切换消耗</li>
+<li>v-show 有更高的初始渲染消耗</li>
+</ul>
+</li>
+<li><p>恰当使用</p>
+<ul>
+<li>若需要频繁切换，使用 v-show 更好</li>
+<li>如果在运行时条件不大可能改变，使用 v-if 更好</li>
+</ul>
+</li>
+</ol>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+      <categories>
+        <category>读书笔记</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>函数</title>
     <url>/2020/09/20/%E5%87%BD%E6%95%B0/</url>
     <content><![CDATA[<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><ul>
@@ -938,6 +992,29 @@
       </tags>
   </entry>
   <entry>
+    <title>关于博客搭建</title>
+    <url>/2020/09/15/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
+    <content><![CDATA[<h2 id="这篇文章希望记录一下我搭建Hexo博客的过程"><a href="#这篇文章希望记录一下我搭建Hexo博客的过程" class="headerlink" title="这篇文章希望记录一下我搭建Hexo博客的过程"></a>这篇文章希望记录一下我搭建Hexo博客的过程</h2><h3 id="第一步，配置GitHub"><a href="#第一步，配置GitHub" class="headerlink" title="第一步，配置GitHub"></a>第一步，配置GitHub</h3><p>登录到 github ，新建一个库，库的名称建立用自己的用户名+github.io 命名，如 jack.github.io 作为库的名称，之后部署成功之后，就可以通过 <a href="https://jack.github.io/">https://jack.github.io</a> 访问你的博客站点啦。</p>
+<h3 id="第二步，安装-node环境和git代码管理工具"><a href="#第二步，安装-node环境和git代码管理工具" class="headerlink" title="第二步，安装 node环境和git代码管理工具"></a>第二步，安装 node环境和git代码管理工具</h3><p>node.js 直接在官网下载即可：<a href="https://nodejs.org/en/%EF%BC%8Cgit">https://nodejs.org/en/，git</a> 也可以自己去官网下载，我是学前端的，学习vue和node的时候就已经安装好了，git 是我们日常开发工作中托管代码必不可少的工具，有关 git 的常用命令，可以参考廖雪峰老师i教程：<a href="https://www.liaoxuefeng.com/wiki/896043488029600">https://www.liaoxuefeng.com/wiki/896043488029600</a></p>
+<h3 id="第三步，安装-hexo-cli"><a href="#第三步，安装-hexo-cli" class="headerlink" title="第三步，安装 hexo-cli"></a>第三步，安装 hexo-cli</h3><p>我们需要全局安装 hexo-cli 搭建我们的 hexo 博客，通过npm安装，直接在终端窗口中键入 npm install –g hexo-cli。</p>
+<p>接着新建一个博客目录，如直接桌面上新建一个 MyHexoBolgs 文件夹，然后进入到这个空目录下，通过 hexo init，创建一个hexo项目，或者也可以直接通过 hexo init  MyHexoBlogs 来创建，这样就不用我们手动创建博客目录了。</p>
+<p>安装的过程很慢，需要耐心等待下。（当时半天安装不下来，就一直按回车键，结果还报错了，后来重新安装，并在安装过程中去网上寻找解决方法，结果在去寻找其他方式提高下载速度的过程中，发现它已经安装好了，但是速度确实挺慢的）</p>
+<h3 id="第四步：测试"><a href="#第四步：测试" class="headerlink" title="第四步：测试"></a>第四步：测试</h3><p>在 创建好 hexo 项目后，source 目录下已经有一个 Hello world 文件，所以直接执行 hexo g ，接着启动本地服务器 hexo s ，并根据它的提示在浏览器访问 localhost：4000 既可以看到这个 hexo 博客网站以及上面的一篇 hello world 文章了。</p>
+<h3 id="第五步：github-远程仓库中添加-key"><a href="#第五步：github-远程仓库中添加-key" class="headerlink" title="第五步：github 远程仓库中添加 key"></a>第五步：github 远程仓库中添加 key</h3><p>在根目录下（博客根目录文件夹）大家终端窗口，键入 ssh-keygen -t rsa -C “Github的绑定的邮箱”，一路Enter，就在 .ssh 目录下创建了一个 id_rsa_pub ，用记事本或者其他文本编辑器打开该文件，然后复制文件中的内容，并添加的我们自己的 github 仓库中。</p>
+<h3 id="第六步：配置博客部署信息并托管到githhub上"><a href="#第六步：配置博客部署信息并托管到githhub上" class="headerlink" title="第六步：配置博客部署信息并托管到githhub上"></a>第六步：配置博客部署信息并托管到githhub上</h3><p>打开根目录下的 .config.yml 文件，这是 hexo 博客的配置文件，这里需要配置的 deploy 信息：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">deploy：</span><br><span class="line">	type：git</span><br><span class="line">	reop：github仓库的地址，如 https:<span class="regexp">//gi</span>thub.com<span class="regexp">/jack/</span>jack.github.io</span><br><span class="line">	branch：master</span><br></pre></td></tr></table></figure>
+
+<p>然后在博客根目录中执行 hexo clean，hexo g ，hexo d，就可以将可以部署到github上了，浏览器直接访问 <a href="https://github用户名.github.io/">https://github用户名.github.io</a> 就可以访问到自己创建的hexo 博客项目了。</p>
+<p>下面就是博客的配置和美化了</p>
+]]></content>
+      <categories>
+        <category>about</category>
+      </categories>
+      <tags>
+        <tag>blog</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>博客配置与美化</title>
     <url>/2020/09/14/%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E4%B8%8E%E7%BE%8E%E5%8C%96/</url>
     <content><![CDATA[<p>首先，Hexo搭配Nexo 主题的博客的简约风格是我特别喜欢的，所以这里我选择的是 Next 主题，并且这也是最多人使用的，所以配置过程中遇到问题也可以方便的找到解决方式。</p>
@@ -992,29 +1069,6 @@
       </tags>
   </entry>
   <entry>
-    <title>关于博客搭建</title>
-    <url>/2020/09/15/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
-    <content><![CDATA[<h2 id="这篇文章希望记录一下我搭建Hexo博客的过程"><a href="#这篇文章希望记录一下我搭建Hexo博客的过程" class="headerlink" title="这篇文章希望记录一下我搭建Hexo博客的过程"></a>这篇文章希望记录一下我搭建Hexo博客的过程</h2><h3 id="第一步，配置GitHub"><a href="#第一步，配置GitHub" class="headerlink" title="第一步，配置GitHub"></a>第一步，配置GitHub</h3><p>登录到 github ，新建一个库，库的名称建立用自己的用户名+github.io 命名，如 jack.github.io 作为库的名称，之后部署成功之后，就可以通过 <a href="https://jack.github.io/">https://jack.github.io</a> 访问你的博客站点啦。</p>
-<h3 id="第二步，安装-node环境和git代码管理工具"><a href="#第二步，安装-node环境和git代码管理工具" class="headerlink" title="第二步，安装 node环境和git代码管理工具"></a>第二步，安装 node环境和git代码管理工具</h3><p>node.js 直接在官网下载即可：<a href="https://nodejs.org/en/%EF%BC%8Cgit">https://nodejs.org/en/，git</a> 也可以自己去官网下载，我是学前端的，学习vue和node的时候就已经安装好了，git 是我们日常开发工作中托管代码必不可少的工具，有关 git 的常用命令，可以参考廖雪峰老师i教程：<a href="https://www.liaoxuefeng.com/wiki/896043488029600">https://www.liaoxuefeng.com/wiki/896043488029600</a></p>
-<h3 id="第三步，安装-hexo-cli"><a href="#第三步，安装-hexo-cli" class="headerlink" title="第三步，安装 hexo-cli"></a>第三步，安装 hexo-cli</h3><p>我们需要全局安装 hexo-cli 搭建我们的 hexo 博客，通过npm安装，直接在终端窗口中键入 npm install –g hexo-cli。</p>
-<p>接着新建一个博客目录，如直接桌面上新建一个 MyHexoBolgs 文件夹，然后进入到这个空目录下，通过 hexo init，创建一个hexo项目，或者也可以直接通过 hexo init  MyHexoBlogs 来创建，这样就不用我们手动创建博客目录了。</p>
-<p>安装的过程很慢，需要耐心等待下。（当时半天安装不下来，就一直按回车键，结果还报错了，后来重新安装，并在安装过程中去网上寻找解决方法，结果在去寻找其他方式提高下载速度的过程中，发现它已经安装好了，但是速度确实挺慢的）</p>
-<h3 id="第四步：测试"><a href="#第四步：测试" class="headerlink" title="第四步：测试"></a>第四步：测试</h3><p>在 创建好 hexo 项目后，source 目录下已经有一个 Hello world 文件，所以直接执行 hexo g ，接着启动本地服务器 hexo s ，并根据它的提示在浏览器访问 localhost：4000 既可以看到这个 hexo 博客网站以及上面的一篇 hello world 文章了。</p>
-<h3 id="第五步：github-远程仓库中添加-key"><a href="#第五步：github-远程仓库中添加-key" class="headerlink" title="第五步：github 远程仓库中添加 key"></a>第五步：github 远程仓库中添加 key</h3><p>在根目录下（博客根目录文件夹）大家终端窗口，键入 ssh-keygen -t rsa -C “Github的绑定的邮箱”，一路Enter，就在 .ssh 目录下创建了一个 id_rsa_pub ，用记事本或者其他文本编辑器打开该文件，然后复制文件中的内容，并添加的我们自己的 github 仓库中。</p>
-<h3 id="第六步：配置博客部署信息并托管到githhub上"><a href="#第六步：配置博客部署信息并托管到githhub上" class="headerlink" title="第六步：配置博客部署信息并托管到githhub上"></a>第六步：配置博客部署信息并托管到githhub上</h3><p>打开根目录下的 .config.yml 文件，这是 hexo 博客的配置文件，这里需要配置的 deploy 信息：</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">deploy：</span><br><span class="line">	type：git</span><br><span class="line">	reop：github仓库的地址，如 https:<span class="regexp">//gi</span>thub.com<span class="regexp">/jack/</span>jack.github.io</span><br><span class="line">	branch：master</span><br></pre></td></tr></table></figure>
-
-<p>然后在博客根目录中执行 hexo clean，hexo g ，hexo d，就可以将可以部署到github上了，浏览器直接访问 <a href="https://github用户名.github.io/">https://github用户名.github.io</a> 就可以访问到自己创建的hexo 博客项目了。</p>
-<p>下面就是博客的配置和美化了</p>
-]]></content>
-      <categories>
-        <category>about</category>
-      </categories>
-      <tags>
-        <tag>blog</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>图形化界面客户端、Mysql语法规范</title>
     <url>/2020/09/16/%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2%E5%AE%A2%E6%88%B7%E7%AB%AF%E3%80%81Mysql%E8%AF%AD%E6%B3%95%E8%A7%84%E8%8C%83/</url>
     <content><![CDATA[<h3 id="图形化界面："><a href="#图形化界面：" class="headerlink" title="图形化界面："></a>图形化界面：</h3><p>Sql yog </p>
@@ -1033,6 +1087,103 @@
 <li>单行注释：– 注释文字 </li>
 <li>多行注释：/* 注释文字 */</li>
 </ol>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>垃圾回收</title>
+    <url>/2020/10/05/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</url>
+    <content><![CDATA[<h3 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h3><ol>
+<li><p>在程序中没有被引用的对象就是垃圾，这种垃圾对象过多会影响到程序运行的性能，因此必须进行垃圾回收，所谓的垃圾回收及时将垃圾对象从内存中删除</p>
+</li>
+<li><p>python中有自动垃圾回收机制，会自动将这些被引用的对象删除</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.name = <span class="string">&#x27;A类&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># del是一个特殊方法，它会在对象被垃圾回收前调用</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">&#x27;A()对象被删除了&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = A()</span><br><span class="line">print(a.name)</span><br><span class="line"></span><br><span class="line">input(<span class="string">&#x27;回车键退出...&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">A类</span></span><br><span class="line"><span class="string">回车键退出...</span></span><br><span class="line"><span class="string">A()对象被删除了</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>子查询</title>
+    <url>/2020/09/19/%E5%AD%90%E6%9F%A5%E8%AF%A2/</url>
+    <content><![CDATA[<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li>主查询：外部的查询语句，称为主查询或外查询</li>
+<li>子查询：一条查询语句中又嵌套了另一条完整的select语句，其中被嵌套的select语句，称为子查询或内查询<ul>
+<li>子查询的执行优先于主查询执行，主查询的条件用到了子查询的结果</li>
+<li>子查询放在小括号内</li>
+<li>子查询可以放在from后面，select后面，where后面，having后面，但一般放在条件的右侧</li>
+</ul>
+</li>
+</ul>
+<h3 id="子查询分类："><a href="#子查询分类：" class="headerlink" title="子查询分类："></a>子查询分类：</h3><ul>
+<li>按结果集的行列数不同：<ul>
+<li>标量子查询：结果集只有一行一列，一般搭配单行操作符使用(&gt;  &lt;   &gt;=   &lt;=   =   &lt;&gt;)</li>
+<li>列子查询：结果集只有一列多行，一般搭配多行操作符使用(in，any/some，all)</li>
+<li>行子查询：结果集只有一行多列</li>
+<li>表子查询：结果集一般为多行多列</li>
+</ul>
+</li>
+<li>按子查询出现的位置分：<ul>
+<li>select 后：仅仅支持标量子查询</li>
+<li>from 后：支持表子查询</li>
+<li>where或having 后：标量子查询+列子查询+行子查询</li>
+<li>exitsts后（相关子查询）：表子查询</li>
+</ul>
+</li>
+</ul>
+<h3 id="where或having后的子查询"><a href="#where或having后的子查询" class="headerlink" title="where或having后的子查询"></a>where或having后的子查询</h3><ol>
+<li><p>标量子查询</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询谁的工资比 Abel 高?</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#①第一步，查询Abel的工资</span></span><br><span class="line"><span class="keyword">SELECT</span> salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> last_name = <span class="string">&#x27;Abel&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#②第二步，查询员工的信息，满足 salary&gt;①结果</span></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary&gt;(</span><br><span class="line">      <span class="keyword">SELECT</span> salary</span><br><span class="line">      <span class="keyword">FROM</span> employees</span><br><span class="line">      <span class="keyword">WHERE</span> last_name = <span class="string">&#x27;Abel&#x27;</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#返回job_id与141号员工相同，salary比143号员工多的员工 姓名，job_id 和工资</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#①第一步：查询141号员工的job_id</span></span><br><span class="line"><span class="keyword">SELECT</span> job_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> employee_id = <span class="number">141</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#②第二步：查询143号员工的salary</span></span><br><span class="line"><span class="keyword">SELECT</span> salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> employee_id = <span class="number">143</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#③第三步：查询员工的姓名，job_id 和工资，要求job_id=①并且salary&gt;②</span></span><br><span class="line"><span class="keyword">SELECT</span> last_name,job_id,salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> job_id = (</span><br><span class="line">	<span class="keyword">SELECT</span> job_id</span><br><span class="line">	<span class="keyword">FROM</span> employees</span><br><span class="line">	<span class="keyword">WHERE</span> employee_id = <span class="number">141</span></span><br><span class="line">) <span class="keyword">AND</span> salary&gt;(</span><br><span class="line">	<span class="keyword">SELECT</span> salary</span><br><span class="line">	<span class="keyword">FROM</span> employees</span><br><span class="line">	<span class="keyword">WHERE</span> employee_id = <span class="number">143</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询最低工资大于50号部门最低工资的部门id和其最低工资</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#①第一步：查询50号部门的最低工资</span></span><br><span class="line"><span class="keyword">SELECT</span>  <span class="keyword">MIN</span>(salary)</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> department_id = <span class="number">50</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#②第二步：查询每个部门的最低工资</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MIN</span>(salary),department_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id</span><br><span class="line"></span><br><span class="line"><span class="comment">#③第三步： 在②基础上筛选，满足min(salary)&gt;①</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MIN</span>(salary),department_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">MIN</span>(salary)&gt;(</span><br><span class="line">	<span class="keyword">SELECT</span>  <span class="keyword">MIN</span>(salary)</span><br><span class="line">	<span class="keyword">FROM</span> employees</span><br><span class="line">	<span class="keyword">WHERE</span> department_id = <span class="number">50</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<p>非法使用标量子查询</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#Subquery returns more than 1 row,子查询不只一行</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MIN</span>(salary),department_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">MIN</span>(salary)&gt;(</span><br><span class="line">	<span class="keyword">SELECT</span>  salary</span><br><span class="line">	<span class="keyword">FROM</span> employees</span><br><span class="line">	<span class="keyword">WHERE</span> department_id =<span class="number">110</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">多行子查询使用单行比较符</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>列子查询(多行子查询)</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#返回location_id是1400或1700的部门中的所有员工姓名</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#①第一步，查询location_id是1400或1700的部门编号</span></span><br><span class="line"><span class="keyword">SELECT</span>  department_id</span><br><span class="line"><span class="keyword">FROM</span> departments</span><br><span class="line"><span class="keyword">WHERE</span> location_id <span class="keyword">IN</span>(<span class="number">1400</span>,<span class="number">1700</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#②第二步，查询员工姓名，要求部门号是①列表中的某一个</span></span><br><span class="line"><span class="keyword">SELECT</span> last_name 员工姓名,department_id 部门编号</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> department_id  <span class="keyword">IN</span>(</span><br><span class="line">	<span class="keyword">SELECT</span> department_id</span><br><span class="line">	<span class="keyword">FROM</span> departments</span><br><span class="line">	<span class="keyword">WHERE</span> location_id <span class="keyword">IN</span>(<span class="number">1400</span>,<span class="number">1700</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#返回其它工种中比job_id为‘IT_PROG’工种任一工资低的员工的员工号、姓名、job_id 以及salary</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#①第一步，查询job_id为‘IT_PROG’部门任一工资</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> job_id = <span class="string">&#x27;IT_PROG&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#②第二步，查询其他工种的员工号、姓名、job_id 以及salary，要求salary&lt;(①)的任意一个</span></span><br><span class="line"><span class="keyword">SELECT</span> last_name,employee_id,job_id,salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary&lt;<span class="keyword">ANY</span>(</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> salary</span><br><span class="line">	<span class="keyword">FROM</span> employees</span><br><span class="line">	<span class="keyword">WHERE</span> job_id = <span class="string">&#x27;IT_PROG&#x27;</span></span><br><span class="line">) <span class="keyword">AND</span> job_id&lt;&gt;<span class="string">&#x27;IT_PROG&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#或</span></span><br><span class="line"><span class="keyword">SELECT</span> last_name,employee_id,job_id,salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary&lt;(</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(salary)</span><br><span class="line">	<span class="keyword">FROM</span> employees</span><br><span class="line">	<span class="keyword">WHERE</span> job_id = <span class="string">&#x27;IT_PROG&#x27;</span></span><br><span class="line">) <span class="keyword">AND</span> job_id&lt;&gt;<span class="string">&#x27;IT_PROG&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>行子查询(结果集一行多列或多行多列)</p>
+</li>
+</ol>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询员工编号最小并且工资最高的员工信息</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#①第一步，查询最小的员工编号</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MIN</span>(employee_id)</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"></span><br><span class="line"><span class="comment">#②第二步，查询最高工资</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(salary)</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"></span><br><span class="line"><span class="comment">#③第三步，查询员工信息</span></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> employee_id=(</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">MIN</span>(employee_id)</span><br><span class="line">	<span class="keyword">FROM</span> employees</span><br><span class="line">)<span class="keyword">AND</span> salary=(</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(salary)</span><br><span class="line">	<span class="keyword">FROM</span> employees</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">等价于</span><br><span class="line"><span class="keyword">SELECT</span> * </span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> (employee_id,salary)=(</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">MIN</span>(employee_id),<span class="keyword">MAX</span>(salary)</span><br><span class="line">	<span class="keyword">FROM</span> employees</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="select后的子查询（仅支持标量子查询"><a href="#select后的子查询（仅支持标量子查询" class="headerlink" title="select后的子查询（仅支持标量子查询 )"></a>select后的子查询（仅支持标量子查询 )</h3><blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询每个部门的员工个数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> D.department_id,(</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*)</span><br><span class="line">	<span class="keyword">FROM</span> employees E</span><br><span class="line">	<span class="keyword">WHERE</span> E.department_id = D.<span class="string">`department_id`</span></span><br><span class="line"> ) 员工个数</span><br><span class="line"> <span class="keyword">FROM</span> departments D;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="from后的子查询（支持表子查询）"><a href="#from后的子查询（支持表子查询）" class="headerlink" title="from后的子查询（支持表子查询）"></a>from后的子查询（支持表子查询）</h3><blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询每个部门的平均工资的工资等级</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#①第一步，查询每个部门的平均工资</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">AVG</span>(salary)平均工资,department_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id</span><br><span class="line"></span><br><span class="line"><span class="comment">#②第二步，连接①的结果集和job_grades表，筛选条件平均工资 between lowest_sal and highest_sal</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span>  ag_dep.*, G.<span class="string">`grade_level`</span>工资等级</span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">AVG</span>(salary) 平均工资,department_id</span><br><span class="line">	<span class="keyword">FROM</span> employees</span><br><span class="line">	<span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id</span><br><span class="line">) ag_dep</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> job_grades G</span><br><span class="line"><span class="keyword">ON</span> ag_dep.平均工资 <span class="keyword">BETWEEN</span> lowest_sal <span class="keyword">AND</span> highest_sal;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="exists后面的子查询（相关子查询）"><a href="#exists后面的子查询（相关子查询）" class="headerlink" title="exists后面的子查询（相关子查询）"></a>exists后面的子查询（相关子查询）</h3><ol>
+<li><p>语法：</p>
+<p>EXISTS（完整的查询语句）</p>
+</li>
+<li><p>结果：</p>
+<p>1或0</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询是否存在工资等于24000的员工</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">EXISTS</span>(<span class="keyword">SELECT</span> employee_id <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> salary=<span class="number">24000</span>);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询有员工的部门名</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#方式1，in</span></span><br><span class="line"><span class="keyword">SELECT</span> department_name 部门名</span><br><span class="line"><span class="keyword">FROM</span> departments D</span><br><span class="line"><span class="keyword">WHERE</span> D.<span class="string">`department_id`</span> <span class="keyword">IN</span>(</span><br><span class="line">	<span class="keyword">SELECT</span> department_id</span><br><span class="line">	<span class="keyword">FROM</span> employees</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">#方式2，exists</span></span><br><span class="line"><span class="keyword">SELECT</span> department_name 部门名</span><br><span class="line"><span class="keyword">FROM</span> departments D</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">EXISTS</span>(</span><br><span class="line">	<span class="keyword">SELECT</span> *</span><br><span class="line">	<span class="keyword">FROM</span> employees E</span><br><span class="line">	<span class="keyword">WHERE</span> D.<span class="string">`department_id`</span>=E.<span class="string">`department_id`</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+
+
 </li>
 </ol>
 ]]></content>
@@ -1246,25 +1397,6 @@
       </tags>
   </entry>
   <entry>
-    <title>垃圾回收</title>
-    <url>/2020/10/05/%E5%9E%83%E5%9C%BE%E5%9B%9E%E6%94%B6/</url>
-    <content><![CDATA[<h3 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h3><ol>
-<li><p>在程序中没有被引用的对象就是垃圾，这种垃圾对象过多会影响到程序运行的性能，因此必须进行垃圾回收，所谓的垃圾回收及时将垃圾对象从内存中删除</p>
-</li>
-<li><p>python中有自动垃圾回收机制，会自动将这些被引用的对象删除</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.name = <span class="string">&#x27;A类&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># del是一个特殊方法，它会在对象被垃圾回收前调用</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__del__</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">&#x27;A()对象被删除了&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = A()</span><br><span class="line">print(a.name)</span><br><span class="line"></span><br><span class="line">input(<span class="string">&#x27;回车键退出...&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">A类</span></span><br><span class="line"><span class="string">回车键退出...</span></span><br><span class="line"><span class="string">A()对象被删除了</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>python</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>存储过程</title>
     <url>/2020/09/20/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/</url>
     <content><![CDATA[<h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><ul>
@@ -1337,81 +1469,60 @@ END
       </tags>
   </entry>
   <entry>
-    <title>子查询</title>
-    <url>/2020/09/19/%E5%AD%90%E6%9F%A5%E8%AF%A2/</url>
-    <content><![CDATA[<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
-<li>主查询：外部的查询语句，称为主查询或外查询</li>
-<li>子查询：一条查询语句中又嵌套了另一条完整的select语句，其中被嵌套的select语句，称为子查询或内查询<ul>
-<li>子查询的执行优先于主查询执行，主查询的条件用到了子查询的结果</li>
-<li>子查询放在小括号内</li>
-<li>子查询可以放在from后面，select后面，where后面，having后面，但一般放在条件的右侧</li>
-</ul>
+    <title>小程序构建npm并安装vant-weapp包</title>
+    <url>/2020/10/24/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%9E%84%E5%BB%BAnpm/</url>
+    <content><![CDATA[<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
+<li><p>在开发者工具中新建小程序项目后，终端进入项目根目录中，执行 npm init -y 初始化仓库，仓库中就有 package.json文件了</p>
 </li>
-</ul>
-<h3 id="子查询分类："><a href="#子查询分类：" class="headerlink" title="子查询分类："></a>子查询分类：</h3><ul>
-<li>按结果集的行列数不同：<ul>
-<li>标量子查询：结果集只有一行一列，一般搭配单行操作符使用(&gt;  &lt;   &gt;=   &lt;=   =   &lt;&gt;)</li>
-<li>列子查询：结果集只有一列多行，一般搭配多行操作符使用(in，any/some，all)</li>
-<li>行子查询：结果集只有一行多列</li>
-<li>表子查询：结果集一般为多行多列</li>
-</ul>
+<li><p>终端中执行 npm i @vant/weapp -S –production，安装 vant-weapp 包</p>
 </li>
-<li>按子查询出现的位置分：<ul>
-<li>select 后：仅仅支持标量子查询</li>
-<li>from 后：支持表子查询</li>
-<li>where或having 后：标量子查询+列子查询+行子查询</li>
-<li>exitsts后（相关子查询）：表子查询</li>
-</ul>
+<li><p>点击开发者工具中的 工具-构建npm，构建成功后，根目录中会看到一个miniprogram_npm这个文件夹</p>
 </li>
-</ul>
-<h3 id="where或having后的子查询"><a href="#where或having后的子查询" class="headerlink" title="where或having后的子查询"></a>where或having后的子查询</h3><ol>
-<li><p>标量子查询</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询谁的工资比 Abel 高?</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#①第一步，查询Abel的工资</span></span><br><span class="line"><span class="keyword">SELECT</span> salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> last_name = <span class="string">&#x27;Abel&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#②第二步，查询员工的信息，满足 salary&gt;①结果</span></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary&gt;(</span><br><span class="line">      <span class="keyword">SELECT</span> salary</span><br><span class="line">      <span class="keyword">FROM</span> employees</span><br><span class="line">      <span class="keyword">WHERE</span> last_name = <span class="string">&#x27;Abel&#x27;</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<li><p>将 app.json中的 “style”:”v2” 去除，小程序的新版基础组件强行加上了许多样式，不关闭将造成部分组件样式混乱</p>
+</li>
+<li><p>在 index.json中引入 Button 组件</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;usingComponents&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;van-button&quot;</span>: <span class="string">&quot;@vant/weapp/button/index&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 index.wxml中使用Button组件</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">van-button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">van-button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>构建成功：</p>
+<img src="C:\Users\高萍\Desktop\MyHexoBlogs\myblogs\source\_posts\miniprogram-debating\截图\小程序构建npm.jpg" alt="https://wx3.sinaimg.cn/mw690/007gSPK8gy1gk0ppna3lkj309q0h9q2v.jpg" style="zoom: 67%;" />
 
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#返回job_id与141号员工相同，salary比143号员工多的员工 姓名，job_id 和工资</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#①第一步：查询141号员工的job_id</span></span><br><span class="line"><span class="keyword">SELECT</span> job_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> employee_id = <span class="number">141</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#②第二步：查询143号员工的salary</span></span><br><span class="line"><span class="keyword">SELECT</span> salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> employee_id = <span class="number">143</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#③第三步：查询员工的姓名，job_id 和工资，要求job_id=①并且salary&gt;②</span></span><br><span class="line"><span class="keyword">SELECT</span> last_name,job_id,salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> job_id = (</span><br><span class="line">	<span class="keyword">SELECT</span> job_id</span><br><span class="line">	<span class="keyword">FROM</span> employees</span><br><span class="line">	<span class="keyword">WHERE</span> employee_id = <span class="number">141</span></span><br><span class="line">) <span class="keyword">AND</span> salary&gt;(</span><br><span class="line">	<span class="keyword">SELECT</span> salary</span><br><span class="line">	<span class="keyword">FROM</span> employees</span><br><span class="line">	<span class="keyword">WHERE</span> employee_id = <span class="number">143</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询最低工资大于50号部门最低工资的部门id和其最低工资</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#①第一步：查询50号部门的最低工资</span></span><br><span class="line"><span class="keyword">SELECT</span>  <span class="keyword">MIN</span>(salary)</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> department_id = <span class="number">50</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#②第二步：查询每个部门的最低工资</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MIN</span>(salary),department_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id</span><br><span class="line"></span><br><span class="line"><span class="comment">#③第三步： 在②基础上筛选，满足min(salary)&gt;①</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MIN</span>(salary),department_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">MIN</span>(salary)&gt;(</span><br><span class="line">	<span class="keyword">SELECT</span>  <span class="keyword">MIN</span>(salary)</span><br><span class="line">	<span class="keyword">FROM</span> employees</span><br><span class="line">	<span class="keyword">WHERE</span> department_id = <span class="number">50</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<p>非法使用标量子查询</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#Subquery returns more than 1 row,子查询不只一行</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MIN</span>(salary),department_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id</span><br><span class="line"><span class="keyword">HAVING</span> <span class="keyword">MIN</span>(salary)&gt;(</span><br><span class="line">	<span class="keyword">SELECT</span>  salary</span><br><span class="line">	<span class="keyword">FROM</span> employees</span><br><span class="line">	<span class="keyword">WHERE</span> department_id =<span class="number">110</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">多行子查询使用单行比较符</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>列子查询(多行子查询)</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#返回location_id是1400或1700的部门中的所有员工姓名</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#①第一步，查询location_id是1400或1700的部门编号</span></span><br><span class="line"><span class="keyword">SELECT</span>  department_id</span><br><span class="line"><span class="keyword">FROM</span> departments</span><br><span class="line"><span class="keyword">WHERE</span> location_id <span class="keyword">IN</span>(<span class="number">1400</span>,<span class="number">1700</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#②第二步，查询员工姓名，要求部门号是①列表中的某一个</span></span><br><span class="line"><span class="keyword">SELECT</span> last_name 员工姓名,department_id 部门编号</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> department_id  <span class="keyword">IN</span>(</span><br><span class="line">	<span class="keyword">SELECT</span> department_id</span><br><span class="line">	<span class="keyword">FROM</span> departments</span><br><span class="line">	<span class="keyword">WHERE</span> location_id <span class="keyword">IN</span>(<span class="number">1400</span>,<span class="number">1700</span>)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#返回其它工种中比job_id为‘IT_PROG’工种任一工资低的员工的员工号、姓名、job_id 以及salary</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#①第一步，查询job_id为‘IT_PROG’部门任一工资</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> job_id = <span class="string">&#x27;IT_PROG&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#②第二步，查询其他工种的员工号、姓名、job_id 以及salary，要求salary&lt;(①)的任意一个</span></span><br><span class="line"><span class="keyword">SELECT</span> last_name,employee_id,job_id,salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary&lt;<span class="keyword">ANY</span>(</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> salary</span><br><span class="line">	<span class="keyword">FROM</span> employees</span><br><span class="line">	<span class="keyword">WHERE</span> job_id = <span class="string">&#x27;IT_PROG&#x27;</span></span><br><span class="line">) <span class="keyword">AND</span> job_id&lt;&gt;<span class="string">&#x27;IT_PROG&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#或</span></span><br><span class="line"><span class="keyword">SELECT</span> last_name,employee_id,job_id,salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary&lt;(</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(salary)</span><br><span class="line">	<span class="keyword">FROM</span> employees</span><br><span class="line">	<span class="keyword">WHERE</span> job_id = <span class="string">&#x27;IT_PROG&#x27;</span></span><br><span class="line">) <span class="keyword">AND</span> job_id&lt;&gt;<span class="string">&#x27;IT_PROG&#x27;</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>行子查询(结果集一行多列或多行多列)</p>
 </li>
 </ol>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询员工编号最小并且工资最高的员工信息</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#①第一步，查询最小的员工编号</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MIN</span>(employee_id)</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"></span><br><span class="line"><span class="comment">#②第二步，查询最高工资</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(salary)</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"></span><br><span class="line"><span class="comment">#③第三步，查询员工信息</span></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> employee_id=(</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">MIN</span>(employee_id)</span><br><span class="line">	<span class="keyword">FROM</span> employees</span><br><span class="line">)<span class="keyword">AND</span> salary=(</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">MAX</span>(salary)</span><br><span class="line">	<span class="keyword">FROM</span> employees</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">等价于</span><br><span class="line"><span class="keyword">SELECT</span> * </span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> (employee_id,salary)=(</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">MIN</span>(employee_id),<span class="keyword">MAX</span>(salary)</span><br><span class="line">	<span class="keyword">FROM</span> employees</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h3 id="select后的子查询（仅支持标量子查询"><a href="#select后的子查询（仅支持标量子查询" class="headerlink" title="select后的子查询（仅支持标量子查询 )"></a>select后的子查询（仅支持标量子查询 )</h3><blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询每个部门的员工个数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> D.department_id,(</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(*)</span><br><span class="line">	<span class="keyword">FROM</span> employees E</span><br><span class="line">	<span class="keyword">WHERE</span> E.department_id = D.<span class="string">`department_id`</span></span><br><span class="line"> ) 员工个数</span><br><span class="line"> <span class="keyword">FROM</span> departments D;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h3 id="from后的子查询（支持表子查询）"><a href="#from后的子查询（支持表子查询）" class="headerlink" title="from后的子查询（支持表子查询）"></a>from后的子查询（支持表子查询）</h3><blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询每个部门的平均工资的工资等级</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#①第一步，查询每个部门的平均工资</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">AVG</span>(salary)平均工资,department_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id</span><br><span class="line"></span><br><span class="line"><span class="comment">#②第二步，连接①的结果集和job_grades表，筛选条件平均工资 between lowest_sal and highest_sal</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span>  ag_dep.*, G.<span class="string">`grade_level`</span>工资等级</span><br><span class="line"><span class="keyword">FROM</span> (</span><br><span class="line">	<span class="keyword">SELECT</span> <span class="keyword">AVG</span>(salary) 平均工资,department_id</span><br><span class="line">	<span class="keyword">FROM</span> employees</span><br><span class="line">	<span class="keyword">GROUP</span> <span class="keyword">BY</span> department_id</span><br><span class="line">) ag_dep</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> job_grades G</span><br><span class="line"><span class="keyword">ON</span> ag_dep.平均工资 <span class="keyword">BETWEEN</span> lowest_sal <span class="keyword">AND</span> highest_sal;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h3 id="exists后面的子查询（相关子查询）"><a href="#exists后面的子查询（相关子查询）" class="headerlink" title="exists后面的子查询（相关子查询）"></a>exists后面的子查询（相关子查询）</h3><ol>
-<li><p>语法：</p>
-<p>EXISTS（完整的查询语句）</p>
+<p>小程序npm支持：<a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html">https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html</a></p>
+<p>vant-weapp：<a href="http://vant-contrib.gitee.io/vant-weapp/#/quickstart">http://vant-contrib.gitee.io/vant-weapp/#/quickstart</a></p>
+<h3 id="自定义方式构建-Npm："><a href="#自定义方式构建-Npm：" class="headerlink" title="自定义方式构建 Npm："></a>自定义方式构建 Npm：</h3><ol>
+<li><p>以上使用的是小程序默认的构建 npm 的方式</p>
 </li>
-<li><p>结果：</p>
-<p>1或0</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询是否存在工资等于24000的员工</span></span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">EXISTS</span>(<span class="keyword">SELECT</span> employee_id <span class="keyword">FROM</span> employees <span class="keyword">WHERE</span> salary=<span class="number">24000</span>);</span><br></pre></td></tr></table></figure>
+<li><p>小程序也可以通过自定义node_modules 和 miniprogram_npm位置来构建npm，只需要在项目根目录中的project.config.json 文件中指定 node_modules 的位置和目标 miniprogram_npm  的位置。</p>
+</li>
+<li><p>若使用自定义构建方式，配置 setting.packNpmManually 为 true，以及 setting.packNpmRelationList 项，指定packageJsonPath（node_modules源对应的package.json) 和 miniprogramNpmDisDir（node_modules的构建结果目标位置)的位置，如：</p>
+<p>构建npm前项目目录为：</p>
+<blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── <span class="selector-tag">miniprogram</span></span><br><span class="line">│   ├── <span class="selector-tag">app</span><span class="selector-class">.js</span></span><br><span class="line">│   ├── <span class="selector-tag">app</span><span class="selector-class">.json</span></span><br><span class="line">│   ├── <span class="selector-tag">app</span><span class="selector-class">.wxss</span></span><br><span class="line">│   ├── <span class="selector-tag">index</span></span><br><span class="line">│   ├── <span class="selector-tag">sitemap</span><span class="selector-class">.json</span></span><br><span class="line">│   └── <span class="selector-tag">sub_package</span></span><br><span class="line">│       └── <span class="selector-tag">sub_package_page</span></span><br><span class="line">├── <span class="selector-tag">project</span><span class="selector-class">.config</span><span class="selector-class">.json</span></span><br><span class="line">├── <span class="selector-tag">src_node_modules_1</span></span><br><span class="line">│   ├── <span class="selector-tag">node_modules</span></span><br><span class="line">│   └── <span class="selector-tag">package</span><span class="selector-class">.json</span></span><br><span class="line">└── <span class="selector-tag">src_node_modules_2</span></span><br><span class="line">    ├── <span class="selector-tag">node_modules</span></span><br><span class="line">    └── <span class="selector-tag">package</span><span class="selector-class">.json</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>project.config.json 配置为：</p>
+<blockquote>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;setting&quot;</span>: &#123;</span><br><span class="line">  <span class="string">&quot;packNpmManually&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">&quot;packNpmRelationList&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&quot;packageJsonPath&quot;</span>: <span class="string">&quot;./src_node_modules_1/package.json&quot;</span>,</span><br><span class="line">      <span class="string">&quot;miniprogramNpmDistDir&quot;</span>: <span class="string">&quot;./miniprogram/&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&quot;packageJsonPath&quot;</span>: <span class="string">&quot;./src_node_modules_2/package.json&quot;</span>,</span><br><span class="line">      <span class="string">&quot;miniprogramNpmDistDir&quot;</span>: <span class="string">&quot;./miniprogram/sub_package&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>那么，构建npm后的项目目录为：</p>
+<blockquote>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── miniprogram</span><br><span class="line">│   ├── app.js</span><br><span class="line">│   ├── app.json</span><br><span class="line">│   ├── app.wxss</span><br><span class="line">│   ├── index</span><br><span class="line">│   ├── miniprogram_npm <span class="comment">// 由 src_node_modules_1/node_modules 构建得到</span></span><br><span class="line">│   ├── sitemap.json</span><br><span class="line">│   └── sub_package</span><br><span class="line">│       ├── miniprogram_npm <span class="comment">// 由 src_node_modules_2/node_modules 构建得到</span></span><br><span class="line">│       └── sub_package_page</span><br><span class="line">├── project<span class="selector-class">.config</span>.json</span><br><span class="line">├── src_node_modules_1</span><br><span class="line">│   ├── node_modules</span><br><span class="line">│   └── package.json</span><br><span class="line">└── src_node_modules_2</span><br><span class="line">    ├── node_modules</span><br><span class="line">    └── package.json</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询有员工的部门名</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#方式1，in</span></span><br><span class="line"><span class="keyword">SELECT</span> department_name 部门名</span><br><span class="line"><span class="keyword">FROM</span> departments D</span><br><span class="line"><span class="keyword">WHERE</span> D.<span class="string">`department_id`</span> <span class="keyword">IN</span>(</span><br><span class="line">	<span class="keyword">SELECT</span> department_id</span><br><span class="line">	<span class="keyword">FROM</span> employees</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="comment">#方式2，exists</span></span><br><span class="line"><span class="keyword">SELECT</span> department_name 部门名</span><br><span class="line"><span class="keyword">FROM</span> departments D</span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">EXISTS</span>(</span><br><span class="line">	<span class="keyword">SELECT</span> *</span><br><span class="line">	<span class="keyword">FROM</span> employees E</span><br><span class="line">	<span class="keyword">WHERE</span> D.<span class="string">`department_id`</span>=E.<span class="string">`department_id`</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
-
-
-
+<p>miniprogram_npm的位置取决于配置的 packNpmRelationList 值</p>
+</blockquote>
+</li>
+<li><p>使用小程序代码管理工具将项目代码提交的 远程仓库中：<a href="https://www.oschina.net/news/99140/mini-program-gitee">https://www.oschina.net/news/99140/mini-program-gitee</a></p>
 </li>
 </ol>
 ]]></content>
       <categories>
-        <category>数据库</category>
+        <category>miniprogram-debating</category>
       </categories>
       <tags>
-        <tag>Mysql</tag>
+        <tag>miniprogram-debating</tag>
       </tags>
   </entry>
   <entry>
@@ -1794,51 +1905,6 @@ END
       </tags>
   </entry>
   <entry>
-    <title>排序查询</title>
-    <url>/2020/09/17/%E6%8E%92%E5%BA%8F%E6%9F%A5%E8%AF%A2/</url>
-    <content><![CDATA[<h3 id="排序查询语法"><a href="#排序查询语法" class="headerlink" title="排序查询语法"></a>排序查询语法</h3><blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> 查询列表</span><br><span class="line"><span class="keyword">from</span> 表名</span><br><span class="line">【<span class="keyword">where</span>  筛选条件】</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> 排序的字段或表达式;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<ul>
-<li>asc表示升序，可以省略，desc 表示降序</li>
-<li>order by 子句可以支持 单个字段，多个字段，别名，表达式，函数等。</li>
-<li>order by 子句在查询语句的最后面（limit 子句除外)</li>
-</ul>
-</blockquote>
-<p>按单个字段排序</p>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * </span><br><span class="line"><span class="keyword">FROM</span> employees </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> salary <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>添加筛选条件再排序</p>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询部门编号&gt;=90的员工信息，并按员工编号降序</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> department_id&gt;=<span class="number">90</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>按表达式排序</p>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询员工信息 按年薪降序</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *,salary*<span class="number">12</span>*(<span class="number">1</span>+<span class="keyword">IFNULL</span>(commission_pct,<span class="number">0</span>))</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> salary*<span class="number">12</span>*(<span class="number">1</span>+<span class="keyword">IFNULL</span>(commission_pct,<span class="number">0</span>)) <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>按别名排序</p>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询员工信息 按年薪升序</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *,salary*<span class="number">12</span>*(<span class="number">1</span>+<span class="keyword">IFNULL</span>(commission_pct,<span class="number">0</span>)) 年薪</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> 年薪 <span class="keyword">ASC</span>;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>按函数排序</p>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询员工名，并且按名字的长度降序</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name </span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">LENGTH</span>(last_name) <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>按多个字段排序</p>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询员工信息，要求先按工资降序，再按employee_id升序</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> salary <span class="keyword">DESC</span>,employee_id <span class="keyword">ASC</span>;</span><br></pre></td></tr></table></figure>
-</blockquote>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>Mysql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据类型</title>
     <url>/2020/09/20/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/</url>
     <content><![CDATA[<h3 id="常见的数据类型"><a href="#常见的数据类型" class="headerlink" title="常见的数据类型"></a>常见的数据类型</h3><ul>
@@ -1928,6 +1994,133 @@ END
       </categories>
       <tags>
         <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>排序查询</title>
+    <url>/2020/09/17/%E6%8E%92%E5%BA%8F%E6%9F%A5%E8%AF%A2/</url>
+    <content><![CDATA[<h3 id="排序查询语法"><a href="#排序查询语法" class="headerlink" title="排序查询语法"></a>排序查询语法</h3><blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> 查询列表</span><br><span class="line"><span class="keyword">from</span> 表名</span><br><span class="line">【<span class="keyword">where</span>  筛选条件】</span><br><span class="line"><span class="keyword">order</span> <span class="keyword">by</span> 排序的字段或表达式;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<ul>
+<li>asc表示升序，可以省略，desc 表示降序</li>
+<li>order by 子句可以支持 单个字段，多个字段，别名，表达式，函数等。</li>
+<li>order by 子句在查询语句的最后面（limit 子句除外)</li>
+</ul>
+</blockquote>
+<p>按单个字段排序</p>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * </span><br><span class="line"><span class="keyword">FROM</span> employees </span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> salary <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>添加筛选条件再排序</p>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询部门编号&gt;=90的员工信息，并按员工编号降序</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> department_id&gt;=<span class="number">90</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> employee_id <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>按表达式排序</p>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询员工信息 按年薪降序</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *,salary*<span class="number">12</span>*(<span class="number">1</span>+<span class="keyword">IFNULL</span>(commission_pct,<span class="number">0</span>))</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> salary*<span class="number">12</span>*(<span class="number">1</span>+<span class="keyword">IFNULL</span>(commission_pct,<span class="number">0</span>)) <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>按别名排序</p>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询员工信息 按年薪升序</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *,salary*<span class="number">12</span>*(<span class="number">1</span>+<span class="keyword">IFNULL</span>(commission_pct,<span class="number">0</span>)) 年薪</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> 年薪 <span class="keyword">ASC</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>按函数排序</p>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询员工名，并且按名字的长度降序</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name </span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> <span class="keyword">LENGTH</span>(last_name) <span class="keyword">DESC</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>按多个字段排序</p>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询员工信息，要求先按工资降序，再按employee_id升序</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> salary <span class="keyword">DESC</span>,employee_id <span class="keyword">ASC</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>文件</title>
+    <url>/2020/10/04/%E6%96%87%E4%BB%B6/</url>
+    <content><![CDATA[<h3 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h3><ol>
+<li><p>使用 open() 函数打开一个文件</p>
+</li>
+<li><p>open(file, mode=’r’, buffering=-1, encoding_=None, errors=None, newline=None, closefd=True, opener=None)</p>
+</li>
+<li><p>返回一个对象，这个对象就代表了当前打开的文件</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在windows系统使用路径时，可以使用/来代替 \</span></span><br><span class="line"><span class="comment"># 或者可以使用 \\ 来代替 \, file_name = &#x27;hello\\demo.txt&#x27;</span></span><br><span class="line"><span class="comment"># 或者也可以使用原始字符串,   r&#x27;hello\demo.txt&#x27;</span></span><br><span class="line">file_name = <span class="string">&#x27;hello/demo.txt&#x27;</span></span><br><span class="line">file_obj = open(file_name)  # 打开 file_name 对应的文件</span><br><span class="line"><span class="builtin-name">print</span>(file_obj)  # &lt;_io.TextIOWrapper <span class="attribute">name</span>=<span class="string">&#x27;hello/demo.txt&#x27;</span> <span class="attribute">mode</span>=<span class="string">&#x27;r&#x27;</span> <span class="attribute">encoding</span>=<span class="string">&#x27;cp936&#x27;</span>&gt;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="关闭文件"><a href="#关闭文件" class="headerlink" title="关闭文件"></a>关闭文件</h3><ol>
+<li><p>当获取了文件对象后，所有对文件的操作都应该通过文件对象来进行</p>
+</li>
+<li><p>通过 close() 来关闭文件</p>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line"><span class="built_in">file_name</span> = &#x27;<span class="built_in">demo</span>.txt&#x27;</span><br><span class="line">file_obj = open(<span class="built_in">file_name</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">content</span> = file_obj.<span class="built_in">read</span>()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">content</span>)</span><br><span class="line"></span><br><span class="line">file_obj.<span class="built_in">close</span>()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>with …  as  语句，在 with 语句中可以直接使用 file_obj 来进行文件操作，此时这个文件只能在 with 中使用，一旦 with 结束则文件会自动 close()</p>
+<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">file_name = <span class="string">&#x27;demo.txt&#x27;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(file_name) <span class="keyword">as</span> file_obj:</span><br><span class="line">    print(file_obj.<span class="built_in">read</span>())</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h3><ol>
+<li><p>调用open() 来打开一个文件，可以将文件分成两种类型，一种是纯文本文件，另一种是二进制文件（图片，mp3，ppt等这些文件），open() 打开文件时，默认是以纯文本文件的形式打开的，但是 open() 默认的编码 为 None，所以处理文本文件时，必须要指定文件的编码</p>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line"><span class="built_in">file_name</span> = &#x27;<span class="built_in">demo</span>.txt&#x27;</span><br><span class="line"></span><br><span class="line">try:</span><br><span class="line">    with open(<span class="built_in">file_name</span>, encoding=&#x27;utf-<span class="number">8</span>&#x27;) as file_obj:</span><br><span class="line">        <span class="built_in">content</span> = file_obj.<span class="built_in">read</span>()</span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">content</span>)</span><br><span class="line">        <span class="built_in">print</span>(len(<span class="built_in">content</span>))</span><br><span class="line">except FileNotFoundError:</span><br><span class="line">    <span class="built_in">print</span>(f&#x27;&#123;<span class="built_in">file_name</span>&#125; 这个文件不存在！&#x27;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>读取模式，t 读取文本文件（默认值），b  读取二进制文件；</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">file_name = &#x27;C:/Users/高萍/Videos/4.mp4&#x27;</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="keyword">open</span>(file_name, <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> file_obj:</span><br><span class="line">    <span class="comment"># 读取文本文件时，size是以字符为单位的</span></span><br><span class="line">    <span class="comment"># 读取二进制文件时，size是以字节为单位</span></span><br><span class="line">    print(file_obj.read(<span class="number">100</span>))</span><br><span class="line">    new_file_name = <span class="string">&#x27;5.mp4&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> <span class="keyword">open</span>(new_file_name, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> new_file_obj:</span><br><span class="line">        <span class="comment"># 定义每次读取的大小</span></span><br><span class="line">        <span class="keyword">chunk</span> = <span class="number">1024</span> * <span class="number">100</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="comment"># 从已有的对象中读取数据</span></span><br><span class="line">            <span class="keyword">content</span> = file_obj.read(<span class="keyword">chunk</span>)</span><br><span class="line">            <span class="comment"># 内容读取完毕，终止循环</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">content</span>:</span><br><span class="line">                break</span><br><span class="line">            <span class="comment"># 将读取到的数据写入到新对象中</span></span><br><span class="line">            new_file_obj.write(<span class="keyword">content</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>读取文件内容，read()，它会将文件内容全部保存为一个字符串返回</p>
+<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line"><span class="built_in">file_name</span> = &#x27;<span class="built_in">demo</span>.txt&#x27;</span><br><span class="line">file_obj = open(<span class="built_in">file_name</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">content</span> = file_obj.<span class="built_in">read</span>()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">content</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果直接调用 read() ，会将文本文件的所有内容一次性全部读取出来，如果要读取的文件较大的话，一次性将文件的内容全部加载到内存中，容易导致内存泄露，所以对于较大的文件，不要调用 read()</p>
+</li>
+<li><p>read() 可以接收一个 size 参数，用来指定要读取的字符的数量，默认值为-1，读取文件中的所有字符，可以为 size 指定值，这样read() 会读取指定数量的字符，每一次读取都是从上次读取到的位置开始读取的。如果字符的数量小于size，则会读取所有剩余字符，如果已经读取到了文件最后，则会返回 ‘’ 字符。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">file_name = &#x27;demo.txt&#x27;</span><br><span class="line"></span><br><span class="line">try:</span><br><span class="line">    <span class="keyword">with</span> <span class="keyword">open</span>(file_name, <span class="keyword">encoding</span>=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> file_obj:</span><br><span class="line">        file_content = <span class="string">&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">chunk</span> = <span class="number">100</span>  <span class="comment"># 定义一个变量，来指定每次读取的大小</span></span><br><span class="line">        <span class="comment"># 创建一个循环来读取文件内容</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">content</span> = file_obj.read(<span class="keyword">chunk</span>)  <span class="comment"># 读取chunk大小的内容</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">content</span>:  <span class="comment"># 检查是否读取到了内容</span></span><br><span class="line">                break  <span class="comment"># 内容读取完毕，退出循环</span></span><br><span class="line">            file_content += <span class="keyword">content</span></span><br><span class="line"><span class="keyword">except</span> FileNotFoundError:</span><br><span class="line">    print(f<span class="string">&#x27;&#123;file_name&#125; 这个文件不存在！&#x27;</span>)</span><br><span class="line"></span><br><span class="line">print(file_content)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>readline()，可以用来读取一行内容</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">import pprint</span><br><span class="line">file_name = <span class="string">&#x27;demo.txt&#x27;</span></span><br><span class="line"></span><br><span class="line">with open(file_name, <span class="attribute">encoding</span>=<span class="string">&#x27;utf-8&#x27;</span>) as file_obj:</span><br><span class="line">    <span class="builtin-name">print</span>(file_obj.readline())</span><br><span class="line">    <span class="builtin-name">print</span>(file_obj.readline())</span><br><span class="line">    <span class="builtin-name">print</span>(file_obj.readline())</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>readlines()，用于一行一行的读取内容，一次性将读取到的内容封装到一个列表中返回</p>
+<figure class="highlight sas"><table><tr><td class="code"><pre><span class="line">import pprint</span><br><span class="line">file_name = <span class="string">&#x27;demo.txt&#x27;</span></span><br><span class="line"></span><br><span class="line">with<span class="meta"> open(</span>file_name, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="meta">as</span> file_obj:</span><br><span class="line">    r = file_obj.readlines()</span><br><span class="line">    pprint.pp<span class="meta">rint(</span>r[0])</span><br><span class="line">    pprint.pp<span class="meta">rint(</span>r[1])</span><br><span class="line">    pprint.pp<span class="meta">rint(</span>r[2])</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>seek() 可以修改当前读取的位置，需要两个参数，第一个参数是要切换到的位置，第二个参数是计算位置方式（0：从头计算，默认值；1：从当前位置计算；2：从最后位置开始计算）</p>
+<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;demo.txt&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> file_obj:</span><br><span class="line">    <span class="comment"># file_obj.seek(55)</span></span><br><span class="line">    <span class="comment"># file_obj.seek(80, 0)</span></span><br><span class="line">    <span class="comment"># file_obj.seek(70, 1)</span></span><br><span class="line">    file_obj.<span class="built_in">seek</span>(<span class="number">-10</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    print(file_obj.<span class="built_in">read</span>())</span><br><span class="line">    print(<span class="string">&#x27;当前读取到了 --&gt;&#x27;</span>, file_obj.tell()) <span class="comment"># tell() 用来查看当前读取的位置</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="文件的写入"><a href="#文件的写入" class="headerlink" title="文件的写入"></a>文件的写入</h3><ol>
+<li><p>使用open() 打开文件时必须要指定打开文件所要做的操作（读，写，追加），如果不指定操作类型，默认是 读取文件</p>
+<ul>
+<li>r 表示只读；</li>
+<li>w表示可写的，如果文件不存在会创建文件，文件存在则会覆盖原来文件中的所有内容</li>
+<li>a 表示追加内容，文件不存在会创建文件，文件存在则会向文件中追加内容</li>
+<li>x 用来新建文件，文件不存在则创建，存在则报错</li>
+<li>“ + “ 为操作符增加功能，如 r+ 可读可写，文件不存在会报错，w+，a+等</li>
+</ul>
+</li>
+<li><p>write() 向文件中写入内容，如果操作的是一个文本文件的话，则 write() 需要传递一个字符串作为参数。该方法可以分多次向文件中写入内容，返回写入的字符的个数</p>
+<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">file_name = <span class="string">&#x27;demo.txt&#x27;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(file_name, <span class="string">&#x27;a&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> file_obj:</span><br><span class="line">    file_obj.<span class="built_in">write</span>(<span class="string">&#x27;aaa\n&#x27;</span>)</span><br><span class="line">    file_obj.<span class="built_in">write</span>(<span class="string">&#x27;bbb\n&#x27;</span>)</span><br><span class="line">    file_obj.<span class="built_in">write</span>(<span class="string">&#x27;ccc\n&#x27;</span>)</span><br><span class="line">    r = file_obj.<span class="built_in">write</span>(str(<span class="number">123</span>) + <span class="string">&#x27;123123\n&#x27;</span>)</span><br><span class="line">    print(r)  <span class="comment"># 10</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="文件的其他操作"><a href="#文件的其他操作" class="headerlink" title="文件的其他操作"></a>文件的其他操作</h3><ol>
+<li>os.listdir()，获取指定目录的目录结构，需要一个路径作为参数，会获取到该路径下的目录结构，某人路径为当前目录。返回一个列表，目录中的每一个文件(夹) 的名字都是列表中的一个元素</li>
+<li>os.getcwd()，获取当前所在的目录</li>
+<li>os.chdir()，切换当前所在的目录，相当于 cd</li>
+<li>os.mkdir( ‘目录名’ )，创建目录</li>
+<li>os.rmdir( ‘目录名’ )，删除目录</li>
+<li>os.remove( ‘文件名’ )，删除文件</li>
+<li>os.rename( ‘旧的文件名’，’新的文件名’ )，对文件重命名，也可以用来移动一个文件</li>
+</ol>
+]]></content>
+      <categories>
+        <category>python</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -2034,85 +2227,88 @@ END
       </tags>
   </entry>
   <entry>
-    <title>文件</title>
-    <url>/2020/10/04/%E6%96%87%E4%BB%B6/</url>
-    <content><![CDATA[<h3 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h3><ol>
-<li><p>使用 open() 函数打开一个文件</p>
-</li>
-<li><p>open(file, mode=’r’, buffering=-1, encoding_=None, errors=None, newline=None, closefd=True, opener=None)</p>
-</li>
-<li><p>返回一个对象，这个对象就代表了当前打开的文件</p>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 在windows系统使用路径时，可以使用/来代替 \</span></span><br><span class="line"><span class="comment"># 或者可以使用 \\ 来代替 \, file_name = &#x27;hello\\demo.txt&#x27;</span></span><br><span class="line"><span class="comment"># 或者也可以使用原始字符串,   r&#x27;hello\demo.txt&#x27;</span></span><br><span class="line">file_name = <span class="string">&#x27;hello/demo.txt&#x27;</span></span><br><span class="line">file_obj = open(file_name)  # 打开 file_name 对应的文件</span><br><span class="line"><span class="builtin-name">print</span>(file_obj)  # &lt;_io.TextIOWrapper <span class="attribute">name</span>=<span class="string">&#x27;hello/demo.txt&#x27;</span> <span class="attribute">mode</span>=<span class="string">&#x27;r&#x27;</span> <span class="attribute">encoding</span>=<span class="string">&#x27;cp936&#x27;</span>&gt;</span><br></pre></td></tr></table></figure>
-
-</li>
+    <title>条件查询</title>
+    <url>/2020/09/17/%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/</url>
+    <content><![CDATA[<h3 id="条件查询语法"><a href="#条件查询语法" class="headerlink" title="条件查询语法"></a>条件查询语法</h3><blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">	查询列表</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">	表名</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">	筛选条件;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>按条件表达式筛选</strong></p>
+<blockquote>
+<p>简单条件运算符：&gt; &lt;  =  !=  &lt;&gt;  &gt;=   &lt;=</p>
+</blockquote>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询工资&gt;12000的员工信息</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary&gt;<span class="number">12000</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>按逻辑表达式筛选</strong></p>
+<blockquote>
+<p>逻辑运算符：and  or  not（not，两边都为false，结果为true，否则为false)</p>
+</blockquote>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询工资z在10000到20000之间的员工名、工资以及奖金</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">   last_name,salary,commission_pct</span><br><span class="line"><span class="keyword">FROM</span>  employees</span><br><span class="line"><span class="keyword">WHERE</span>  salary&gt;=<span class="number">10000</span> <span class="keyword">AND</span> salary&lt;=<span class="number">20000</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询部门编号不是在90到110之间，或者工资高于15000的员工信息</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">   <span class="keyword">NOT</span>(department_id&gt;=<span class="number">90</span> <span class="keyword">AND</span> department_id&lt;=<span class="number">110</span>) <span class="keyword">OR</span> salary&gt;<span class="number">15000</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p><strong>模糊查询</strong></p>
+<ol>
+<li>like</li>
 </ol>
-<h3 id="关闭文件"><a href="#关闭文件" class="headerlink" title="关闭文件"></a>关闭文件</h3><ol>
-<li><p>当获取了文件对象后，所有对文件的操作都应该通过文件对象来进行</p>
-</li>
-<li><p>通过 close() 来关闭文件</p>
-<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line"><span class="built_in">file_name</span> = &#x27;<span class="built_in">demo</span>.txt&#x27;</span><br><span class="line">file_obj = open(<span class="built_in">file_name</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">content</span> = file_obj.<span class="built_in">read</span>()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">content</span>)</span><br><span class="line"></span><br><span class="line">file_obj.<span class="built_in">close</span>()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>with …  as  语句，在 with 语句中可以直接使用 file_obj 来进行文件操作，此时这个文件只能在 with 中使用，一旦 with 结束则文件会自动 close()</p>
-<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">file_name = <span class="string">&#x27;demo.txt&#x27;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(file_name) <span class="keyword">as</span> file_obj:</span><br><span class="line">    print(file_obj.<span class="built_in">read</span>())</span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h3><ol>
-<li><p>调用open() 来打开一个文件，可以将文件分成两种类型，一种是纯文本文件，另一种是二进制文件（图片，mp3，ppt等这些文件），open() 打开文件时，默认是以纯文本文件的形式打开的，但是 open() 默认的编码 为 None，所以处理文本文件时，必须要指定文件的编码</p>
-<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line"><span class="built_in">file_name</span> = &#x27;<span class="built_in">demo</span>.txt&#x27;</span><br><span class="line"></span><br><span class="line">try:</span><br><span class="line">    with open(<span class="built_in">file_name</span>, encoding=&#x27;utf-<span class="number">8</span>&#x27;) as file_obj:</span><br><span class="line">        <span class="built_in">content</span> = file_obj.<span class="built_in">read</span>()</span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">content</span>)</span><br><span class="line">        <span class="built_in">print</span>(len(<span class="built_in">content</span>))</span><br><span class="line">except FileNotFoundError:</span><br><span class="line">    <span class="built_in">print</span>(f&#x27;&#123;<span class="built_in">file_name</span>&#125; 这个文件不存在！&#x27;)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>读取模式，t 读取文本文件（默认值），b  读取二进制文件；</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">file_name = &#x27;C:/Users/高萍/Videos/4.mp4&#x27;</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> <span class="keyword">open</span>(file_name, <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> file_obj:</span><br><span class="line">    <span class="comment"># 读取文本文件时，size是以字符为单位的</span></span><br><span class="line">    <span class="comment"># 读取二进制文件时，size是以字节为单位</span></span><br><span class="line">    print(file_obj.read(<span class="number">100</span>))</span><br><span class="line">    new_file_name = <span class="string">&#x27;5.mp4&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">with</span> <span class="keyword">open</span>(new_file_name, <span class="string">&#x27;wb&#x27;</span>) <span class="keyword">as</span> new_file_obj:</span><br><span class="line">        <span class="comment"># 定义每次读取的大小</span></span><br><span class="line">        <span class="keyword">chunk</span> = <span class="number">1024</span> * <span class="number">100</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="comment"># 从已有的对象中读取数据</span></span><br><span class="line">            <span class="keyword">content</span> = file_obj.read(<span class="keyword">chunk</span>)</span><br><span class="line">            <span class="comment"># 内容读取完毕，终止循环</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">content</span>:</span><br><span class="line">                break</span><br><span class="line">            <span class="comment"># 将读取到的数据写入到新对象中</span></span><br><span class="line">            new_file_obj.write(<span class="keyword">content</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>读取文件内容，read()，它会将文件内容全部保存为一个字符串返回</p>
-<figure class="highlight maxima"><table><tr><td class="code"><pre><span class="line"><span class="built_in">file_name</span> = &#x27;<span class="built_in">demo</span>.txt&#x27;</span><br><span class="line">file_obj = open(<span class="built_in">file_name</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">content</span> = file_obj.<span class="built_in">read</span>()</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">content</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果直接调用 read() ，会将文本文件的所有内容一次性全部读取出来，如果要读取的文件较大的话，一次性将文件的内容全部加载到内存中，容易导致内存泄露，所以对于较大的文件，不要调用 read()</p>
-</li>
-<li><p>read() 可以接收一个 size 参数，用来指定要读取的字符的数量，默认值为-1，读取文件中的所有字符，可以为 size 指定值，这样read() 会读取指定数量的字符，每一次读取都是从上次读取到的位置开始读取的。如果字符的数量小于size，则会读取所有剩余字符，如果已经读取到了文件最后，则会返回 ‘’ 字符。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">file_name = &#x27;demo.txt&#x27;</span><br><span class="line"></span><br><span class="line">try:</span><br><span class="line">    <span class="keyword">with</span> <span class="keyword">open</span>(file_name, <span class="keyword">encoding</span>=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> file_obj:</span><br><span class="line">        file_content = <span class="string">&#x27;&#x27;</span></span><br><span class="line">        <span class="keyword">chunk</span> = <span class="number">100</span>  <span class="comment"># 定义一个变量，来指定每次读取的大小</span></span><br><span class="line">        <span class="comment"># 创建一个循环来读取文件内容</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">content</span> = file_obj.read(<span class="keyword">chunk</span>)  <span class="comment"># 读取chunk大小的内容</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> <span class="keyword">content</span>:  <span class="comment"># 检查是否读取到了内容</span></span><br><span class="line">                break  <span class="comment"># 内容读取完毕，退出循环</span></span><br><span class="line">            file_content += <span class="keyword">content</span></span><br><span class="line"><span class="keyword">except</span> FileNotFoundError:</span><br><span class="line">    print(f<span class="string">&#x27;&#123;file_name&#125; 这个文件不存在！&#x27;</span>)</span><br><span class="line"></span><br><span class="line">print(file_content)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>readline()，可以用来读取一行内容</p>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">import pprint</span><br><span class="line">file_name = <span class="string">&#x27;demo.txt&#x27;</span></span><br><span class="line"></span><br><span class="line">with open(file_name, <span class="attribute">encoding</span>=<span class="string">&#x27;utf-8&#x27;</span>) as file_obj:</span><br><span class="line">    <span class="builtin-name">print</span>(file_obj.readline())</span><br><span class="line">    <span class="builtin-name">print</span>(file_obj.readline())</span><br><span class="line">    <span class="builtin-name">print</span>(file_obj.readline())</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>readlines()，用于一行一行的读取内容，一次性将读取到的内容封装到一个列表中返回</p>
-<figure class="highlight sas"><table><tr><td class="code"><pre><span class="line">import pprint</span><br><span class="line">file_name = <span class="string">&#x27;demo.txt&#x27;</span></span><br><span class="line"></span><br><span class="line">with<span class="meta"> open(</span>file_name, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="meta">as</span> file_obj:</span><br><span class="line">    r = file_obj.readlines()</span><br><span class="line">    pprint.pp<span class="meta">rint(</span>r[0])</span><br><span class="line">    pprint.pp<span class="meta">rint(</span>r[1])</span><br><span class="line">    pprint.pp<span class="meta">rint(</span>r[2])</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>seek() 可以修改当前读取的位置，需要两个参数，第一个参数是要切换到的位置，第二个参数是计算位置方式（0：从头计算，默认值；1：从当前位置计算；2：从最后位置开始计算）</p>
-<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;demo.txt&#x27;</span>, <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> file_obj:</span><br><span class="line">    <span class="comment"># file_obj.seek(55)</span></span><br><span class="line">    <span class="comment"># file_obj.seek(80, 0)</span></span><br><span class="line">    <span class="comment"># file_obj.seek(70, 1)</span></span><br><span class="line">    file_obj.<span class="built_in">seek</span>(<span class="number">-10</span>, <span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    print(file_obj.<span class="built_in">read</span>())</span><br><span class="line">    print(<span class="string">&#x27;当前读取到了 --&gt;&#x27;</span>, file_obj.tell()) <span class="comment"># tell() 用来查看当前读取的位置</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="文件的写入"><a href="#文件的写入" class="headerlink" title="文件的写入"></a>文件的写入</h3><ol>
-<li><p>使用open() 打开文件时必须要指定打开文件所要做的操作（读，写，追加），如果不指定操作类型，默认是 读取文件</p>
+<blockquote>
+<p>一般和通配符搭配使用，通配符：%(代表0个或多个字符)， _(任意单个字符)</p>
+</blockquote>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询员工名中包含字符a的员工信息</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span>  last_name <span class="keyword">LIKE</span> <span class="string">&#x27;%a%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询员工名中第三个字符为n，第五个字符为l的员工名和工资</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name, salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> last_name <span class="keyword">LIKE</span> <span class="string">&#x27;__n_l%&#x27;</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询员工名中第二个字符为_的员工名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> last_name <span class="keyword">LIKE</span> <span class="string">&#x27;_$_%&#x27;</span> ESCAPE <span class="string">&#x27;$&#x27;</span>; <span class="comment">#$是转义的作用，可替换为其他字符</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>2.between and</p>
+<blockquote>
+<p>包含临界值，两个临界值不能调换顺序</p>
+</blockquote>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询员工编号在100到120之间的员工信息</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> employee_id <span class="keyword">BETWEEN</span> <span class="number">100</span> <span class="keyword">AND</span> <span class="number">120</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>3.in</p>
+<blockquote>
 <ul>
-<li>r 表示只读；</li>
-<li>w表示可写的，如果文件不存在会创建文件，文件存在则会覆盖原来文件中的所有内容</li>
-<li>a 表示追加内容，文件不存在会创建文件，文件存在则会向文件中追加内容</li>
-<li>x 用来新建文件，文件不存在则创建，存在则报错</li>
-<li>“ + “ 为操作符增加功能，如 r+ 可读可写，文件不存在会报错，w+，a+等</li>
+<li>包含某字段的值是否属于in列表中的某一项</li>
+<li>in 列表中的值类型必须一致或兼容</li>
+<li>in 列表中不支持通配符</li>
 </ul>
-</li>
-<li><p>write() 向文件中写入内容，如果操作的是一个文本文件的话，则 write() 需要传递一个字符串作为参数。该方法可以分多次向文件中写入内容，返回写入的字符的个数</p>
-<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">file_name = <span class="string">&#x27;demo.txt&#x27;</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(file_name, <span class="string">&#x27;a&#x27;</span>, encoding=<span class="string">&#x27;utf-8&#x27;</span>) <span class="keyword">as</span> file_obj:</span><br><span class="line">    file_obj.<span class="built_in">write</span>(<span class="string">&#x27;aaa\n&#x27;</span>)</span><br><span class="line">    file_obj.<span class="built_in">write</span>(<span class="string">&#x27;bbb\n&#x27;</span>)</span><br><span class="line">    file_obj.<span class="built_in">write</span>(<span class="string">&#x27;ccc\n&#x27;</span>)</span><br><span class="line">    r = file_obj.<span class="built_in">write</span>(str(<span class="number">123</span>) + <span class="string">&#x27;123123\n&#x27;</span>)</span><br><span class="line">    print(r)  <span class="comment"># 10</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<h3 id="文件的其他操作"><a href="#文件的其他操作" class="headerlink" title="文件的其他操作"></a>文件的其他操作</h3><ol>
-<li>os.listdir()，获取指定目录的目录结构，需要一个路径作为参数，会获取到该路径下的目录结构，某人路径为当前目录。返回一个列表，目录中的每一个文件(夹) 的名字都是列表中的一个元素</li>
-<li>os.getcwd()，获取当前所在的目录</li>
-<li>os.chdir()，切换当前所在的目录，相当于 cd</li>
-<li>os.mkdir( ‘目录名’ )，创建目录</li>
-<li>os.rmdir( ‘目录名’ )，删除目录</li>
-<li>os.remove( ‘文件名’ )，删除文件</li>
-<li>os.rename( ‘旧的文件名’，’新的文件名’ )，对文件重命名，也可以用来移动一个文件</li>
-</ol>
+</blockquote>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询员工的工种编号是 IT_PROG、AD_VP、AD_PRES中的一个员工名和工种编号</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name,job_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">  job_id <span class="keyword">IN</span>( <span class="string">&#x27;IT_PROT&#x27;</span> ,<span class="string">&#x27;AD_VP&#x27;</span>,<span class="string">&#x27;AD_PRES&#x27;</span>);</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>4.is null 和 安全等于 &lt;=&gt;</p>
+<blockquote>
+<ul>
+<li>is null 或 is not null 用于判断 null 值，=或&lt;&gt;不能用于判断 null 值</li>
+<li>安全等于&lt;=&gt;，即可以判断NULL值，又可以判断普通数值</li>
+<li>推荐使用 is null</li>
+</ul>
+</blockquote>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询没有奖金的员工名和奖金率</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name,commission_pct</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> commission_pct <span class="keyword">IS</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询没有奖金的员工名和奖金率</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name,commission_pct</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> commission_pct &lt;=&gt;<span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询工资为12000的员工信息</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name,salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary &lt;=&gt; <span class="number">12000</span>;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询所有员工的奖金率，若为Null，置为0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">     <span class="keyword">IFNULL</span>(commission_pct,<span class="number">0</span>) <span class="keyword">AS</span> 奖金率,</span><br><span class="line">     commission_pct</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+</blockquote>
 ]]></content>
       <categories>
-        <category>python</category>
+        <category>数据库</category>
       </categories>
       <tags>
-        <tag>python</tag>
+        <tag>Mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -2268,81 +2464,21 @@ END
       </tags>
   </entry>
   <entry>
-    <title>条件查询</title>
-    <url>/2020/09/17/%E6%9D%A1%E4%BB%B6%E6%9F%A5%E8%AF%A2/</url>
-    <content><![CDATA[<h3 id="条件查询语法"><a href="#条件查询语法" class="headerlink" title="条件查询语法"></a>条件查询语法</h3><blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> </span><br><span class="line">	查询列表</span><br><span class="line"><span class="keyword">from</span></span><br><span class="line">	表名</span><br><span class="line"><span class="keyword">where</span></span><br><span class="line">	筛选条件;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p><strong>按条件表达式筛选</strong></p>
-<blockquote>
-<p>简单条件运算符：&gt; &lt;  =  !=  &lt;&gt;  &gt;=   &lt;=</p>
-</blockquote>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询工资&gt;12000的员工信息</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary&gt;<span class="number">12000</span>;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p><strong>按逻辑表达式筛选</strong></p>
-<blockquote>
-<p>逻辑运算符：and  or  not（not，两边都为false，结果为true，否则为false)</p>
-</blockquote>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询工资z在10000到20000之间的员工名、工资以及奖金</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">   last_name,salary,commission_pct</span><br><span class="line"><span class="keyword">FROM</span>  employees</span><br><span class="line"><span class="keyword">WHERE</span>  salary&gt;=<span class="number">10000</span> <span class="keyword">AND</span> salary&lt;=<span class="number">20000</span>;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询部门编号不是在90到110之间，或者工资高于15000的员工信息</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">   <span class="keyword">NOT</span>(department_id&gt;=<span class="number">90</span> <span class="keyword">AND</span> department_id&lt;=<span class="number">110</span>) <span class="keyword">OR</span> salary&gt;<span class="number">15000</span>;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p><strong>模糊查询</strong></p>
-<ol>
-<li>like</li>
-</ol>
-<blockquote>
-<p>一般和通配符搭配使用，通配符：%(代表0个或多个字符)， _(任意单个字符)</p>
-</blockquote>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询员工名中包含字符a的员工信息</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span>  last_name <span class="keyword">LIKE</span> <span class="string">&#x27;%a%&#x27;</span>;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询员工名中第三个字符为n，第五个字符为l的员工名和工资</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name, salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> last_name <span class="keyword">LIKE</span> <span class="string">&#x27;__n_l%&#x27;</span>;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询员工名中第二个字符为_的员工名</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> last_name <span class="keyword">LIKE</span> <span class="string">&#x27;_$_%&#x27;</span> ESCAPE <span class="string">&#x27;$&#x27;</span>; <span class="comment">#$是转义的作用，可替换为其他字符</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>2.between and</p>
-<blockquote>
-<p>包含临界值，两个临界值不能调换顺序</p>
-</blockquote>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询员工编号在100到120之间的员工信息</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> *</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> employee_id <span class="keyword">BETWEEN</span> <span class="number">100</span> <span class="keyword">AND</span> <span class="number">120</span>;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>3.in</p>
-<blockquote>
-<ul>
-<li>包含某字段的值是否属于in列表中的某一项</li>
-<li>in 列表中的值类型必须一致或兼容</li>
-<li>in 列表中不支持通配符</li>
+    <title>标识列</title>
+    <url>/2020/09/20/%E6%A0%87%E8%AF%86%E5%88%97/</url>
+    <content><![CDATA[<h3 id="标识列"><a href="#标识列" class="headerlink" title="标识列"></a>标识列</h3><ul>
+<li>又称为自增长列，可以不用手动插入值，系统提供默认的序列值</li>
+<li>标识列不一定和主键搭配，但要求是一个 key</li>
+<li>一个表至多一个标识列</li>
+<li>标识列的类型只能是数值型</li>
+<li>标识列可以通过 set auto increment_increment = 3 设置步长</li>
+<li>标识列可以通过手动插入值，设置起始值</li>
 </ul>
+<h3 id="创建表时设置标识列"><a href="#创建表时设置标识列" class="headerlink" title="创建表时设置标识列"></a>创建表时设置标识列</h3><blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#设置id列为自增长列</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_identity(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</span><br><span class="line">	stu_name <span class="built_in">VARCHAR</span>(<span class="number">20</span>)</span><br><span class="line">);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_identity(<span class="keyword">id</span>,stu_name) <span class="keyword">VALUES</span>(<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;jack&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_identity(stu_name) <span class="keyword">VALUES</span>(<span class="string">&#x27;lucy&#x27;</span>);</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> table_identity;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询员工的工种编号是 IT_PROG、AD_VP、AD_PRES中的一个员工名和工种编号</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name,job_id</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">  job_id <span class="keyword">IN</span>( <span class="string">&#x27;IT_PROT&#x27;</span> ,<span class="string">&#x27;AD_VP&#x27;</span>,<span class="string">&#x27;AD_PRES&#x27;</span>);</span><br></pre></td></tr></table></figure>
-</blockquote>
-<p>4.is null 和 安全等于 &lt;=&gt;</p>
-<blockquote>
-<ul>
-<li>is null 或 is not null 用于判断 null 值，=或&lt;&gt;不能用于判断 null 值</li>
-<li>安全等于&lt;=&gt;，即可以判断NULL值，又可以判断普通数值</li>
-<li>推荐使用 is null</li>
-</ul>
-</blockquote>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询没有奖金的员工名和奖金率</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name,commission_pct</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> commission_pct <span class="keyword">IS</span> <span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询没有奖金的员工名和奖金率</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name,commission_pct</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> commission_pct &lt;=&gt;<span class="literal">NULL</span>;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询工资为12000的员工信息</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> last_name,salary</span><br><span class="line"><span class="keyword">FROM</span> employees</span><br><span class="line"><span class="keyword">WHERE</span> salary &lt;=&gt; <span class="number">12000</span>;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查询所有员工的奖金率，若为Null，置为0</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> </span><br><span class="line">     <span class="keyword">IFNULL</span>(commission_pct,<span class="number">0</span>) <span class="keyword">AS</span> 奖金率,</span><br><span class="line">     commission_pct</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看自增长列起始值和步长</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">&#x27;%auto_increment%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#  设置自增长列步长</span></span><br><span class="line"><span class="keyword">SET</span> auto_increment_increment=<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
 </blockquote>
 ]]></content>
       <categories>
@@ -2512,101 +2648,6 @@ END
       </tags>
   </entry>
   <entry>
-    <title>流程控制结构</title>
-    <url>/2020/09/20/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/</url>
-    <content><![CDATA[<h3 id="流程控制结构"><a href="#流程控制结构" class="headerlink" title="流程控制结构"></a>流程控制结构</h3><ul>
-<li>顺序结构，分支结构，循环结构</li>
-</ul>
-<h3 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h3><ul>
-<li><p>if函数</p>
-<ul>
-<li>语法：if(条件，值1，值2)</li>
-<li>功能：实现双分支</li>
-<li>应用在 begin end中或外面</li>
-</ul>
-</li>
-<li><p>case结构</p>
-<ul>
-<li><p>作为表达式</p>
-<ul>
-<li><p>情况1：</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CASE</span> 表达式</span><br><span class="line"><span class="keyword">WHEN</span> 值<span class="number">1</span> <span class="keyword">THEN</span> 值<span class="number">1</span>；</span><br><span class="line"><span class="keyword">WHEN</span> 值<span class="number">2</span> <span class="keyword">THEN</span> 值<span class="number">2</span>；</span><br><span class="line">...</span><br><span class="line"><span class="keyword">ELSE</span> 值n;</span><br><span class="line"><span class="keyword">END</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>情况2：</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CASE</span> </span><br><span class="line"><span class="keyword">WHEN</span> 条件<span class="number">1</span> <span class="keyword">THEN</span> 值<span class="number">1</span>；</span><br><span class="line"><span class="keyword">WHEN</span> 条件<span class="number">2</span> <span class="keyword">THEN</span> 值<span class="number">2</span>；</span><br><span class="line">...</span><br><span class="line"><span class="keyword">ELSE</span> 值n;</span><br><span class="line"><span class="keyword">END</span>;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>作为独立的语句（只能在 begin end 中)</p>
-<ul>
-<li><p>情况1：</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CASE</span> 表达式</span><br><span class="line"><span class="keyword">WHEN</span> 值<span class="number">1</span> <span class="keyword">THEN</span> 语句<span class="number">1</span>；</span><br><span class="line"><span class="keyword">WHEN</span> 值<span class="number">2</span> <span class="keyword">THEN</span> 语句<span class="number">2</span>；</span><br><span class="line">...</span><br><span class="line"><span class="keyword">ELSE</span> 语句n;</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">CASE</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>情况2：</p>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CASE</span> </span><br><span class="line"><span class="keyword">WHEN</span> 条件<span class="number">1</span> <span class="keyword">THEN</span> 语句<span class="number">1</span>；</span><br><span class="line"><span class="keyword">WHEN</span> 条件<span class="number">2</span> <span class="keyword">THEN</span> 语句<span class="number">2</span>；</span><br><span class="line">...</span><br><span class="line"><span class="keyword">ELSE</span> 语句n;</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">CASE</span>;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#创建函数，实现传入成绩，如果成绩&gt;90,返回A，如果成绩&gt;80,返回B，如果成绩&gt;60,返回C，否则返回D</span></span><br><span class="line"></span><br><span class="line">DELIMITER $;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> fn(score <span class="built_in">FLOAT</span>) <span class="keyword">RETURNS</span> <span class="built_in">CHAR</span></span><br><span class="line"><span class="keyword">BEGIN</span> </span><br><span class="line">	<span class="keyword">DECLARE</span> ch <span class="built_in">CHAR</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">	CASE </span><br><span class="line">	WHEN score&gt;90 THEN SET ch=&#x27;A&#x27;;</span><br><span class="line">	WHEN score&gt;80 THEN SET ch=&#x27;B&#x27;;</span><br><span class="line">	WHEN score&gt;60 THEN SET ch=&#x27;C&#x27;;</span><br><span class="line">	ELSE <span class="keyword">SET</span> ch=<span class="string">&#x27;D&#x27;</span>;</span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">CASE</span>;</span><br><span class="line">	RETURN ch;</span><br><span class="line"><span class="keyword">END</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> fn(<span class="number">56</span>)	</span><br></pre></td></tr></table></figure>
-</blockquote>
-<ul>
-<li><p>if 结构</p>
-</li>
-<li><p>类似于多重IF</p>
-</li>
-<li><p>只能应用在 begin end 中</p>
-<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">IF 条件<span class="number">1</span> THEN 语句<span class="number">1</span>；</span><br><span class="line">ELSEIF 条件<span class="number">2</span> THEN 语句<span class="number">2</span>;</span><br><span class="line">...</span><br><span class="line">ELSE 语句n;</span><br><span class="line">END IF;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建函数，实现传入成绩，如果成绩&gt;90,返回A，如果成绩&gt;80,返回B，如果成绩&gt;60,返回C，否则返回D</span></span><br><span class="line"></span><br><span class="line">DELIMITER $;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> foo(score <span class="built_in">FLOAT</span>) <span class="keyword">RETURNS</span> <span class="built_in">CHAR</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">DECLARE</span> ch <span class="built_in">CHAR</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">	IF score&gt;90 THEN SET ch=&#x27;A&#x27;;</span><br><span class="line">	ELSEIF score&gt;80 THEN SET ch=&#x27;B&#x27;;</span><br><span class="line">	ELSEIF score&gt;60 THEN SET ch=&#x27;C&#x27;;</span><br><span class="line">	ELSE <span class="keyword">SET</span> ch=<span class="string">&#x27;D&#x27;</span>;</span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">IF</span>;</span><br><span class="line">	RETURN ch;</span><br><span class="line"><span class="keyword">END</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> foo(<span class="number">87</span>)</span><br></pre></td></tr></table></figure>
-</li>
-<li><pre><code class="sql">
-# 创建存储过程，如果工资&lt;2000,则删除，如果5000&gt;工资&gt;2000,则涨工资1000，否则涨工资500
-
-DELIMITER $;
-CREATE PROCEDURE pro(IN sal DOUBLE)
-BEGIN
-    IF sal&lt;2000 THEN DELETE FROM employees WHERE employees.salary=sal;
-    ELSEIF sal&gt;=2000 AND sal&lt;5000 THEN UPDATE employees SET salary=salary+1000 WHERE employees.`salary`=sal;
-    ELSE UPDATE employees SET salary=salary+500 WHERE employees.`salary`=sal;
-    END IF;
-END 
-
-CALL pro(2100)
-<figure class="highlight hsp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">### 循环结构</span></span><br><span class="line"></span><br><span class="line">- 分类：<span class="keyword">while</span>，<span class="keyword">loop</span>，<span class="keyword">repeat</span></span><br><span class="line">- 循环控制：</span><br><span class="line">  - iterate 类似于 <span class="keyword">continue</span>，结束本次循环，继续下一次</span><br><span class="line">  - leave 类似于 <span class="keyword">break</span>，跳出当前所在的循环</span><br><span class="line"></span><br><span class="line"><span class="meta">### While循环</span></span><br><span class="line"></span><br><span class="line">- 先判断后执行</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  【标签:】 <span class="keyword">while</span> 循环条件 </span><br><span class="line">   <span class="keyword">DO</span></span><br><span class="line">  	循环体；</span><br><span class="line">   <span class="keyword">END</span> <span class="keyword">while</span> 【标签】</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 批量插入，根据次数插入到admin表中多条记录</span></span><br><span class="line"></span><br><span class="line">DELIMITER $;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> pro_while(<span class="keyword">IN</span> insertCount <span class="built_in">INT</span>)</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">DECLARE</span> i <span class="built_in">INT</span> <span class="keyword">DEFAULT</span> <span class="number">1</span>;</span><br><span class="line">	WHILE i&lt;=insertCount DO</span><br><span class="line">		<span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">admin</span>(username,<span class="string">`password`</span>) <span class="keyword">VALUES</span>(<span class="keyword">CONCAT</span>(<span class="string">&#x27;Rose&#x27;</span>,i),<span class="string">&#x27;666&#x27;</span>);</span><br><span class="line">		<span class="keyword">SET</span> i=i+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">WHILE</span>;	</span><br><span class="line"><span class="keyword">END</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">CALL</span> pro_while(<span class="number">100</span>)</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">admin</span>;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 批量插入，根据次数插入到admin表中多条记录，如果次数&gt;20则停止</span></span><br><span class="line"><span class="comment"># leave 语句</span></span><br><span class="line"></span><br><span class="line">DELIMITER $;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> pro_while2(<span class="keyword">IN</span> insertCount <span class="built_in">INT</span>)</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">DECLARE</span> i <span class="built_in">INT</span> <span class="keyword">DEFAULT</span> <span class="number">1</span>;</span><br><span class="line">	a:WHILE i&lt;=insertCount DO</span><br><span class="line">		<span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">admin</span>(username,<span class="string">`password`</span>) <span class="keyword">VALUES</span>(<span class="keyword">CONCAT</span>(<span class="string">&#x27;xiaohua&#x27;</span>,i),<span class="string">&#x27;0000&#x27;</span>);</span><br><span class="line">		IF i&gt;=20 THEN LEAVE a;</span><br><span class="line">		<span class="keyword">END</span> <span class="keyword">IF</span>;</span><br><span class="line">		<span class="keyword">SET</span> i=i+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">WHILE</span> a;</span><br><span class="line"><span class="keyword">END</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">CALL</span> pro_while2(<span class="number">100</span>)</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">admin</span>;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 批量插入，根据次数插入到admin表中多条记录，只插入偶数次</span></span><br><span class="line"></span><br><span class="line">DELIMITER $;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> pro_while3(<span class="keyword">IN</span> insertCount <span class="built_in">INT</span>)</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">DECLARE</span> i <span class="built_in">INT</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>;</span><br><span class="line">	a:WHILE i&lt;=insertCount DO</span><br><span class="line">		<span class="keyword">SET</span> i=i+<span class="number">1</span>;</span><br><span class="line">		IF MOD(i,2)!=0 THEN ITERATE a;</span><br><span class="line">		<span class="keyword">END</span> <span class="keyword">IF</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">admin</span>(username,<span class="string">`password`</span>) <span class="keyword">VALUES</span>(<span class="keyword">CONCAT</span>(<span class="string">&#x27;xiaohua&#x27;</span>,i),<span class="string">&#x27;0000&#x27;</span>);</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">WHILE</span> a;</span><br><span class="line"><span class="keyword">END</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">CALL</span> pro_while3(<span class="number">100</span>)</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">admin</span>;</span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-</ul>
-<h3 id="Loop循环"><a href="#Loop循环" class="headerlink" title="Loop循环"></a>Loop循环</h3><blockquote>
-<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">【标签】<span class="keyword">loop</span></span><br><span class="line">	循环体</span><br><span class="line"> <span class="keyword">END</span> <span class="keyword">LOOP</span> 【标签】;</span><br></pre></td></tr></table></figure>
-
-<p>可以用来模拟简单的死循环</p>
-</blockquote>
-<h3 id="repeat循环"><a href="#repeat循环" class="headerlink" title="repeat循环"></a>repeat循环</h3><ul>
-<li>先执行后判断</li>
-</ul>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">【标签：】repeat</span><br><span class="line">	循环体</span><br><span class="line"> UNTILL 结束循环的条件</span><br><span class="line"> <span class="keyword">END</span> <span class="keyword">REPEAT</span> 【标签】；</span><br></pre></td></tr></table></figure>
-</blockquote>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>Mysql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>流程控制语句</title>
     <url>/2020/09/26/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E8%AF%AD%E5%8F%A5/</url>
     <content><![CDATA[<h3 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">age = <span class="number">68</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> age &gt;= <span class="number">18</span> <span class="keyword">and</span> age &lt; <span class="number">30</span>:</span><br><span class="line">    print(<span class="string">&#x27;已成年&#x27;</span>)</span><br><span class="line"><span class="keyword">elif</span> age &gt;= <span class="number">30</span> <span class="keyword">and</span> age &lt; <span class="number">60</span>:</span><br><span class="line">    print(<span class="string">&#x27;中年&#x27;</span>)</span><br><span class="line"><span class="keyword">elif</span> age &gt;= <span class="number">60</span>:</span><br><span class="line">    print(<span class="string">&#x27;已退休&#x27;</span>)</span><br></pre></td></tr></table></figure>
@@ -2752,31 +2793,6 @@ CALL pro(2100)
       </tags>
   </entry>
   <entry>
-    <title>标识列</title>
-    <url>/2020/09/20/%E6%A0%87%E8%AF%86%E5%88%97/</url>
-    <content><![CDATA[<h3 id="标识列"><a href="#标识列" class="headerlink" title="标识列"></a>标识列</h3><ul>
-<li>又称为自增长列，可以不用手动插入值，系统提供默认的序列值</li>
-<li>标识列不一定和主键搭配，但要求是一个 key</li>
-<li>一个表至多一个标识列</li>
-<li>标识列的类型只能是数值型</li>
-<li>标识列可以通过 set auto increment_increment = 3 设置步长</li>
-<li>标识列可以通过手动插入值，设置起始值</li>
-</ul>
-<h3 id="创建表时设置标识列"><a href="#创建表时设置标识列" class="headerlink" title="创建表时设置标识列"></a>创建表时设置标识列</h3><blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#设置id列为自增长列</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_identity(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</span><br><span class="line">	stu_name <span class="built_in">VARCHAR</span>(<span class="number">20</span>)</span><br><span class="line">);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_identity(<span class="keyword">id</span>,stu_name) <span class="keyword">VALUES</span>(<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;jack&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_identity(stu_name) <span class="keyword">VALUES</span>(<span class="string">&#x27;lucy&#x27;</span>);</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> table_identity;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 查看自增长列起始值和步长</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">&#x27;%auto_increment%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#  设置自增长列步长</span></span><br><span class="line"><span class="keyword">SET</span> auto_increment_increment=<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
-</blockquote>
-]]></content>
-      <categories>
-        <category>数据库</category>
-      </categories>
-      <tags>
-        <tag>Mysql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>关于python</title>
     <url>/2020/09/26/%E7%AC%AC%E4%B8%80%E4%B8%AApython%E7%A8%8B%E5%BA%8F/</url>
     <content><![CDATA[<h3 id="python"><a href="#python" class="headerlink" title="python"></a>python</h3><ol>
@@ -2917,6 +2933,101 @@ CALL pro(2100)
       </categories>
       <tags>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>流程控制结构</title>
+    <url>/2020/09/20/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/</url>
+    <content><![CDATA[<h3 id="流程控制结构"><a href="#流程控制结构" class="headerlink" title="流程控制结构"></a>流程控制结构</h3><ul>
+<li>顺序结构，分支结构，循环结构</li>
+</ul>
+<h3 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h3><ul>
+<li><p>if函数</p>
+<ul>
+<li>语法：if(条件，值1，值2)</li>
+<li>功能：实现双分支</li>
+<li>应用在 begin end中或外面</li>
+</ul>
+</li>
+<li><p>case结构</p>
+<ul>
+<li><p>作为表达式</p>
+<ul>
+<li><p>情况1：</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CASE</span> 表达式</span><br><span class="line"><span class="keyword">WHEN</span> 值<span class="number">1</span> <span class="keyword">THEN</span> 值<span class="number">1</span>；</span><br><span class="line"><span class="keyword">WHEN</span> 值<span class="number">2</span> <span class="keyword">THEN</span> 值<span class="number">2</span>；</span><br><span class="line">...</span><br><span class="line"><span class="keyword">ELSE</span> 值n;</span><br><span class="line"><span class="keyword">END</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>情况2：</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CASE</span> </span><br><span class="line"><span class="keyword">WHEN</span> 条件<span class="number">1</span> <span class="keyword">THEN</span> 值<span class="number">1</span>；</span><br><span class="line"><span class="keyword">WHEN</span> 条件<span class="number">2</span> <span class="keyword">THEN</span> 值<span class="number">2</span>；</span><br><span class="line">...</span><br><span class="line"><span class="keyword">ELSE</span> 值n;</span><br><span class="line"><span class="keyword">END</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>作为独立的语句（只能在 begin end 中)</p>
+<ul>
+<li><p>情况1：</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CASE</span> 表达式</span><br><span class="line"><span class="keyword">WHEN</span> 值<span class="number">1</span> <span class="keyword">THEN</span> 语句<span class="number">1</span>；</span><br><span class="line"><span class="keyword">WHEN</span> 值<span class="number">2</span> <span class="keyword">THEN</span> 语句<span class="number">2</span>；</span><br><span class="line">...</span><br><span class="line"><span class="keyword">ELSE</span> 语句n;</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">CASE</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>情况2：</p>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CASE</span> </span><br><span class="line"><span class="keyword">WHEN</span> 条件<span class="number">1</span> <span class="keyword">THEN</span> 语句<span class="number">1</span>；</span><br><span class="line"><span class="keyword">WHEN</span> 条件<span class="number">2</span> <span class="keyword">THEN</span> 语句<span class="number">2</span>；</span><br><span class="line">...</span><br><span class="line"><span class="keyword">ELSE</span> 语句n;</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">CASE</span>;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment">#创建函数，实现传入成绩，如果成绩&gt;90,返回A，如果成绩&gt;80,返回B，如果成绩&gt;60,返回C，否则返回D</span></span><br><span class="line"></span><br><span class="line">DELIMITER $;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> fn(score <span class="built_in">FLOAT</span>) <span class="keyword">RETURNS</span> <span class="built_in">CHAR</span></span><br><span class="line"><span class="keyword">BEGIN</span> </span><br><span class="line">	<span class="keyword">DECLARE</span> ch <span class="built_in">CHAR</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">	CASE </span><br><span class="line">	WHEN score&gt;90 THEN SET ch=&#x27;A&#x27;;</span><br><span class="line">	WHEN score&gt;80 THEN SET ch=&#x27;B&#x27;;</span><br><span class="line">	WHEN score&gt;60 THEN SET ch=&#x27;C&#x27;;</span><br><span class="line">	ELSE <span class="keyword">SET</span> ch=<span class="string">&#x27;D&#x27;</span>;</span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">CASE</span>;</span><br><span class="line">	RETURN ch;</span><br><span class="line"><span class="keyword">END</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> fn(<span class="number">56</span>)	</span><br></pre></td></tr></table></figure>
+</blockquote>
+<ul>
+<li><p>if 结构</p>
+</li>
+<li><p>类似于多重IF</p>
+</li>
+<li><p>只能应用在 begin end 中</p>
+<figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">IF 条件<span class="number">1</span> THEN 语句<span class="number">1</span>；</span><br><span class="line">ELSEIF 条件<span class="number">2</span> THEN 语句<span class="number">2</span>;</span><br><span class="line">...</span><br><span class="line">ELSE 语句n;</span><br><span class="line">END IF;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 创建函数，实现传入成绩，如果成绩&gt;90,返回A，如果成绩&gt;80,返回B，如果成绩&gt;60,返回C，否则返回D</span></span><br><span class="line"></span><br><span class="line">DELIMITER $;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> foo(score <span class="built_in">FLOAT</span>) <span class="keyword">RETURNS</span> <span class="built_in">CHAR</span></span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">DECLARE</span> ch <span class="built_in">CHAR</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">	IF score&gt;90 THEN SET ch=&#x27;A&#x27;;</span><br><span class="line">	ELSEIF score&gt;80 THEN SET ch=&#x27;B&#x27;;</span><br><span class="line">	ELSEIF score&gt;60 THEN SET ch=&#x27;C&#x27;;</span><br><span class="line">	ELSE <span class="keyword">SET</span> ch=<span class="string">&#x27;D&#x27;</span>;</span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">IF</span>;</span><br><span class="line">	RETURN ch;</span><br><span class="line"><span class="keyword">END</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> foo(<span class="number">87</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><pre><code class="sql">
+# 创建存储过程，如果工资&lt;2000,则删除，如果5000&gt;工资&gt;2000,则涨工资1000，否则涨工资500
+
+DELIMITER $;
+CREATE PROCEDURE pro(IN sal DOUBLE)
+BEGIN
+    IF sal&lt;2000 THEN DELETE FROM employees WHERE employees.salary=sal;
+    ELSEIF sal&gt;=2000 AND sal&lt;5000 THEN UPDATE employees SET salary=salary+1000 WHERE employees.`salary`=sal;
+    ELSE UPDATE employees SET salary=salary+500 WHERE employees.`salary`=sal;
+    END IF;
+END 
+
+CALL pro(2100)
+<figure class="highlight hsp"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">### 循环结构</span></span><br><span class="line"></span><br><span class="line">- 分类：<span class="keyword">while</span>，<span class="keyword">loop</span>，<span class="keyword">repeat</span></span><br><span class="line">- 循环控制：</span><br><span class="line">  - iterate 类似于 <span class="keyword">continue</span>，结束本次循环，继续下一次</span><br><span class="line">  - leave 类似于 <span class="keyword">break</span>，跳出当前所在的循环</span><br><span class="line"></span><br><span class="line"><span class="meta">### While循环</span></span><br><span class="line"></span><br><span class="line">- 先判断后执行</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  【标签:】 <span class="keyword">while</span> 循环条件 </span><br><span class="line">   <span class="keyword">DO</span></span><br><span class="line">  	循环体；</span><br><span class="line">   <span class="keyword">END</span> <span class="keyword">while</span> 【标签】</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 批量插入，根据次数插入到admin表中多条记录</span></span><br><span class="line"></span><br><span class="line">DELIMITER $;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> pro_while(<span class="keyword">IN</span> insertCount <span class="built_in">INT</span>)</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">DECLARE</span> i <span class="built_in">INT</span> <span class="keyword">DEFAULT</span> <span class="number">1</span>;</span><br><span class="line">	WHILE i&lt;=insertCount DO</span><br><span class="line">		<span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">admin</span>(username,<span class="string">`password`</span>) <span class="keyword">VALUES</span>(<span class="keyword">CONCAT</span>(<span class="string">&#x27;Rose&#x27;</span>,i),<span class="string">&#x27;666&#x27;</span>);</span><br><span class="line">		<span class="keyword">SET</span> i=i+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">WHILE</span>;	</span><br><span class="line"><span class="keyword">END</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">CALL</span> pro_while(<span class="number">100</span>)</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">admin</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 批量插入，根据次数插入到admin表中多条记录，如果次数&gt;20则停止</span></span><br><span class="line"><span class="comment"># leave 语句</span></span><br><span class="line"></span><br><span class="line">DELIMITER $;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> pro_while2(<span class="keyword">IN</span> insertCount <span class="built_in">INT</span>)</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">DECLARE</span> i <span class="built_in">INT</span> <span class="keyword">DEFAULT</span> <span class="number">1</span>;</span><br><span class="line">	a:WHILE i&lt;=insertCount DO</span><br><span class="line">		<span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">admin</span>(username,<span class="string">`password`</span>) <span class="keyword">VALUES</span>(<span class="keyword">CONCAT</span>(<span class="string">&#x27;xiaohua&#x27;</span>,i),<span class="string">&#x27;0000&#x27;</span>);</span><br><span class="line">		IF i&gt;=20 THEN LEAVE a;</span><br><span class="line">		<span class="keyword">END</span> <span class="keyword">IF</span>;</span><br><span class="line">		<span class="keyword">SET</span> i=i+<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">WHILE</span> a;</span><br><span class="line"><span class="keyword">END</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">CALL</span> pro_while2(<span class="number">100</span>)</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">admin</span>;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 批量插入，根据次数插入到admin表中多条记录，只插入偶数次</span></span><br><span class="line"></span><br><span class="line">DELIMITER $;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">PROCEDURE</span> pro_while3(<span class="keyword">IN</span> insertCount <span class="built_in">INT</span>)</span><br><span class="line"><span class="keyword">BEGIN</span></span><br><span class="line">	<span class="keyword">DECLARE</span> i <span class="built_in">INT</span> <span class="keyword">DEFAULT</span> <span class="number">0</span>;</span><br><span class="line">	a:WHILE i&lt;=insertCount DO</span><br><span class="line">		<span class="keyword">SET</span> i=i+<span class="number">1</span>;</span><br><span class="line">		IF MOD(i,2)!=0 THEN ITERATE a;</span><br><span class="line">		<span class="keyword">END</span> <span class="keyword">IF</span>;</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">INSERT</span> <span class="keyword">INTO</span> <span class="keyword">admin</span>(username,<span class="string">`password`</span>) <span class="keyword">VALUES</span>(<span class="keyword">CONCAT</span>(<span class="string">&#x27;xiaohua&#x27;</span>,i),<span class="string">&#x27;0000&#x27;</span>);</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">WHILE</span> a;</span><br><span class="line"><span class="keyword">END</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">CALL</span> pro_while3(<span class="number">100</span>)</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">admin</span>;</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<h3 id="Loop循环"><a href="#Loop循环" class="headerlink" title="Loop循环"></a>Loop循环</h3><blockquote>
+<figure class="highlight ada"><table><tr><td class="code"><pre><span class="line">【标签】<span class="keyword">loop</span></span><br><span class="line">	循环体</span><br><span class="line"> <span class="keyword">END</span> <span class="keyword">LOOP</span> 【标签】;</span><br></pre></td></tr></table></figure>
+
+<p>可以用来模拟简单的死循环</p>
+</blockquote>
+<h3 id="repeat循环"><a href="#repeat循环" class="headerlink" title="repeat循环"></a>repeat循环</h3><ul>
+<li>先执行后判断</li>
+</ul>
+<blockquote>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">【标签：】repeat</span><br><span class="line">	循环体</span><br><span class="line"> UNTILL 结束循环的条件</span><br><span class="line"> <span class="keyword">END</span> <span class="keyword">REPEAT</span> 【标签】；</span><br></pre></td></tr></table></figure>
+</blockquote>
+]]></content>
+      <categories>
+        <category>数据库</category>
+      </categories>
+      <tags>
+        <tag>Mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -3618,6 +3729,129 @@ DROP VIEW v2,v3;
       </categories>
       <tags>
         <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>v-if 和 v-show 区别</title>
+    <url>/2020/11/08/vue.js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/v-if%20%E5%92%8C%20v-show/</url>
+    <content><![CDATA[<p>博客园：<a href="https://www.cnblogs.com/shanlu0000/p/13455491.html">https://www.cnblogs.com/shanlu0000/p/13455491.html</a></p>
+<h2 id="v-if-和-v-show-区别"><a href="#v-if-和-v-show-区别" class="headerlink" title="v-if 和 v-show 区别"></a>v-if 和 v-show 区别</h2><ol>
+<li><p>作用原理：</p>
+<ul>
+<li>v-if指令完全根据表达式的值在DOM中生成或移除一个元素，v-if 表达式赋值为 false，对应的元素就会从DOM中移除，否则 对应元素的一个克隆将被重新插入DOM中。v-if 是真实的条件渲染，因为它会确保条件块再切换时合适的销毁与重建条件快内的事件监听器和子组件</li>
+<li>v-show 指令是根据表达式的值来显示或者隐藏HTML元素，v-show 赋值为 false时，元素被隐藏（display：none）</li>
+</ul>
+</li>
+<li><p>对 templat 标签的支持</p>
+<ul>
+<li>v-if 支持使用  template 元素作为包装元素，在template上使用 v-if，最终渲染结果不会包含它</li>
+<li>v-show 不支持 tempalte 语法</li>
+</ul>
+</li>
+<li><p>对 v-else 支持</p>
+<ul>
+<li><p>v-if 支持和 v-else 一起使用</p>
+</li>
+<li><p>v-show 用在组件上时，因为指令的优先级 v-else会出现问题，所以一般不将 v-else 和 v-show一起使用，如：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;custom-component v-show=<span class="string">&quot;condition&quot;</span>&gt;&lt;/custom-component&gt;</span><br><span class="line">&lt;p v-<span class="keyword">else</span>&gt; 这可能是一个组件&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解决方法是：用另一个 v-show 替换 v-else</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;custom-component v-show=<span class="string">&quot;condition&quot;</span>&gt;&lt;/custom-component&gt;</span><br><span class="line">&lt;p v-show=<span class="string">&quot;!condition&quot;</span>&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>v-if 是惰性的，初始渲染条件为假，则什么也不做，条件第一次为真时才开始局部编译（编译会被缓存起来）</p>
+</li>
+<li><p>v-show，元素始终被编译并保留，只是简单的基于CSS切换</p>
+</li>
+<li><p>代价上：</p>
+<ul>
+<li>v-if 有更高的切换消耗</li>
+<li>v-show 有更高的初始渲染消耗</li>
+</ul>
+</li>
+<li><p>恰当使用</p>
+<ul>
+<li>若需要频繁切换，使用 v-show 更好</li>
+<li>如果在运行时条件不大可能改变，使用 v-if 更好</li>
+</ul>
+</li>
+</ol>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+      <categories>
+        <category>读书笔记</category>
+      </categories>
+      <tags>
+        <tag>vue</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小程序构建npm并安装vant-weapp包</title>
+    <url>/2020/10/24/miniprogram-debating/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%9E%84%E5%BB%BAnpm/</url>
+    <content><![CDATA[<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
+<li><p>在开发者工具中新建小程序项目后，终端进入项目根目录中，执行 npm init -y 初始化仓库，仓库中就有 package.json文件了</p>
+</li>
+<li><p>终端中执行 npm i @vant/weapp -S –production，安装 vant-weapp 包</p>
+</li>
+<li><p>点击开发者工具中的 工具-构建npm，构建成功后，根目录中会看到一个miniprogram_npm这个文件夹</p>
+</li>
+<li><p>将 app.json中的 “style”:”v2” 去除，小程序的新版基础组件强行加上了许多样式，不关闭将造成部分组件样式混乱</p>
+</li>
+<li><p>在 index.json中引入 Button 组件</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;usingComponents&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;van-button&quot;</span>: <span class="string">&quot;@vant/weapp/button/index&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 index.wxml中使用Button组件</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">van-button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">van-button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>构建成功：</p>
+<img src="C:\Users\高萍\Desktop\MyHexoBlogs\myblogs\source\_posts\miniprogram-debating\截图\小程序构建npm.jpg" alt="https://wx3.sinaimg.cn/mw690/007gSPK8gy1gk0ppna3lkj309q0h9q2v.jpg" style="zoom: 67%;" />
+
+</li>
+</ol>
+<p>小程序npm支持：<a href="https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html">https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html</a></p>
+<p>vant-weapp：<a href="http://vant-contrib.gitee.io/vant-weapp/#/quickstart">http://vant-contrib.gitee.io/vant-weapp/#/quickstart</a></p>
+<h3 id="自定义方式构建-Npm："><a href="#自定义方式构建-Npm：" class="headerlink" title="自定义方式构建 Npm："></a>自定义方式构建 Npm：</h3><ol>
+<li><p>以上使用的是小程序默认的构建 npm 的方式</p>
+</li>
+<li><p>小程序也可以通过自定义node_modules 和 miniprogram_npm位置来构建npm，只需要在项目根目录中的project.config.json 文件中指定 node_modules 的位置和目标 miniprogram_npm  的位置。</p>
+</li>
+<li><p>若使用自定义构建方式，配置 setting.packNpmManually 为 true，以及 setting.packNpmRelationList 项，指定packageJsonPath（node_modules源对应的package.json) 和 miniprogramNpmDisDir（node_modules的构建结果目标位置)的位置，如：</p>
+<p>构建npm前项目目录为：</p>
+<blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── <span class="selector-tag">miniprogram</span></span><br><span class="line">│   ├── <span class="selector-tag">app</span><span class="selector-class">.js</span></span><br><span class="line">│   ├── <span class="selector-tag">app</span><span class="selector-class">.json</span></span><br><span class="line">│   ├── <span class="selector-tag">app</span><span class="selector-class">.wxss</span></span><br><span class="line">│   ├── <span class="selector-tag">index</span></span><br><span class="line">│   ├── <span class="selector-tag">sitemap</span><span class="selector-class">.json</span></span><br><span class="line">│   └── <span class="selector-tag">sub_package</span></span><br><span class="line">│       └── <span class="selector-tag">sub_package_page</span></span><br><span class="line">├── <span class="selector-tag">project</span><span class="selector-class">.config</span><span class="selector-class">.json</span></span><br><span class="line">├── <span class="selector-tag">src_node_modules_1</span></span><br><span class="line">│   ├── <span class="selector-tag">node_modules</span></span><br><span class="line">│   └── <span class="selector-tag">package</span><span class="selector-class">.json</span></span><br><span class="line">└── <span class="selector-tag">src_node_modules_2</span></span><br><span class="line">    ├── <span class="selector-tag">node_modules</span></span><br><span class="line">    └── <span class="selector-tag">package</span><span class="selector-class">.json</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>project.config.json 配置为：</p>
+<blockquote>
+<figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;setting&quot;</span>: &#123;</span><br><span class="line">  <span class="string">&quot;packNpmManually&quot;</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">&quot;packNpmRelationList&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&quot;packageJsonPath&quot;</span>: <span class="string">&quot;./src_node_modules_1/package.json&quot;</span>,</span><br><span class="line">      <span class="string">&quot;miniprogramNpmDistDir&quot;</span>: <span class="string">&quot;./miniprogram/&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&quot;packageJsonPath&quot;</span>: <span class="string">&quot;./src_node_modules_2/package.json&quot;</span>,</span><br><span class="line">      <span class="string">&quot;miniprogramNpmDistDir&quot;</span>: <span class="string">&quot;./miniprogram/sub_package&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>那么，构建npm后的项目目录为：</p>
+<blockquote>
+<figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">.</span><br><span class="line">├── miniprogram</span><br><span class="line">│   ├── app.js</span><br><span class="line">│   ├── app.json</span><br><span class="line">│   ├── app.wxss</span><br><span class="line">│   ├── index</span><br><span class="line">│   ├── miniprogram_npm <span class="comment">// 由 src_node_modules_1/node_modules 构建得到</span></span><br><span class="line">│   ├── sitemap.json</span><br><span class="line">│   └── sub_package</span><br><span class="line">│       ├── miniprogram_npm <span class="comment">// 由 src_node_modules_2/node_modules 构建得到</span></span><br><span class="line">│       └── sub_package_page</span><br><span class="line">├── project<span class="selector-class">.config</span>.json</span><br><span class="line">├── src_node_modules_1</span><br><span class="line">│   ├── node_modules</span><br><span class="line">│   └── package.json</span><br><span class="line">└── src_node_modules_2</span><br><span class="line">    ├── node_modules</span><br><span class="line">    └── package.json</span><br></pre></td></tr></table></figure>
+
+<p>miniprogram_npm的位置取决于配置的 packNpmRelationList 值</p>
+</blockquote>
+</li>
+<li><p>使用小程序代码管理工具将项目代码提交的 远程仓库中：<a href="https://www.oschina.net/news/99140/mini-program-gitee">https://www.oschina.net/news/99140/mini-program-gitee</a></p>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>miniprogram-debating</category>
+      </categories>
+      <tags>
+        <tag>miniprogram-debating</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>小程序构建npm并安装vant-weapp包</title>
+    <url>/2020/10/24/miniprogram-debating/%E8%A7%A3%E5%86%B3%E5%B0%8F%E7%A8%8B%E5%BA%8Fswiper%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%9B%BA%E5%AE%9A%E7%9A%84%E9%97%AE%E9%A2%98/</url>
+    <content><![CDATA[<p><a href="https://www.jianshu.com/p/c812d3cf3c6c">https://www.jianshu.com/p/c812d3cf3c6c</a></p>
+]]></content>
+      <categories>
+        <category>miniprogram-debating</category>
+      </categories>
+      <tags>
+        <tag>miniprogram-debating</tag>
       </tags>
   </entry>
   <entry>

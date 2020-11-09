@@ -241,20 +241,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-count">52</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -324,6 +324,604 @@
       
 
       
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/11/08/v-if%20%E5%92%8C%20v-show/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/08/v-if%20%E5%92%8C%20v-show/" class="post-title-link" itemprop="url">v-if 和 v-show 区别</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-11-08 00:00:00 / 修改时间：22:14:21" itemprop="dateCreated datePublished" datetime="2020-11-08T00:00:00+08:00">2020-11-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/11/08/v-if%20%E5%92%8C%20v-show/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/08/v-if%20%E5%92%8C%20v-show/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>博客园：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/shanlu0000/p/13455491.html">https://www.cnblogs.com/shanlu0000/p/13455491.html</a></p>
+<h2 id="v-if-和-v-show-区别"><a href="#v-if-和-v-show-区别" class="headerlink" title="v-if 和 v-show 区别"></a>v-if 和 v-show 区别</h2><ol>
+<li><p>作用原理：</p>
+<ul>
+<li>v-if指令完全根据表达式的值在DOM中生成或移除一个元素，v-if 表达式赋值为 false，对应的元素就会从DOM中移除，否则 对应元素的一个克隆将被重新插入DOM中。v-if 是真实的条件渲染，因为它会确保条件块再切换时合适的销毁与重建条件快内的事件监听器和子组件</li>
+<li>v-show 指令是根据表达式的值来显示或者隐藏HTML元素，v-show 赋值为 false时，元素被隐藏（display：none）</li>
+</ul>
+</li>
+<li><p>对 templat 标签的支持</p>
+<ul>
+<li>v-if 支持使用  template 元素作为包装元素，在template上使用 v-if，最终渲染结果不会包含它</li>
+<li>v-show 不支持 tempalte 语法</li>
+</ul>
+</li>
+<li><p>对 v-else 支持</p>
+<ul>
+<li><p>v-if 支持和 v-else 一起使用</p>
+</li>
+<li><p>v-show 用在组件上时，因为指令的优先级 v-else会出现问题，所以一般不将 v-else 和 v-show一起使用，如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;custom-component v-show=<span class="string">&quot;condition&quot;</span>&gt;&lt;/custom-component&gt;</span><br><span class="line">&lt;p v-<span class="keyword">else</span>&gt; 这可能是一个组件&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解决方法是：用另一个 v-show 替换 v-else</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;custom-component v-show=<span class="string">&quot;condition&quot;</span>&gt;&lt;/custom-component&gt;</span><br><span class="line">&lt;p v-show=<span class="string">&quot;!condition&quot;</span>&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>v-if 是惰性的，初始渲染条件为假，则什么也不做，条件第一次为真时才开始局部编译（编译会被缓存起来）</p>
+</li>
+<li><p>v-show，元素始终被编译并保留，只是简单的基于CSS切换</p>
+</li>
+<li><p>代价上：</p>
+<ul>
+<li>v-if 有更高的切换消耗</li>
+<li>v-show 有更高的初始渲染消耗</li>
+</ul>
+</li>
+<li><p>恰当使用</p>
+<ul>
+<li>若需要频繁切换，使用 v-show 更好</li>
+<li>如果在运行时条件不大可能改变，使用 v-if 更好</li>
+</ul>
+</li>
+</ol>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/11/08/vue.js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/v-if%20%E5%92%8C%20v-show/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/11/08/vue.js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/v-if%20%E5%92%8C%20v-show/" class="post-title-link" itemprop="url">v-if 和 v-show 区别</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-11-08 00:00:00 / 修改时间：22:14:21" itemprop="dateCreated datePublished" datetime="2020-11-08T00:00:00+08:00">2020-11-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">读书笔记</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/11/08/vue.js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/v-if%20%E5%92%8C%20v-show/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/08/vue.js%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97/v-if%20%E5%92%8C%20v-show/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>博客园：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/shanlu0000/p/13455491.html">https://www.cnblogs.com/shanlu0000/p/13455491.html</a></p>
+<h2 id="v-if-和-v-show-区别"><a href="#v-if-和-v-show-区别" class="headerlink" title="v-if 和 v-show 区别"></a>v-if 和 v-show 区别</h2><ol>
+<li><p>作用原理：</p>
+<ul>
+<li>v-if指令完全根据表达式的值在DOM中生成或移除一个元素，v-if 表达式赋值为 false，对应的元素就会从DOM中移除，否则 对应元素的一个克隆将被重新插入DOM中。v-if 是真实的条件渲染，因为它会确保条件块再切换时合适的销毁与重建条件快内的事件监听器和子组件</li>
+<li>v-show 指令是根据表达式的值来显示或者隐藏HTML元素，v-show 赋值为 false时，元素被隐藏（display：none）</li>
+</ul>
+</li>
+<li><p>对 templat 标签的支持</p>
+<ul>
+<li>v-if 支持使用  template 元素作为包装元素，在template上使用 v-if，最终渲染结果不会包含它</li>
+<li>v-show 不支持 tempalte 语法</li>
+</ul>
+</li>
+<li><p>对 v-else 支持</p>
+<ul>
+<li><p>v-if 支持和 v-else 一起使用</p>
+</li>
+<li><p>v-show 用在组件上时，因为指令的优先级 v-else会出现问题，所以一般不将 v-else 和 v-show一起使用，如：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;custom-component v-show=<span class="string">&quot;condition&quot;</span>&gt;&lt;/custom-component&gt;</span><br><span class="line">&lt;p v-<span class="keyword">else</span>&gt; 这可能是一个组件&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>解决方法是：用另一个 v-show 替换 v-else</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;custom-component v-show=<span class="string">&quot;condition&quot;</span>&gt;&lt;/custom-component&gt;</span><br><span class="line">&lt;p v-show=<span class="string">&quot;!condition&quot;</span>&gt;&lt;/p&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>v-if 是惰性的，初始渲染条件为假，则什么也不做，条件第一次为真时才开始局部编译（编译会被缓存起来）</p>
+</li>
+<li><p>v-show，元素始终被编译并保留，只是简单的基于CSS切换</p>
+</li>
+<li><p>代价上：</p>
+<ul>
+<li>v-if 有更高的切换消耗</li>
+<li>v-show 有更高的初始渲染消耗</li>
+</ul>
+</li>
+<li><p>恰当使用</p>
+<ul>
+<li>若需要频繁切换，使用 v-show 更好</li>
+<li>如果在运行时条件不大可能改变，使用 v-if 更好</li>
+</ul>
+</li>
+</ol>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/10/24/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%9E%84%E5%BB%BAnpm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/24/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%9E%84%E5%BB%BAnpm/" class="post-title-link" itemprop="url">小程序构建npm并安装vant-weapp包</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-10-24 00:00:00 / 修改时间：21:41:41" itemprop="dateCreated datePublished" datetime="2020-10-24T00:00:00+08:00">2020-10-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/miniprogram-debating/" itemprop="url" rel="index"><span itemprop="name">miniprogram-debating</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/24/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%9E%84%E5%BB%BAnpm/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/24/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%9E%84%E5%BB%BAnpm/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
+<li><p>在开发者工具中新建小程序项目后，终端进入项目根目录中，执行 npm init -y 初始化仓库，仓库中就有 package.json文件了</p>
+</li>
+<li><p>终端中执行 npm i @vant/weapp -S –production，安装 vant-weapp 包</p>
+</li>
+<li><p>点击开发者工具中的 工具-构建npm，构建成功后，根目录中会看到一个miniprogram_npm这个文件夹</p>
+</li>
+<li><p>将 app.json中的 “style”:”v2” 去除，小程序的新版基础组件强行加上了许多样式，不关闭将造成部分组件样式混乱</p>
+</li>
+<li><p>在 index.json中引入 Button 组件</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;usingComponents&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;van-button&quot;</span>: <span class="string">&quot;@vant/weapp/button/index&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 index.wxml中使用Button组件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">van-button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">van-button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>构建成功：</p>
+<img src="C:\Users\高萍\Desktop\MyHexoBlogs\myblogs\source\_posts\miniprogram-debating\截图\小程序构建npm.jpg" alt="https://wx3.sinaimg.cn/mw690/007gSPK8gy1gk0ppna3lkj309q0h9q2v.jpg" style="zoom: 67%;">
+
+</li>
+</ol>
+<p>小程序npm支持：<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html">https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html</a></p>
+<p>vant-weapp：<a target="_blank" rel="noopener" href="http://vant-contrib.gitee.io/vant-weapp/#/quickstart">http://vant-contrib.gitee.io/vant-weapp/#/quickstart</a></p>
+<h3 id="自定义方式构建-Npm："><a href="#自定义方式构建-Npm：" class="headerlink" title="自定义方式构建 Npm："></a>自定义方式构建 Npm：</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/24/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%9E%84%E5%BB%BAnpm/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/10/24/miniprogram-debating/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%9E%84%E5%BB%BAnpm/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/24/miniprogram-debating/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%9E%84%E5%BB%BAnpm/" class="post-title-link" itemprop="url">小程序构建npm并安装vant-weapp包</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-10-24 00:00:00 / 修改时间：21:41:41" itemprop="dateCreated datePublished" datetime="2020-10-24T00:00:00+08:00">2020-10-24</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/miniprogram-debating/" itemprop="url" rel="index"><span itemprop="name">miniprogram-debating</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/24/miniprogram-debating/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%9E%84%E5%BB%BAnpm/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/24/miniprogram-debating/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%9E%84%E5%BB%BAnpm/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><ol>
+<li><p>在开发者工具中新建小程序项目后，终端进入项目根目录中，执行 npm init -y 初始化仓库，仓库中就有 package.json文件了</p>
+</li>
+<li><p>终端中执行 npm i @vant/weapp -S –production，安装 vant-weapp 包</p>
+</li>
+<li><p>点击开发者工具中的 工具-构建npm，构建成功后，根目录中会看到一个miniprogram_npm这个文件夹</p>
+</li>
+<li><p>将 app.json中的 “style”:”v2” 去除，小程序的新版基础组件强行加上了许多样式，不关闭将造成部分组件样式混乱</p>
+</li>
+<li><p>在 index.json中引入 Button 组件</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;usingComponents&quot;</span>: &#123;</span><br><span class="line">    <span class="attr">&quot;van-button&quot;</span>: <span class="string">&quot;@vant/weapp/button/index&quot;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在 index.wxml中使用Button组件</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">van-button</span> <span class="attr">type</span>=<span class="string">&quot;primary&quot;</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">van-button</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>构建成功：</p>
+<img src="C:\Users\高萍\Desktop\MyHexoBlogs\myblogs\source\_posts\miniprogram-debating\截图\小程序构建npm.jpg" alt="https://wx3.sinaimg.cn/mw690/007gSPK8gy1gk0ppna3lkj309q0h9q2v.jpg" style="zoom: 67%;">
+
+</li>
+</ol>
+<p>小程序npm支持：<a target="_blank" rel="noopener" href="https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html">https://developers.weixin.qq.com/miniprogram/dev/devtools/npm.html</a></p>
+<p>vant-weapp：<a target="_blank" rel="noopener" href="http://vant-contrib.gitee.io/vant-weapp/#/quickstart">http://vant-contrib.gitee.io/vant-weapp/#/quickstart</a></p>
+<h3 id="自定义方式构建-Npm："><a href="#自定义方式构建-Npm：" class="headerlink" title="自定义方式构建 Npm："></a>自定义方式构建 Npm：</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/24/miniprogram-debating/%E5%B0%8F%E7%A8%8B%E5%BA%8F%E6%9E%84%E5%BB%BAnpm/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/10/24/miniprogram-debating/%E8%A7%A3%E5%86%B3%E5%B0%8F%E7%A8%8B%E5%BA%8Fswiper%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%9B%BA%E5%AE%9A%E7%9A%84%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/24/miniprogram-debating/%E8%A7%A3%E5%86%B3%E5%B0%8F%E7%A8%8B%E5%BA%8Fswiper%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%9B%BA%E5%AE%9A%E7%9A%84%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">小程序构建npm并安装vant-weapp包</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-10-24 00:00:00" itemprop="dateCreated datePublished" datetime="2020-10-24T00:00:00+08:00">2020-10-24</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-11-09 21:25:44" itemprop="dateModified" datetime="2020-11-09T21:25:44+08:00">2020-11-09</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/miniprogram-debating/" itemprop="url" rel="index"><span itemprop="name">miniprogram-debating</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/10/24/miniprogram-debating/%E8%A7%A3%E5%86%B3%E5%B0%8F%E7%A8%8B%E5%BA%8Fswiper%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%9B%BA%E5%AE%9A%E7%9A%84%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/10/24/miniprogram-debating/%E8%A7%A3%E5%86%B3%E5%B0%8F%E7%A8%8B%E5%BA%8Fswiper%E7%BB%84%E4%BB%B6%E9%AB%98%E5%BA%A6%E5%9B%BA%E5%AE%9A%E7%9A%84%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/c812d3cf3c6c">https://www.jianshu.com/p/c812d3cf3c6c</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -962,862 +1560,10 @@
   
   
 
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/30/%E6%A0%87%E5%87%86%E5%BA%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/30/%E6%A0%87%E5%87%86%E5%BA%93/" class="post-title-link" itemprop="url">标准库</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-30 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-30T00:00:00+08:00">2020-09-30</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-04 17:05:21" itemprop="dateModified" datetime="2020-10-04T17:05:21+08:00">2020-10-04</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/30/%E6%A0%87%E5%87%86%E5%BA%93/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/30/%E6%A0%87%E5%87%86%E5%BA%93/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="操作系统接口"><a href="#操作系统接口" class="headerlink" title="操作系统接口"></a>操作系统接口</h3><ul>
-<li><p>os 模块提供了很多与操作系统交互的函数</p>
-<figure class="highlight moonscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="built_in">os</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">os</span>.getcwd()) # 当前目录路径</span><br></pre></td></tr></table></figure>
-
-<p>只能使用 import os 而不是 from os  import *，这将避免内建的 open() 函数被 os.open() 隐式替换掉</p>
-</li>
-<li><p>内置的 dir() 和 help() 函数可用作交互式辅助工具，用于处理大型模块，如 os</p>
-<figure class="highlight python-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt;</span> <span class="python"><span class="keyword">import</span> os</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt;</span> <span class="python">dir(os)  <span class="comment"># 模块列表</span></span></span><br><span class="line"><span class="meta">&gt;&gt;&gt;</span> <span class="python">help(os) </span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>对于日常文件和目录管理任务，shutil 模块提供了更易于使用的更高级别的接口</p>
-</li>
-</ul>
-<h3 id="文件通配符"><a href="#文件通配符" class="headerlink" title="文件通配符"></a>文件通配符</h3><ul>
-<li><p>glob 模块提供了一个在目录中使用通配符搜索创建文件列表的函数</p>
-<figure class="highlight python-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt;</span> <span class="python"><span class="keyword">import</span> glob</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt;</span> <span class="python">glob.glob(<span class="string">&#x27;*.py&#x27;</span>)   <span class="comment"># 找到所有py文件列表</span></span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="命令行参数"><a href="#命令行参数" class="headerlink" title="命令行参数"></a>命令行参数</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/30/%E6%A0%87%E5%87%86%E5%BA%93/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/29/%E9%94%99%E8%AF%AF%E5%92%8C%E5%BC%82%E5%B8%B8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/%E9%94%99%E8%AF%AF%E5%92%8C%E5%BC%82%E5%B8%B8/" class="post-title-link" itemprop="url">错误和异常</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-04 17:05:50" itemprop="dateModified" datetime="2020-10-04T17:05:50+08:00">2020-10-04</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/%E9%94%99%E8%AF%AF%E5%92%8C%E5%BC%82%E5%B8%B8/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/%E9%94%99%E8%AF%AF%E5%92%8C%E5%BC%82%E5%B8%B8/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="语法错误"><a href="#语法错误" class="headerlink" title="语法错误"></a>语法错误</h3><ul>
-<li>语法错误又称解析错误</li>
-</ul>
-<h3 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h3><ul>
-<li>在执行时检测到的错误被称为 异常</li>
-<li>异常有不同的类型，ZeroDivisionError，NameError，TypeError等</li>
-</ul>
-<h3 id="处理异常"><a href="#处理异常" class="headerlink" title="处理异常"></a>处理异常</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/%E9%94%99%E8%AF%AF%E5%92%8C%E5%BC%82%E5%B8%B8/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/29/%E7%B1%BB%20/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/29/%E7%B1%BB%20/" class="post-title-link" itemprop="url">类和对象</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-29 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-29T00:00:00+08:00">2020-09-29</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-04 17:05:38" itemprop="dateModified" datetime="2020-10-04T17:05:38+08:00">2020-10-04</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/29/%E7%B1%BB%20/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/29/%E7%B1%BB%20/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="Python作用域和命名空间"><a href="#Python作用域和命名空间" class="headerlink" title="Python作用域和命名空间"></a>Python作用域和命名空间</h3><ol>
-<li><p>作用域(scope) 指的是变量生效的区域</p>
-</li>
-<li><p>python中一共有两种作用域</p>
-<ul>
-<li><p>全局作用域</p>
-<ul>
-<li>在程序执行时创建，程序执行结束时销毁</li>
-<li>所有函数以外的区域都是全局作用域</li>
-<li>在全局作用域中定义的变量都属于全局变量，全局变量可以在程序的任意位置被访问</li>
-</ul>
-</li>
-<li><p>函数作用域</p>
-<ul>
-<li>在函数调用时创建，在调用结束时销毁</li>
-<li>函数每调用一次就会产生一个新的函数作用域</li>
-<li>在函数作用域中定义的变量，都是局部变量，只能在函数内部被访问</li>
-</ul>
-</li>
-<li><p>使用变量时，会优先在当前作用域中寻找变量，如果没有则继续去上一级作用域中寻找，知道找到全局作用域，依然未找到，则会抛出异常 NameError</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">20</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn1</span>():</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fn2</span>():</span></span><br><span class="line">        print(<span class="string">f&#x27;fn2中，a=<span class="subst">&#123;a&#125;</span>&#x27;</span>)</span><br><span class="line">    fn2()</span><br><span class="line"></span><br><span class="line">fn1()</span><br><span class="line"></span><br><span class="line"><span class="comment"># fn2中，a=20</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>在函数内为变量赋值时，默认都是为局部变量赋值，如果希望在函数内部修改全局变量，需要使用 global 关键字来声明变量</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span>():</span></span><br><span class="line">    a = <span class="number">10</span></span><br><span class="line">    <span class="keyword">global</span> b</span><br><span class="line">    b = <span class="number">10</span>  <span class="comment"># 修改全局变量</span></span><br><span class="line">    print(<span class="string">f&#x27;函数内部，a=<span class="subst">&#123;a&#125;</span>,b=<span class="subst">&#123;b&#125;</span>&#x27;</span>)  <span class="comment"># 函数内部，a=10,b=10</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fn()</span><br><span class="line">print(<span class="string">f&#x27;函数外部，a=<span class="subst">&#123;a&#125;</span>,b=<span class="subst">&#123;b&#125;</span>&#x27;</span>)  <span class="comment"># 函数外部，a=20,b=10</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>命名空间(namespace) 是一个从名字到对象的映射，指的是变量存储的位置，每个变量都需要存储到指定的命名空间中</p>
-</li>
-<li><p>每一个作用域都有它对应的命名空间</p>
-<ul>
-<li>全局命名空间，用来保存全局变量</li>
-<li>函数命名空间，用来保存函数中的局部变量</li>
-</ul>
-</li>
-<li><p>命名空间实际上就是一个字典，是一个专门用来存储变量的字典</p>
-</li>
-<li><p>locals() 可以用来获取当前作用域的命名空间，返回的是一个字典</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">scope = locals()</span><br><span class="line">print(type(scope))  <span class="comment"># &lt;class &#x27;dict&#x27;&gt;</span></span><br><span class="line"></span><br><span class="line">a = <span class="number">20</span></span><br><span class="line">print(scope[<span class="string">&#x27;a&#x27;</span>])  <span class="comment"># 20</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 向字典中添加key-value就相当于在全局中创建了一个变量（一般不建议这么做）</span></span><br><span class="line">scope[<span class="string">&#x27;c&#x27;</span>] = <span class="number">1000</span>  </span><br></pre></td></tr></table></figure>
-
-</blockquote>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">20</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fn</span>():</span></span><br><span class="line">    a = <span class="number">10</span></span><br><span class="line">    scope = locals()</span><br><span class="line">    print(scope[<span class="string">&#x27;a&#x27;</span>])  <span class="comment"># 10</span></span><br><span class="line"></span><br><span class="line">    global_scope = globals()</span><br><span class="line">    print(global_scope[<span class="string">&#x27;a&#x27;</span>])  <span class="comment"># 20, globals() 函数可以用来在任意位置获取全局命名空间</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">fn()</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>几个命名空间的例子：</p>
-<ul>
-<li>存放内置函数的集合</li>
-<li>模块中的全局名称</li>
-<li>函数调用中的局部名称</li>
-<li>从某种意义上说，对象的属性集合也是一种命名空间的形式</li>
-</ul>
-</li>
-<li><p>不同命名空间的名称之间没有关系，两个不同的模块都可以定义一个 maximize 函数而不会产生混淆。</p>
-</li>
-<li><p>属性可以是只读或者是可写的，可写的属性可以对它赋值，可写的属性可以用 del 语句删除。</p>
-</li>
-<li><p>不同时刻创建的命名空间拥有不同的生存期，包含内置名称的命名空间是在Python解释器启动时创建的，永远不会被删除。模块的全局命名空间在模块定义被读入时创建，通常，模块命名空间也会持续到解释器退出。内置名称实际上也存在于一个模块中，bulitins 模块。</p>
-</li>
-</ol>
-<blockquote>
-  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 作用域和命名空间</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">scope_test</span>():</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_local</span>():</span></span><br><span class="line">        str = <span class="string">&quot;local str&quot;</span></span><br><span class="line">        <span class="keyword">return</span> str</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_nonlocal</span>():</span></span><br><span class="line">        <span class="keyword">nonlocal</span> str</span><br><span class="line">        str = <span class="string">&quot;nonlocal str&quot;</span></span><br><span class="line">        <span class="keyword">return</span> str</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">do_global</span>():</span></span><br><span class="line">        <span class="keyword">global</span> str</span><br><span class="line">        str = <span class="string">&quot;global str&quot;</span></span><br><span class="line">        <span class="keyword">return</span> str</span><br><span class="line"></span><br><span class="line">    str = <span class="string">&quot;hello world&quot;</span></span><br><span class="line">    print(do_local()) 	<span class="comment"># local str</span></span><br><span class="line">    print(do_nonlocal()) <span class="comment"># nonlocal str</span></span><br><span class="line">    print(do_global()) <span class="comment"># global str</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">scope_test()</span><br><span class="line">print(<span class="string">&quot;global str:&quot;</span>, str) <span class="comment"># global str: global str</span></span><br></pre></td></tr></table></figure>
-
-</blockquote>
-<h3 id="类"><a href="#类" class="headerlink" title="类"></a>类</h3><ol>
-<li><p>类</p>
-<ul>
-<li>Python中的类提供了面向对象编程的所有标准特性</li>
-<li>类继承机制允许多个基类</li>
-<li>派生类可以覆盖它基类的任何方法</li>
-<li>一个方法可以调用基类中相同名称的方法</li>
-</ul>
-</li>
-<li><p>类定义语法</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 类名(<span class="params">[父类]</span>):</span></span><br><span class="line">   代码块</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义一个MyClass类</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span>():</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">print(MyClass)  <span class="comment"># &lt;class &#x27;__main__.MyClass&#x27;&gt;</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>在类的代码块中，可以定义变量和函数，类中所定义的变量，将会成为该类实例的公共属性，都可以被该类实例访问。</p>
-<p>类中定义的函数叫做方法，同样可以被该类实例所访问，类中的方法每次被调用时，解释器都会自动给方法传递第一个参数，就是调用的对象本身。如果是 p1 调的，第一个参数就是p1对象，如果是 p2 调的，第一个参数就是 p2 对象，一般将这个参数命名为 self</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>:</span></span><br><span class="line">    name = <span class="string">&#x27;张三&#x27;</span>  <span class="comment"># 公共属性，所有实例都可以访问</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">say_hello</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(self)  <span class="comment"># &lt;__main__.Person object at 0x00000298029758B0&gt; </span></span><br><span class="line">        print(<span class="string">&#x27;你好！我是%s&#x27;</span> % self.name)  <span class="comment"># 注意在方法中不能直接访问类中的属性</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">p1 = Person()</span><br><span class="line">p2 = Person()</span><br><span class="line"></span><br><span class="line">print(p1.name)  <span class="comment"># 张三</span></span><br><span class="line">p2.say_hello()  <span class="comment"># 你好！我是张三</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<p>类的基本结构</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> 类名(<span class="params">[父类]</span>)：</span></span><br><span class="line"><span class="class">	公共属性....</span></span><br><span class="line"><span class="class">	</span></span><br><span class="line"><span class="class">	# 对象的初始化方法</span></span><br><span class="line"><span class="class">	<span class="title">def</span> <span class="title">__init__</span>(<span class="params">self,....</span>):</span></span><br><span class="line">		代码块</span><br><span class="line">	</span><br><span class="line">	<span class="comment"># 其他的方法</span></span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">method_1</span>(<span class="params">self,....</span>)：</span></span><br><span class="line"><span class="function">		代码块</span></span><br><span class="line"><span class="function">	</span></span><br><span class="line"><span class="function">	<span class="title">def</span> <span class="title">method_2</span>(<span class="params">self,....</span>)：</span></span><br><span class="line"><span class="function">		代码块</span></span><br><span class="line"><span class="function">	</span></span><br><span class="line"><span class="function">	......</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>类属性和实例属性</p>
-<ul>
-<li><p>直接在类中定义的属性是类属性，可以通过类或类的实例被访问到</p>
-</li>
-<li><p>类属性只能通过类对象修改，无法通过实例修改</p>
-</li>
-<li><p>通过实例对象添加的属性是实例属性，只能通过实例对象来访问和修改，类对象无法访问和修改</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>(<span class="params">object</span>):</span></span><br><span class="line">    count = <span class="number">0</span>  <span class="comment"># 类属性</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.name = <span class="string">&#x27;张三&#x27;</span>  <span class="comment"># 实例属性</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = A()</span><br><span class="line">A.count = <span class="number">100</span> <span class="comment"># 类属性</span></span><br><span class="line">print(<span class="string">&#x27;A ,&#x27;</span>, A.count) <span class="comment">#  100  类对象访问类属性</span></span><br><span class="line">print(<span class="string">&#x27;a ,&#x27;</span>, a.count) <span class="comment">#  100  实例对象访问类属性</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">&#x27;a ,&#x27;</span>, a.name) <span class="comment">#  张三 实例对象访问实例属性</span></span><br><span class="line">print(<span class="string">&#x27;A ,&#x27;</span>, A.name)  <span class="comment"># AttributeError: type object &#x27;A&#x27; has no attribute &#x27;name&#x27;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>实例方法</p>
-<ul>
-<li><p>在类中定义，以selft为第一个参数的方法都是实例方法</p>
-</li>
-<li><p>实例方法在调用时，python会将调用对象作为 self 传入</p>
-</li>
-<li><p>实例方法可以通过实例和类去调用，当通过实例调用时，会自动将当前调用对象作为 selft  传入；当通过类调用时，不会自动传递self，必须手动传递self</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 类属性</span></span><br><span class="line"><span class="comment"># 实例属性</span></span><br><span class="line"><span class="comment"># 类方法</span></span><br><span class="line"><span class="comment"># 实例方法</span></span><br><span class="line"><span class="comment"># 静态方法</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>(<span class="params">object</span>):</span></span><br><span class="line">    count = <span class="number">0</span>  <span class="comment"># 类属性</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.name = <span class="string">&#x27;张三&#x27;</span>  <span class="comment"># 实例属性</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_1</span>(<span class="params">self</span>):</span></span><br><span class="line">        print(<span class="string">&#x27;test_1方法，一个实例方法 &#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_2</span>(<span class="params">cls</span>):</span></span><br><span class="line">        print(<span class="string">&#x27;test_2方法，一个类方法 &#x27;</span>, cls)</span><br><span class="line">        print(<span class="string">&#x27;cls.count=&#x27;</span>, cls.count)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">test_3</span>():</span></span><br><span class="line">        print(<span class="string">&#x27;test_3方法，一个静态方法&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">a = A()</span><br><span class="line">a.test_1()  <span class="comment"># 等价于 A.test_1(a)</span></span><br><span class="line"><span class="comment"># test_1方法，一个实例方法</span></span><br><span class="line"></span><br><span class="line">A.test_2()  <span class="comment"># 等价于 a.test_2()</span></span><br><span class="line"><span class="comment"># test_2方法，一个类方法  &lt;class &#x27;__main__.A&#x27;&gt;  cls.count= 0</span></span><br><span class="line">A.test_3()  <span class="comment"># test_3方法，一个静态方法</span></span><br><span class="line">a.test_3()  <span class="comment"># test_3方法，一个静态方法</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>类方法</p>
-<ul>
-<li>在类内部使用@classmethod 来修饰的方法</li>
-<li>类方法的第一个参数是 cls，也会被自动传递，cls 就是当前的类对象</li>
-</ul>
-</li>
-<li><p>静态方法</p>
-<ul>
-<li>在类中使用 @staticmethod 来修饰的方法</li>
-<li>静态方法不需要指定任何默认参数，可以通过类和实例去调用</li>
-<li>一般都是一些工具方法，和当前类无关</li>
-</ul>
-</li>
-<li><p>类对象</p>
-<ul>
-<li><p>类对象支持两种操作：属性引用和实例化</p>
-</li>
-<li><p>属性引用使用 python 中所有属性引用所使用的标准语法：obj.name，当类定义是这样的：</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyClass</span>:</span></span><br><span class="line">	<span class="string">&quot;A simple example class&quot;</span></span><br><span class="line">	i=<span class="number">12345</span></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">def</span> <span class="title">f</span>(<span class="params">self</span>):</span></span><br><span class="line">		<span class="keyword">return</span> <span class="string">&#x27;hello world&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>Myclass.i 和 Myclass.f 就是有效的属性引用，将分别返回一个整数和一个函数对象。</p>
-<p>类属性也可以被赋值，因此可以通过赋值更改 MyClass.i 的值</p>
-<p>_ doc _ 也是一个有效的属性，将返回所属类的文档字符串：“ A simple example class</p>
-</blockquote>
-</li>
-<li><p>类的实例化使用函数表示法，如 x= Myclass()，创建类的新实例并将此对象分配给局部变量 x</p>
-</li>
-<li><p>实例化操作会创建一个空对象，许多类喜欢创建带有特定初始状态的自定义实例，为此，类定义可能包含一个名为 _ init _ ()  的特殊方法。</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">	self.data= []</span><br></pre></td></tr></table></figure>
-
-<p>当一个类定义了 _ init _ () 方法时，类的实例化操作会自动为新创建的类实例发起调用 _ init _ () 。因此，可以通过 x=MyClass() 获得一个经初始化的新实例。</p>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>实例对象</p>
-<ul>
-<li>实例对象理解的唯一操作是属性引用</li>
-<li>有两种有效的属性名称：数据属性和方法<ul>
-<li>数据属性不需要声明，像局部变量一样，它们将在第一次被赋值时产生。</li>
-<li>方法是从属于对象的函数</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>方法对象</p>
-<ul>
-<li><p>通常，方法在绑定后立即被调用，如 x.f()</p>
-</li>
-<li><p>但是，立即调用一个方法并不是必须的，x.f 是一个方法对象，它可以被保存起来以后再调用。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">xf = x.f</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">	print(xf())</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>方法的特殊之处就在于实例对象会作为函数的第一个参数被传入，调用 x.f() 其实就相当于 MyClass.f(x)。调用一个具有 n 个参数的方法就相当于调用再多一个参数的对应函数，这个参数值为方法所属实例对象，位置在其他参数之前。</p>
-</li>
-</ul>
-</li>
-<li><p>类和实例变量</p>
-<ul>
-<li><p>实例变量用于每个实例的唯一数据，类变量用于类的所有实例共享的属性和方法</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span>:</span></span><br><span class="line">    kind = <span class="string">&#x27;canine&#x27;</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, name</span>):</span></span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">d = Dog(<span class="string">&#x27;Fido&#x27;</span>)</span><br><span class="line">e = Dog(<span class="string">&#x27;Buddy&#x27;</span>)</span><br><span class="line">print(d.kind, d.name) <span class="comment"># canine Fido</span></span><br><span class="line">print(e.kind, e.name) <span class="comment"># canine Buddy</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>共享数据可能在设计 mutable 对象例如列表和字典的时候导致令人惊讶的结果。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>:</span></span><br><span class="line">    tricks = []</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, name</span>):</span></span><br><span class="line">        self.name = name</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_trick</span>(<span class="params">self, trick</span>):</span></span><br><span class="line">        self.tricks.append(trick)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">c1 = Cat(<span class="string">&#x27;Fido&#x27;</span>)</span><br><span class="line">c2 = Cat(<span class="string">&#x27;Buddy&#x27;</span>)</span><br><span class="line">c1.add_trick(<span class="string">&#x27;roll over&#x27;</span>)</span><br><span class="line">c2.add_trick(<span class="string">&#x27;play dead&#x27;</span>)</span><br><span class="line">print(c1.tricks) 	<span class="comment">#[&#x27;roll over&#x27;, &#x27;play dead&#x27;]</span></span><br></pre></td></tr></table></figure>
-
-<p>tricks 列表不应该被用作类变量，因为所有的Cat实例将只共享一个单独的列表。</p>
-<p>正确的类设计应该使用实例变量</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Cat</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self, name</span>):</span></span><br><span class="line">        self.name = name</span><br><span class="line">        self.tricks = []  <span class="comment"># creates a new empty list for each dog</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">add_trick</span>(<span class="params">self, trick</span>):</span></span><br><span class="line">        self.tricks.append(trick)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">c1 = Cat(<span class="string">&#x27;Fido&#x27;</span>)</span><br><span class="line">c2 = Cat(<span class="string">&#x27;Buddy&#x27;</span>)</span><br><span class="line">c1.add_trick(<span class="string">&#x27;roll over&#x27;</span>)</span><br><span class="line">c2.add_trick(<span class="string">&#x27;play dead&#x27;</span>)</span><br><span class="line">print(c1.tricks)  <span class="comment"># [&#x27;roll over&#x27;]</span></span><br><span class="line">print(c2.tricks)  <span class="comment"># [&#x27;play dead&#x27;]</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>如果同样的属性名称同时出现在实例和类中，解释器会优先在当前实例对象中查找是否有该属性，如果有，则直接发返回当前实例对象的属性值，否则就去实例对象的类对象中寻找，如果有则返回类对象的属性值，类对象中依然没有，则报错。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span>:</span></span><br><span class="line">	name=<span class="string">&#x27;wangcai&#x27;</span></span><br><span class="line">	sex=<span class="string">&#x27;male&#x27;</span></span><br><span class="line"></span><br><span class="line">D1 = Dog()</span><br><span class="line">print(D1.name,D1.sex)  <span class="comment"># wangcai male</span></span><br><span class="line"></span><br><span class="line">D2 = Dog()</span><br><span class="line">D2.sex=<span class="string">&quot;female&quot;</span></span><br><span class="line">print(D2.name,D2.sex)  <span class="comment"># wangcai female</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/29/%E7%B1%BB%20/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/28/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/28/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/" class="post-title-link" itemprop="url">输入输出</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-28 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-28T00:00:00+08:00">2020-09-28</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-10-04 17:10:09" itemprop="dateModified" datetime="2020-10-04T17:10:09+08:00">2020-10-04</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/28/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/28/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="input"><a href="#input" class="headerlink" title="input()"></a>input()</h3><ol>
-<li><p>该函数用来获取用户的输入</p>
-</li>
-<li><p>input()调用后，程序会立即暂停，等待用户输入，用户输入完内容以后，点击回车程序才会继续向下执行</p>
-</li>
-<li><p>用户输入完成以后，其所输入的的内容会以返回值得形式返回</p>
-</li>
-<li><p>注意：input()的返回值是一个字符串</p>
-</li>
-<li><p>input()函数中可以设置一个字符串作为参数，这个字符串将会作为提示文字显示</p>
-</li>
-<li><p>input()也可以用于暂时阻止程序结束</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">username = input(<span class="string">&#x27;请输入用户名:&#x27;</span>)</span><br><span class="line"><span class="keyword">if</span> username == <span class="string">&#x27;admin&#x27;</span>:</span><br><span class="line">    print(<span class="string">&#x27;管理员登录！&#x27;</span>)</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-</ol>
-<h3 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h3><ol>
-<li><p>几种格式化输出的方法</p>
-<ul>
-<li><p>格式化字符串</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 字符串相加，拼接（注意，字符串只能和字符串拼接，不能和其他类型做加法连接）</span></span><br><span class="line">a = <span class="number">123</span> </span><br><span class="line">print(<span class="string">&quot;a = &quot;</span>+a) <span class="comment"># 不常用</span></span><br><span class="line">print(<span class="string">&#x27;a =&#x27;</span>,a)  <span class="comment"># 常用</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># a = 123</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建字符串时，可以在字符串中指定占位符</span></span><br><span class="line"><span class="comment"># %s 在字符串中表示任意字符</span></span><br><span class="line"><span class="comment"># %3s，3位字符，不够补空格</span></span><br><span class="line"><span class="comment"># %3.5s，3位到5位字符</span></span><br><span class="line"><span class="comment"># %f 浮点数占位符</span></span><br><span class="line"><span class="comment"># %.2f 两位小数</span></span><br><span class="line"><span class="comment"># %d 整数占位符</span></span><br><span class="line"></span><br><span class="line">a = <span class="string">&#x27;Hello %s&#x27;</span> % <span class="string">&#x27;张三&#x27;</span>  <span class="comment"># a = Hello 张三</span></span><br><span class="line">b = <span class="string">&#x27;hello %s 你好 %s&#x27;</span> % (<span class="string">&#x27;Tom&#x27;</span>, <span class="string">&#x27;张三&#x27;</span>)  <span class="comment"># b = hello Tom 你好 张三</span></span><br><span class="line">c = <span class="string">&#x27;hello %3.5s&#x27;</span> % <span class="string">&#x27;abcdefg&#x27;</span>  <span class="comment"># c = hello abcde</span></span><br><span class="line">d = <span class="string">&#x27;hello %s&#x27;</span> % <span class="number">123.456</span>  <span class="comment"># d = hello 123.456</span></span><br><span class="line">e = <span class="string">&#x27;hello %.2f&#x27;</span> % <span class="number">123.456</span>  <span class="comment"># e = hello 123.46</span></span><br><span class="line">f = <span class="string">&#x27;hello %d&#x27;</span> % <span class="number">123.95</span>  <span class="comment"># f = hello 123</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">&#x27;a = %s&#x27;</span> % a)</span><br><span class="line">print(<span class="string">&#x27;b = %s&#x27;</span> % b)</span><br><span class="line">print(<span class="string">&#x27;c = %s&#x27;</span> % c)</span><br><span class="line">print(<span class="string">&#x27;d = %s&#x27;</span> % d)</span><br><span class="line">print(<span class="string">&#x27;e = %s&#x27;</span> % e)</span><br><span class="line">print(<span class="string">&#x27;f = %s&#x27;</span> % f)</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在字符串的引号之前加上一个 f 或 F，在字符串中，可以在&#123;&#125; 之间写可以引用的变量或字面值的 python 表达式</span></span><br><span class="line">year = <span class="number">2016</span></span><br><span class="line">str = <span class="string">&#x27;hello world&#x27;</span></span><br><span class="line">print(&#123;year&#125;, &#123;str&#125;)</span><br><span class="line">print(<span class="string">f&#x27;year=<span class="subst">&#123;year&#125;</span>,str=<span class="subst">&#123;str&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">&#123;2016&#125; &#123;&#x27;hello world&#x27;&#125;</span></span><br><span class="line"><span class="string">year = 2016, str = hello world</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-</blockquote>
-</li>
-<li><p>字符串的 str.format() 方法</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">42</span>_572_654</span><br><span class="line">b = <span class="number">43</span>_132_495</span><br><span class="line">c = a / (a + b)</span><br><span class="line">print(<span class="string">&#x27;&#123;:-9&#125;,&#123;:2.2%&#125;&#x27;</span>.format(a, c))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">42572654,49.67%</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>仍然使用{} 来标记变量将被替换的位置，并且可以提供详细的格式化指令，但还需要提供要格式化的信息</p>
-</blockquote>
-</li>
-<li><p>当只想快速显示某些变量以进行调试时，可以使用 repr() 或 str() 将任何值转化为字符串</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">s = <span class="string">&#x27;hello world&#x27;</span></span><br><span class="line">print(str(s), repr(s))  <span class="comment"># hello world  &#x27;hello world&#x27;</span></span><br><span class="line">print(str(<span class="number">1</span> / <span class="number">7</span>))  <span class="comment"># 0.14285714285714285</span></span><br><span class="line"></span><br><span class="line">x = <span class="number">10</span> * <span class="number">3.25</span></span><br><span class="line">y = <span class="number">200</span> * <span class="number">200</span></span><br><span class="line">print(repr(x), repr(y))  <span class="comment"># 32.5 40000</span></span><br><span class="line">print(repr((x, y, (<span class="string">&#x27;Tom&#x27;</span>, <span class="string">&#x27;Bob&#x27;</span>))))  <span class="comment"># (32.5, 40000, (&#x27;Tom&#x27;, &#x27;Bob&#x27;))</span></span><br><span class="line"></span><br><span class="line">str = <span class="string">&quot;hello,world\n&quot;</span></span><br><span class="line">print(repr(str))  <span class="comment"># &#x27;hello,world\n&#x27;</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>格式化字符串文字</p>
-<ul>
-<li><p>格式化字符串字面值（f-字符串），可以在字符串前面加上 f 和 F 并将表达式写成 {expression} ，在字符串中包含python表达式的值</p>
-</li>
-<li><p>可选的格式说明符可以跟在表达式后，可以更好的控制值的格式化方式</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 将PI舍入到小数点后三位</span></span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line">print(<span class="string">f&#x27;PI is <span class="subst">&#123;math.pi:<span class="number">.3</span>f&#125;</span>&#x27;</span>)  <span class="comment"># PI is 3.142</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>在 ’ ：’ 后传递一个整数可以让该字段成为最小字符宽度，在列对齐时很有用</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">table = &#123;<span class="string">&#x27;Tom&#x27;</span>: <span class="number">4127</span>, <span class="string">&#x27;Jack&#x27;</span>: <span class="number">4098</span>, <span class="string">&#x27;Alice&#x27;</span>: <span class="number">7678</span>&#125;</span><br><span class="line"><span class="keyword">for</span> name, phone <span class="keyword">in</span> table.items():</span><br><span class="line">    print(<span class="string">f&#x27;<span class="subst">&#123;name:<span class="number">10</span>&#125;</span>==&gt;<span class="subst">&#123;phone:<span class="number">10</span>d&#125;</span>&#x27;</span>)</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">Tom       ==&gt;      4127</span></span><br><span class="line"><span class="string">Jack      ==&gt;      4098</span></span><br><span class="line"><span class="string">Alice     ==&gt;      7678</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>其他修饰符可用于在格式化前转化值。’ !a ‘ 应用 ascill() ，’ !s ‘ 应用 str()，’ !r ‘ 应用 repr()</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">animals = <span class="string">&#x27;eels&#x27;</span></span><br><span class="line">print(<span class="string">f&#x27;<span class="subst">&#123;animals&#125;</span>&#x27;</span>)  <span class="comment"># eels</span></span><br><span class="line">print(<span class="string">f&#x27;<span class="subst">&#123;animals!a&#125;</span>&#x27;</span>)  <span class="comment"># &#x27;eels&#x27;</span></span><br><span class="line">print(<span class="string">f&#x27;<span class="subst">&#123;animals!s&#125;</span>&#x27;</span>)  <span class="comment"># eels</span></span><br><span class="line">print(<span class="string">f&#x27;<span class="subst">&#123;animals!r&#125;</span>&#x27;</span>)  <span class="comment"># &#x27;eels&#x27;</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>字符串的 format() 方法</p>
-<ul>
-<li><p>基本用法</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&#x27;&#123;&#125;,&quot;&#123;&#125;&quot;&#x27;</span>.format(<span class="string">&#x27;hello&#x27;</span>, <span class="string">&#x27;world&#x27;</span>))  <span class="comment"># hello,&quot;world&quot;</span></span><br></pre></td></tr></table></figure>
-
-</blockquote>
-<p>花括号和其中的字符（称为格式字段）将替换为传递给 str.format() 方法的对象。</p>
-</li>
-<li><p>花括号中的数字可以表示传递给 str.format() 方法的对象的位置</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&#x27;&#123;0&#125; and &#123;1&#125;&#x27;</span>.format(<span class="string">&#x27;abc&#x27;</span>, <span class="string">&#x27;ABC&#x27;</span>))  <span class="comment"># abc and ABC</span></span><br><span class="line">print(<span class="string">&#x27;&#123;1&#125; and &#123;0&#125;&#x27;</span>.format(<span class="string">&#x27;abc&#x27;</span>, <span class="string">&#x27;ABC&#x27;</span>))  <span class="comment"># ABC and abc</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>如果在 str.format() 方法中使用关键字参数，则使用参数的名称引用它们的值</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&#x27;&#123;name&#125; and &#123;sex&#125;&#x27;</span>.format(name=<span class="string">&#x27;jack&#x27;</span>, sex=<span class="string">&#x27;男&#x27;</span>))  <span class="comment"># jack and 男</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>位置和关键字参数可以任意组合</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&#x27;&#123;0&#125;,&#123;1&#125;,and &#123;other&#125;&#x27;</span>.format(<span class="string">&#x27;abc&#x27;</span>, <span class="string">&#x27;ABC&#x27;</span>, other=<span class="string">&#x27;hello&#x27;</span>))  <span class="comment"># abc,ABC,and hello</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>如果是一个很长的格式字符串，不希望把它拆开，那么最好按名称而不是按位置引用变量来进行格式化，这可以通过简单的传递字典并使用方括号访问键来完成</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">table = &#123;<span class="string">&#x27;Tom&#x27;</span>: <span class="number">4127</span>, <span class="string">&#x27;Jack&#x27;</span>: <span class="number">4098</span>, <span class="string">&#x27;Alice&#x27;</span>: <span class="number">7678</span>&#125;</span><br><span class="line">print(<span class="string">&#x27;Tom:&#123;0[Tom]:d&#125;;Jack:&#123;0[Jack]:d&#125;;Alice:&#123;0[Alice]:d&#125;;&#x27;</span>.format(table)) <span class="comment">#Tom:4127;Jack:4098;Alice:7678;</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>也可以通过使用 ‘*’ 符号将 table 作为关键字参数传递</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">&#x27;Tom:&#123;Tom:d&#125;;Jack:&#123;Jack:d&#125;;Alice:&#123;Alice:d&#125;;&#x27;</span>.format(**table)) <span class="comment">#Tom:4127;Jack:4098;Alice:7678;</span></span><br></pre></td></tr></table></figure>
-
-</blockquote>
-</li>
-</ul>
-<p>这与内置函数 vars() 结合使用时非常有用，会返回包含所有局部变量的字典</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 下面会生成一组整齐的列，其中包含给定的整数和它的平方以及立方</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">4</span>):</span><br><span class="line">    print(<span class="string">&#x27;&#123;0:2d&#125; &#123;1:3d&#125; &#123;2:4d&#125;&#x27;</span>.format(x,x*x,x*x*x))</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string"> 1   1    1</span></span><br><span class="line"><span class="string"> 2   4    8</span></span><br><span class="line"><span class="string"> 3   9   27</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-<li><p>手动格式化字符串</p>
-<ul>
-<li><p>平方和立方的表，手动格式化的，每一列之间的一个空格是通过 print() 方式添加的</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">4</span>):</span><br><span class="line">    print(repr(x).rjust(<span class="number">2</span>),repr(x*x).rjust(<span class="number">3</span>),end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    print(repr(x*x*x).rjust(<span class="number">4</span>))</span><br><span class="line">    </span><br><span class="line">   </span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string"> 1   1   1</span></span><br><span class="line"><span class="string"> 2   4   8</span></span><br><span class="line"><span class="string"> 3   9  27</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-</blockquote>
-<p>字符串的 str.rjust() 方法通过在左侧填充空格来对给定宽度的字段中的字符串进行右对齐。。类似的还有 str.ljust()  和 str.center() 。</p>
-</li>
-<li><p>str.zfill() ，它会在数字字符串的左边填充0，能识别正负号。</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">&#x27;123&#x27;</span></span><br><span class="line">b = <span class="string">&#x27;-3.14&#x27;</span></span><br><span class="line">print(a.zfill(<span class="number">5</span>))  <span class="comment"># 00123</span></span><br><span class="line">print(b.zfill(<span class="number">7</span>))  <span class="comment"># -003.14</span></span><br><span class="line">print(b.zfill(<span class="number">1</span>))  <span class="comment"># -3.14</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-</ul>
-</li>
-<li><p>旧的字符串格式化方法</p>
-<ul>
-<li><p>% 运算符（求余）也可用于字符串格式化，给定 ‘ string ‘  % values，则 string 中的 % 实例会以0个或多个 values 元素替换。此操作通常被称为字符串插值</p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line">print(<span class="string">&#x27;PI is %5.3f&#x27;</span> % math.pi)  <span class="comment"># PI is 3.142</span></span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-</ul>
-</li>
-</ol>
-<h3 id="读写文件"><a href="#读写文件" class="headerlink" title="读写文件"></a>读写文件</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/28/%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/27/2020-09-27/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/27/2020-09-27/" class="post-title-link" itemprop="url">2020-09-27</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-27 00:00:00 / 修改时间：22:50:57" itemprop="dateCreated datePublished" datetime="2020-09-27T00:00:00+08:00">2020-09-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/tree-hole/" itemprop="url" rel="index"><span itemprop="name">tree-hole</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/27/2020-09-27/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/27/2020-09-27/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>今天去驾校分教练了，不得不说，华坚驾校的规范化程度是真的高（形式真的多），本以为填个表就可以了，没想到又是开班典礼，又是宣誓，校长主任的讲话，好多流程，花了一上午的时间才终于分到了教练。</p>
-<p>对了，还碰到了隔壁班一个同学，被分到了同一个教练，念到了名字，我才觉得好耳熟，哈哈哈光看脸完全不认识的。</p>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
