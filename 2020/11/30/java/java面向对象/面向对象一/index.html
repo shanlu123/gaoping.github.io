@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto+Slab:300,300italic,400,400italic,700,700italic|PT+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"github.com","root":"/","scheme":"Gemini","version":"8.0.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="面向过程(POP)与面向对象(OOP) 面向过程，强调的是功能行为，以函数为最小单位，考虑怎么做。 面向对象：将功能封装进对象，强调具备了功能的对象，以类&#x2F;对象为最小单位，考虑谁来做 面向三大特征： 封装 继承 多态    Java基本元素：类和对象 类和对象是面向对象的核心概念  类是对一类事物的描述，是抽象的、概念上的定义  对象是实际存在的该类事物的每个个体，因而也称为实例  万物皆对象">
+<meta property="og:type" content="article">
+<meta property="og:title" content="面向对象一">
+<meta property="og:url" content="https://github.com/shanlu123/2020/11/30/java/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%80/index.html">
+<meta property="og:site_name" content="shanlu的博客">
+<meta property="og:description" content="面向过程(POP)与面向对象(OOP) 面向过程，强调的是功能行为，以函数为最小单位，考虑怎么做。 面向对象：将功能封装进对象，强调具备了功能的对象，以类&#x2F;对象为最小单位，考虑谁来做 面向三大特征： 封装 继承 多态    Java基本元素：类和对象 类和对象是面向对象的核心概念  类是对一类事物的描述，是抽象的、概念上的定义  对象是实际存在的该类事物的每个个体，因而也称为实例  万物皆对象">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-11-29T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-12-07T06:47:23.886Z">
+<meta property="article:author" content="shanlu">
+<meta property="article:tag" content="java">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://github.com/shanlu123/2020/11/30/java/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%80/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>面向对象一 | shanlu的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+  <a href="https://github.com/shanlu123" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">shanlu的博客</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">三餐四季，冷暖自知</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/home" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-前端">
+
+    <a href="/%E5%89%8D%E7%AB%AF/" rel="section"><i class="fa fa-cloud fa-fw"></i>前端</a>
+
+  </li>
+        <li class="menu-item menu-item-生活">
+
+    <a href="/%E7%94%9F%E6%B4%BB/" rel="section"><i class="fa fa-user fa-fw"></i>生活</a>
+
+  </li>
+        <li class="menu-item menu-item-school">
+
+    <a href="/school/" rel="section"><i class="fa fa-graduation-cap fa-fw"></i>学校</a>
+
+  </li>
+        <li class="menu-item menu-item-tree_hole">
+
+    <a href="/tree_hole/" rel="section"><i class="fa fa-tree fa-fw"></i>树洞</a>
+
+  </li>
+        <li class="menu-item menu-item-photos">
+
+    <a href="/photos/" rel="section"><i class="fa fa-camera fa-fw"></i>相册</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B-POP-%E4%B8%8E%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-OOP"><span class="nav-number">1.</span> <span class="nav-text">面向过程(POP)与面向对象(OOP)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java%E5%9F%BA%E6%9C%AC%E5%85%83%E7%B4%A0%EF%BC%9A%E7%B1%BB%E5%92%8C%E5%AF%B9%E8%B1%A1"><span class="nav-number">2.</span> <span class="nav-text">Java基本元素：类和对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%88%9B%E5%BB%BA%E5%92%8C%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">对象的创建和使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E7%9A%84%E6%88%90%E5%91%98%E4%B9%8B%E4%B8%80%EF%BC%9A%E5%B1%9E%E6%80%A7"><span class="nav-number">4.</span> <span class="nav-text">类的成员之一：属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E7%9A%84%E6%88%90%E5%91%98%E4%B9%8B%E4%BA%8C%EF%BC%9A%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">类的成员之二：方法</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="shanlu"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">shanlu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">116</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/shanlu123" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;shanlu123"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.cnblogs.com/" title="博客园 → https:&#x2F;&#x2F;www.cnblogs.com&#x2F;" rel="noopener" target="_blank"><i class="fa fa-blog fa-fw"></i>博客园</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://weibo.com/u/6662419816/home?wvr=5" title="微博 → https:&#x2F;&#x2F;weibo.com&#x2F;u&#x2F;6662419816&#x2F;home?wvr&#x3D;5" rel="noopener" target="_blank"><i class="fab fa-weibo fa-fw"></i>微博</a>
+      </span>
+  </div>
+
+
+  <div class="links-of-blogroll animated">
+    <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+      友情链接
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.npmjs.com/" title="https:&#x2F;&#x2F;www.npmjs.com&#x2F;" rel="noopener" target="_blank">npm</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://www.bilibili.com/" title="https:&#x2F;&#x2F;www.bilibili.com&#x2F;" rel="noopener" target="_blank">bilibili</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://stackoverflow.com/" title="https:&#x2F;&#x2F;stackoverflow.com&#x2F;" rel="noopener" target="_blank">stackoverflow</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://developers.weixin.qq.com/miniprogram/dev/component/" title="https:&#x2F;&#x2F;developers.weixin.qq.com&#x2F;miniprogram&#x2F;dev&#x2F;component&#x2F;" rel="noopener" target="_blank">小程序</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="http://www.ruanyifeng.com/blog/" title="http:&#x2F;&#x2F;www.ruanyifeng.com&#x2F;blog&#x2F;" rel="noopener" target="_blank">阮一峰</a>
+        </li>
+        <li class="links-of-blogroll-item">
+          <a href="https://cn.aliyun.com/" title="https:&#x2F;&#x2F;cn.aliyun.com&#x2F;" rel="noopener" target="_blank">阿里云</a>
+        </li>
+    </ul>
+  </div>
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+    
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/11/30/java/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          面向对象一
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-11-30 00:00:00" itemprop="dateCreated datePublished" datetime="2020-11-30T00:00:00+08:00">2020-11-30</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-12-07 14:47:23" itemprop="dateModified" datetime="2020-12-07T14:47:23+08:00">2020-12-07</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/javaSE/" itemprop="url" rel="index"><span itemprop="name">javaSE</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/11/30/java/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%80/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/11/30/java/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%80/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h3 id="面向过程-POP-与面向对象-OOP"><a href="#面向过程-POP-与面向对象-OOP" class="headerlink" title="面向过程(POP)与面向对象(OOP)"></a>面向过程(POP)与面向对象(OOP)</h3><ol>
+<li>面向过程，强调的是功能行为，以函数为最小单位，考虑怎么做。</li>
+<li>面向对象：将功能封装进对象，强调具备了功能的对象，以类/对象为最小单位，考虑谁来做</li>
+<li>面向三大特征：<ul>
+<li>封装</li>
+<li>继承</li>
+<li>多态</li>
+</ul>
+</li>
+</ol>
+<h3 id="Java基本元素：类和对象"><a href="#Java基本元素：类和对象" class="headerlink" title="Java基本元素：类和对象"></a>Java基本元素：类和对象</h3><ol>
+<li><p>类和对象是面向对象的核心概念</p>
+</li>
+<li><p>类是对一类事物的描述，是抽象的、概念上的定义</p>
+</li>
+<li><p>对象是实际存在的该类事物的每个个体，因而也称为实例</p>
+</li>
+<li><p>万物皆对象</p>
+</li>
+<li><p>面向对象程序设计的重点是类的设计</p>
+</li>
+<li><p>类的成员：属性和行为，属性对应类中的成员变量，行为对应类中的成员方法</p>
+</li>
+<li><p>类点语法格式：</p>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">修饰符	<span class="class"><span class="keyword">class</span> 类名</span>&#123;</span><br><span class="line">	属性声明；</span><br><span class="line">	方法声明；</span><br><span class="line">&#125;</span><br><span class="line">修饰符是<span class="keyword">public</span>时，类可以被任意访问</span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="对象的创建和使用"><a href="#对象的创建和使用" class="headerlink" title="对象的创建和使用"></a>对象的创建和使用</h3><ol>
+<li>java类的实例化，即创建类的对象</li>
+<li>创建对象语法：类名  对象名 = new 类名()</li>
+<li>使用 ”对象名.对象成员” 的方式访问对象成员（属性和方法）</li>
+<li>类的访问机制：<ul>
+<li>在一个类中的访问机制：类中的方法可以直接访问类中的成员变量，例如，static 方法访问非 static ，编译不通过</li>
+<li>在不同类中的访问机制：先创建要访问类的对象，再用对象访问类中定义的成员</li>
+</ul>
+</li>
+<li>内存解析：<ul>
+<li>堆（Heap）：存放对象实例，几乎所有的对象实例都在这里分配内存。Java虚拟机规范中的描述是：所有的对象实例以及数组都要在堆上分配。</li>
+<li>栈：通常所说的栈，是指虚拟机栈，用于存储局部变量等。局部变量表存放了编译期可知长度的各种基本数据类型、对象引用 (reference类型，不等同于对象本身，是对象在堆内存的首地址）。方法执行完，自动释放。</li>
+<li>方法区：用于存储已被虚拟机加载的类信息，常量，静态变量，即时编译器编译后的代码等数据。</li>
+</ul>
+</li>
+<li>匿名对象：<ul>
+<li>不定义对象的句柄，而直接调用这个对象的方法，这样的对象叫做匿名对象。如：new Person().shout()</li>
+<li>使用情况：<ul>
+<li>如果对一个对象只需要进行一次方法调用，可以使用匿名对象</li>
+<li>经常将匿名对象作为实参传递给一个方法使用</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="类的成员之一：属性"><a href="#类的成员之一：属性" class="headerlink" title="类的成员之一：属性"></a>类的成员之一：属性</h3><ol>
+<li><p>语法格式：修饰符    数据类型    属性名=初始化值</p>
+<p>修饰符：常用的修饰符有 private、缺省、protected、public；其他修饰符：static、final</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age; <span class="comment">//声明private变量 age</span></span><br><span class="line">	<span class="keyword">public</span> String name=<span class="string">&quot;lili&quot;</span>; <span class="comment">//声明public变量 name</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>变量的分类：成员变量与局部变量</p>
+<ul>
+<li><p>成员变量：在方法体外，类体内声明的变量。包括实例变量(不以static修饰的）和类变量(以static修饰的)</p>
+</li>
+<li><p>局部变量：在方法体内部声明的变量。包括 形参（方法、构造器中定义的变量）、方法局部变量（在方法内定义）、代码块局部变量（在代码块内定义）</p>
+</li>
+<li><p>二者在初始化方面的异同：都有生命周期（同）；局部变量除形参外，均需显式初始化</p>
+</li>
+<li><p>二者区别：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>成员变量</th>
+<th>局部变量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>声明的位置</td>
+<td>直接声明在类中</td>
+<td>方法形参或内部、代码块内、构造器内等</td>
+</tr>
+<tr>
+<td>修饰符</td>
+<td>private、public、static、final等</td>
+<td>不能用权限修饰符修饰，可以用final修饰</td>
+</tr>
+<tr>
+<td>初始化值</td>
+<td>有默认初始化值</td>
+<td>没有默认初始化值，必须显示赋值，方可使用</td>
+</tr>
+<tr>
+<td>内存加载位置</td>
+<td>堆空间或静态域内</td>
+<td>栈空间</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+</li>
+<li><p>对象属性的默认初始化赋值：</p>
+<p>​        当一个对象被创建时，会对其中各种类型的<strong>成员变量</strong>自动进行初始化赋值。</p>
+<table>
+<thead>
+<tr>
+<th>成员变量类型</th>
+<th>初始值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>byte</td>
+<td>0</td>
+</tr>
+<tr>
+<td>short</td>
+<td>0</td>
+</tr>
+<tr>
+<td>int</td>
+<td>0</td>
+</tr>
+<tr>
+<td>long</td>
+<td>0L</td>
+</tr>
+<tr>
+<td>float</td>
+<td>0.0F</td>
+</tr>
+<tr>
+<td>double</td>
+<td>0.0</td>
+</tr>
+<tr>
+<td>char</td>
+<td>0 或写为 ‘\u0000’</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>false</td>
+</tr>
+<tr>
+<td>引用类型</td>
+<td>null</td>
+</tr>
+</tbody></table>
+</li>
+</ol>
+<h3 id="类的成员之二：方法"><a href="#类的成员之二：方法" class="headerlink" title="类的成员之二：方法"></a>类的成员之二：方法</h3><ol>
+<li><p>方法是类或对象行为特征的抽象，用来完成某个功能操作，在某些语言中也称为函数或过程</p>
+</li>
+<li><p>将功能封装为方法的目的是：可以实现代码重用，简化代码</p>
+</li>
+<li><p>Java中的方法不能独立存在，所有的方法必须定义在类里。</p>
+</li>
+<li><p>方法的声明格式：</p>
+<blockquote>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">修饰符	 返回值类型	方法名（参数类型<span class="number">1</span> 形参<span class="number">1</span>，参数类型<span class="number">2</span> 形参<span class="number">2</span>，....）&#123;</span><br><span class="line">	方法体</span><br><span class="line">	<span class="keyword">return</span> 返回值;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span>&#123;  <span class="comment">//声明方法getAge()</span></span><br><span class="line">		<span class="keyword">return</span> age;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;  <span class="comment">//声明方法setAge()</span></span><br><span class="line">		age=i;  </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>方法的调用</p>
+<ul>
+<li>方法被调用一次，就会执行一次</li>
+<li>没有具体返回值，返回值类型用关键字 void表示，方法体中可以不使用return语句，如果使用，仅用来结束方法</li>
+</ul>
+</li>
+<li><p>方法的重载：</p>
+<ul>
+<li><p>重载：在同一个类中，允许存在一个以上的同名方法，只要它们的参数个数或者参数类型不同即可。调用时，根据方法参数列表的不同来区别。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回两个整数的和</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span> </span>&#123; <span class="keyword">return</span> x+y &#125;</span><br><span class="line"><span class="comment">//返回三个整数的和</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> x,<span class="keyword">int</span> y,<span class="keyword">int</span> z)</span> </span>&#123; <span class="keyword">return</span> x+y+z&#125;</span><br><span class="line"><span class="comment">//返回两个小数的和</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">add</span><span class="params">(<span class="keyword">double</span> x,<span class="keyword">double</span> y)</span> </span>&#123; <span class="keyword">return</span> x+y; &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>System.out.println() 方法就是典型的重载方法，其内部声明形式如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">println</span><span class="params">(<span class="keyword">byte</span> x)</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">println</span><span class="params">(<span class="keyword">short</span> x)</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">println</span><span class="params">(<span class="keyword">int</span> x)</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">println</span><span class="params">(<span class="keyword">long</span> x)</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">println</span><span class="params">(<span class="keyword">float</span> x)</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">println</span><span class="params">(<span class="keyword">double</span> x)</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">println</span><span class="params">(<span class="keyword">char</span> x)</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">println</span><span class="params">()</span></span></span><br><span class="line"><span class="function">....</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>可变个数的形参</p>
+<ul>
+<li><p>可变参数：方法参数部分指定类型的参数个数是可变的，0个，1个或多个</p>
+</li>
+<li><p>JavaSE 5.0中提供了Varargs 机制，允许直接定义能和多个实参相匹配的形参，从而可以用一种更简单的方式传递个数可变的实参</p>
+</li>
+<li><p>JDK 5.0之前，采用数组形参来定义方法，传入多个同一类型变量：public static void test(int a，String[] books)</p>
+</li>
+<li><p>JDK 5.0：采用可变个数形参来定义方法，传入多个同一类型变量：public static void test(int a，String…..books)</p>
+</li>
+<li><p>声明格式：方法名（参数的类型名 ….参数名)</p>
+</li>
+<li><p>方法的参数部分有可变形参，需要放在形参声明的最后</p>
+</li>
+<li><p>在一个方法的形参位置，最多只能声明一个可变个数形参</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">	System.out.println(<span class="string">&quot;含字符串数组参数的test方法&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">(String book)</span></span>&#123;</span><br><span class="line">	System.out.println(<span class="string">&quot;与可变形参方法构成重载的test1方法&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test1</span><span class="params">(String...books)</span></span>&#123;</span><br><span class="line">	System.out.println(<span class="string">&quot;形参长度可变的test1方法&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">	TestOverLoad to = <span class="keyword">new</span> TestOverLoad();</span><br><span class="line">	to.test1(); <span class="comment">//System.out.println(&quot;形参长度可变的test1方法&quot;)</span></span><br><span class="line">	to.test1(<span class="string">&quot;aa&quot;</span>,<span class="string">&quot;bb&quot;</span>); <span class="comment">//System.out.println(&quot;形参长度可变的test1方法&quot;)</span></span><br><span class="line">	to.test(<span class="keyword">new</span> String[]&#123;<span class="string">&quot;aa&quot;</span>&#125;); 	System.out.println(<span class="string">&quot;含字符串数组参数的test方法&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>方法参数的值传递机制：</p>
+<ul>
+<li><p>Java里方法的参数传递方式只有一种：值传递。即将实际参数值的副本传入方法内，而参数本身不受影响</p>
+</li>
+<li><p>形参是基本数据类型，将实参基本数据类型变量的“数据值”传递给形参</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x=<span class="number">5</span>;</span><br><span class="line">	System.out.println(<span class="string">&quot;修改前，x=&quot;</span> +x); <span class="comment">// 5</span></span><br><span class="line">	change(x);</span><br><span class="line">	System.out.println(<span class="string">&quot;修改后，x=&quot;</span> +x); <span class="comment">//5</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;修改前，x=&quot;</span> +x); <span class="comment">// 5</span></span><br><span class="line">		x=<span class="number">3</span>;</span><br><span class="line">		System.out.println(<span class="string">&quot;修改后，x=&quot;</span> +x); <span class="comment">//3</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>形参是引用数据类型，将实参引用数据类型变量的“地址值”传递给形参</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span>	<span class="keyword">static</span>	<span class="keyword">void</span>  <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">	Person obj = <span class="keyword">new</span> Person();</span><br><span class="line">	obj.age=<span class="number">5</span>;</span><br><span class="line">	System.out.println(<span class="string">&quot;修改前，x=&quot;</span> +x); <span class="comment">// 5</span></span><br><span class="line">	change(obj);</span><br><span class="line">	System.out.println(<span class="string">&quot;修改后，x=&quot;</span> +x); <span class="comment">//3</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">change</span><span class="params">(Person obj)</span></span>&#123;</span><br><span class="line">	System.out.println(<span class="string">&quot;修改前，x=&quot;</span> +x); <span class="comment">// 5</span></span><br><span class="line">	obj.age=<span class="number">3</span>;</span><br><span class="line">	System.out.println(<span class="string">&quot;修改后，x=&quot;</span> +x); <span class="comment">//3</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>递归方法</p>
+<ul>
+<li><p>一个方法体内调用它自身</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//计算1-100之间所有自然数的和</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">sum</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(n==<span class="number">1</span>)  retnrn <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> n+sum(n-<span class="number">1</span>)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ol>
+<p>类的成员之三：构造器</p>
+<p>关键字：this，package，import</p>
+
+    </div>
+
+    
+    
+    
+
+    
+      <div>
+       <div>
+  
+    <div style="text-align:center;color:#bfbfbf;font-size:16px;">
+      <span>-------- 本文结束 </span>
+      <i class="fa fa-snowflake-o"></i>
+      <span> 感谢阅读 --------</span>
+    </div>
+  
+</div>
+      </div>
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div></div>
+  <button onclick="document.querySelector('.post-reward').classList.toggle('active');">
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="shanlu 微信">
+        <span>微信</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/11/30/java/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%BA%8C/" rel="prev" title="面向对象二">
+                  <i class="fa fa-chevron-left"></i> 面向对象二
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/11/30/%E3%80%8A%E5%95%8A%E5%93%88%E7%AE%97%E6%B3%95%E3%80%8B/%E5%B0%8F%E5%93%BC%E4%B9%B0%E4%B9%A6/" rel="next" title="小哼买书">
+                  小哼买书 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+  
+  
+  
+
+
+
+      
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">shanlu</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script size="300" alpha="0.6" zIndex="-1" src="//cdn.jsdelivr.net/npm/ribbon.js@1.0.2/dist/ribbon.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+<script>
+NexT.utils.loadComments('#valine-comments', () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1.4.14/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el  : '#valine-comments',
+      path: "/2020/11/30/java/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%80/",
+    }, {"enable":true,"appId":"M0TTE46ti90I3BUUJqD5WYyD-gzGzoHsz","appKey":"UelegRsJXosPYDakAbUdO5e8","placeholder":"留下评论吧","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"lang":"zh-cn","visitor":false,"comment_count":true,"recordIP":false,"serverURLs":null,"enableQQ":false,"requiredFields":[]}
+    ));
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"left","width":225,"height":450},"mobile":{"show":true},"react":{"opacity":0.7},"log":false});</script></body>
+</html>
