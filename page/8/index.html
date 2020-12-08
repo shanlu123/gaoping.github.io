@@ -241,7 +241,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">97</span>
+          <span class="site-state-item-count">102</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -324,6 +324,571 @@
       
 
       
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/26/python/%E7%AC%AC%E4%B8%80%E4%B8%AApython%E7%A8%8B%E5%BA%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/26/python/%E7%AC%AC%E4%B8%80%E4%B8%AApython%E7%A8%8B%E5%BA%8F/" class="post-title-link" itemprop="url">关于python</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-26 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-26T00:00:00+08:00">2020-09-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-04 17:15:59" itemprop="dateModified" datetime="2020-10-04T17:15:59+08:00">2020-10-04</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/python/" itemprop="url" rel="index"><span itemprop="name">python</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/26/python/%E7%AC%AC%E4%B8%80%E4%B8%AApython%E7%A8%8B%E5%BA%8F/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/python/%E7%AC%AC%E4%B8%80%E4%B8%AApython%E7%A8%8B%E5%BA%8F/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="python"><a href="#python" class="headerlink" title="python"></a>python</h3><ol>
+<li>python提供了高效的高级数据结构，有高级的内置数据类型，比如灵活的数组和字典，能简单有效地面向对象编程</li>
+<li>python是解释型语言</li>
+<li>编译型语言和解释型语言<ul>
+<li>任何语言给计算机执行时，都要转换成机器码 （二进制的0101）</li>
+<li>根据转换时机不同分为两类<ul>
+<li>编译型：如C语言，在代码执行前，编译为机器码，执行速度快，跨平台性不好</li>
+<li>解释型：python，JS，java，不会在执行前对代码编译，而是边执行边编译，由解释器解释执行，执行速度慢，跨平台性好</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>python缺点：<ul>
+<li>运行速度慢，python是解释性语言，代码在执行时会一行一行地翻译成CPU能理解的机器码，这个翻译过程非常耗时，所以很慢。C程序是运行前直接编译成CPU能执行的机器码，所以块。</li>
+<li>代码不能加密，发布python程序实际上就是发布源代码。C语言不用发布源代码，只需要把编译后的机器码（xxx.exe文件) 发布出去，要从机器码反推出C代码是不可能的，所以，凡是编译型的语言，都没有这个问题，而解释型的语言，则必须把源代码发布出去。</li>
+</ul>
+</li>
+<li>Python标准库：<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/library/index.html">https://docs.python.org/zh-cn/3/library/index.html</a></li>
+<li>Python语法：<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/reference/index.html">https://docs.python.org/zh-cn/3/reference/index.html</a></li>
+</ol>
+<h3 id="python解释器"><a href="#python解释器" class="headerlink" title="python解释器"></a>python解释器</h3><ul>
+<li><p>目前，python有两个版本，2.x版和3.x版，这两个版本不兼容。</p>
+</li>
+<li><p>python3安装：<a target="_blank" rel="noopener" href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a></p>
+</li>
+<li><p>命令行选项：<a target="_blank" rel="noopener" href="https://docs.python.org/zh-cn/3/using/cmdline.html#using-on-general">https://docs.python.org/zh-cn/3/using/cmdline.html#using-on-general</a></p>
+</li>
+</ul>
+<h3 id="python作为计算器使用"><a href="#python作为计算器使用" class="headerlink" title="python作为计算器使用"></a>python作为计算器使用</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/26/python/%E7%AC%AC%E4%B8%80%E4%B8%AApython%E7%A8%8B%E5%BA%8F/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/26/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/26/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0/" class="post-title-link" itemprop="url">密码学概述</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-26 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-26T00:00:00+08:00">2020-09-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-04 17:07:18" itemprop="dateModified" datetime="2020-10-04T17:07:18+08:00">2020-10-04</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">密码学</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/26/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="密码学主要解决的问题"><a href="#密码学主要解决的问题" class="headerlink" title="密码学主要解决的问题"></a>密码学主要解决的问题</h3><ul>
+<li>信息的机密性、完整性、不可否认性和可用性</li>
+<li>机密性：对传送的信息进行加密就可以实现机密性，保证信息不泄露给未经授权的人。</li>
+<li>完整性：防止信息被未经授权的人篡改，保证信息不被篡改</li>
+<li>不可否认性：保证信息行为人不能否认其信息行为</li>
+<li>可用性：保证信息及信息系统确实为授权使用者所用</li>
+</ul>
+<h3 id="密码学起源与发展"><a href="#密码学起源与发展" class="headerlink" title="密码学起源与发展"></a>密码学起源与发展</h3><ol>
+<li>古典密码学<ol>
+<li>典型的古典密码算法包括凯撒（Caeser) 密码和维基利亚（Vigenere）密码</li>
+<li>主要特点：数据的安全基于算法的保密</li>
+</ol>
+</li>
+<li>近代密码学<ol>
+<li>主要特点：数据的安全基于密钥而不是算法的保密</li>
+</ol>
+</li>
+<li>现代密码学<ol>
+<li>RSA公钥密码算法</li>
+<li>椭圆曲线等其他公钥算法</li>
+</ol>
+</li>
+</ol>
+<h3 id="密码学概念"><a href="#密码学概念" class="headerlink" title="密码学概念"></a>密码学概念</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/26/%E5%AF%86%E7%A0%81%E5%AD%A6/%E5%AF%86%E7%A0%81%E5%AD%A6%E6%A6%82%E8%BF%B0/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/26/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%95%B0%E8%AE%BA%E7%AE%80%E4%BB%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/26/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%95%B0%E8%AE%BA%E7%AE%80%E4%BB%8B/" class="post-title-link" itemprop="url">数论</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-26 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-26T00:00:00+08:00">2020-09-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-10-04 17:09:23" itemprop="dateModified" datetime="2020-10-04T17:09:23+08:00">2020-10-04</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%AF%86%E7%A0%81%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">密码学</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/26/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%95%B0%E8%AE%BA%E7%AE%80%E4%BB%8B/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%95%B0%E8%AE%BA%E7%AE%80%E4%BB%8B/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="素数与非素数"><a href="#素数与非素数" class="headerlink" title="素数与非素数"></a>素数与非素数</h3><p><strong>因子</strong></p>
+<ul>
+<li>设a，b(b≠0)，是两个整数，如果存在另一个整数 m，使得 a=mb，则称b整除a，记为 b|a ，且称 b 是 a 的因子。</li>
+<li>如：6=2x3，3|6（3整除6），3是6的因子</li>
+</ul>
+<p><strong>整数有以下性质：</strong></p>
+<ul>
+<li>a|1，那么 a=±1  （1的因子是正负1）</li>
+<li>a|b 且 b|a，则 a=±b</li>
+<li>对任一b（b≠0），b|0  （0的因子是所有非0整数）</li>
+<li>b|g，b|h，则对任一整数m，n 有 b|(mg+nh)</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/26/%E5%AF%86%E7%A0%81%E5%AD%A6/%E6%95%B0%E8%AE%BA%E7%AE%80%E4%BB%8B/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/26/%E6%A0%91%E6%B4%9E/2020-09-26/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/26/%E6%A0%91%E6%B4%9E/2020-09-26/" class="post-title-link" itemprop="url">2020-09-26</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-26 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-26T00:00:00+08:00">2020-09-26</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-27 22:36:19" itemprop="dateModified" datetime="2020-09-27T22:36:19+08:00">2020-09-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tree-hole/" itemprop="url" rel="index"><span itemprop="name">tree-hole</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/26/%E6%A0%91%E6%B4%9E/2020-09-26/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/26/%E6%A0%91%E6%B4%9E/2020-09-26/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>今天上午把三级数据库考了，前前后后也准备了挺久的，题库刷了不少，毕竟我真的不想主动报名的考试是去捐款。选择题和填空题都是题库里的题，尤其是题库里的最后一套题，非常感谢自己前一天晚上刷了那套题，否则可能真得错几个。ER图有个地方错了，但是也活该，因为ER图有的复杂联系我真的没搞明白，错了活该，但应该不会扣太多分的。最后两道大题，有信心写对了一题，至于最后一道题，看考官信息吧，哈哈。</p>
+<p>总之，出考场的心情和当时考完六级差不多，自己有信心是可以过的，希望结果不会失望。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/24/%E6%A0%91%E6%B4%9E/2020-9=09-24/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/24/%E6%A0%91%E6%B4%9E/2020-9=09-24/" class="post-title-link" itemprop="url">2020-09-24</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-24 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-24T00:00:00+08:00">2020-09-24</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-27 22:42:32" itemprop="dateModified" datetime="2020-09-27T22:42:32+08:00">2020-09-27</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/tree-hole/" itemprop="url" rel="index"><span itemprop="name">tree-hole</span></a>
+        </span>
+    </span>
+
+  
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/24/%E6%A0%91%E6%B4%9E/2020-9=09-24/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/24/%E6%A0%91%E6%B4%9E/2020-9=09-24/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>下午软件工程又被老外 cue 了，唉，真的听不懂啊。</p>
+<p>自从过了四六级，英语水平直线下降，再让我去考四级肯定过不了，一次性过了四六级看来也不是什么好事，听英语课超级不耐烦。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -624,122 +1189,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%87%BD%E6%95%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">函数</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-20 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-20T00:00:00+08:00">2020-09-20</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-21 00:26:47" itemprop="dateModified" datetime="2020-09-21T00:26:47+08:00">2020-09-21</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%87%BD%E6%95%B0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%87%BD%E6%95%B0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><ul>
-<li>一组预先编译好的SQL语句语句的集合，理解成批处理语句</li>
-<li>好处<ul>
-<li>提高代码的重用性</li>
-<li>简化操作</li>
-<li>减少了编译次数，减少了和数据库服务器的连接次数</li>
-</ul>
-</li>
-</ul>
-<h3 id="函数与存储过程"><a href="#函数与存储过程" class="headerlink" title="函数与存储过程"></a>函数与存储过程</h3><ul>
-<li>存储过程：可以有0个返回，也可以有多个返回，适合做批量插入，批量更新</li>
-<li>函数：有且仅有一个返回，适合做处理数据后返回一个结果</li>
-</ul>
-<h3 id="创建函数"><a href="#创建函数" class="headerlink" title="创建函数"></a>创建函数</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%87%BD%E6%95%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/TCL/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -854,7 +1303,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%87%BD%E6%95%B0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -871,7 +1320,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/" class="post-title-link" itemprop="url">存储过程</a>
+            <a href="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%87%BD%E6%95%B0/" class="post-title-link" itemprop="url">函数</a>
         </h2>
 
         <div class="post-meta-container">
@@ -889,7 +1338,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-21 00:28:15" itemprop="dateModified" datetime="2020-09-21T00:28:15+08:00">2020-09-21</time>
+        <time title="修改时间：2020-09-21 00:26:47" itemprop="dateModified" datetime="2020-09-21T00:26:47+08:00">2020-09-21</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -910,8 +1359,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/" itemprop="commentCount"></span>
+    <a title="valine" href="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%87%BD%E6%95%B0/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%87%BD%E6%95%B0/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -925,611 +1374,23 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h3 id="存储过程"><a href="#存储过程" class="headerlink" title="存储过程"></a>存储过程</h3><ul>
-<li>一组预先编译好的SQL语句的集合，理解成批处理语句</li>
+          <h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><ul>
+<li>一组预先编译好的SQL语句语句的集合，理解成批处理语句</li>
+<li>好处<ul>
 <li>提高代码的重用性</li>
 <li>简化操作</li>
-<li>减少了编译次数并且减少了和数据库服务器的连接次数</li>
-<li>类型：<ul>
-<li>无返回无参</li>
-<li>仅仅带 in 类型，无返回有参</li>
-<li>仅仅待 out 类型，有返回无参</li>
-<li>既带 in 又带 out，有返回有参</li>
-<li>带inout，有返回有参</li>
+<li>减少了编译次数，减少了和数据库服务器的连接次数</li>
 </ul>
 </li>
 </ul>
-<h3 id="创建存储过程"><a href="#创建存储过程" class="headerlink" title="创建存储过程"></a>创建存储过程</h3><ul>
-<li><p>语法</p>
-</li>
-<li><pre><code class="sql">delimiter 新的结束标记
-CREATE PROCEDURE 存储过程名(参数列表)
-BEGIN
-    存储过程体(一组合法的sql语句)
-END
-<figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">  </span><br><span class="line">-<span class="ruby"> 参数列表包含三部分</span></span><br><span class="line"></span><br><span class="line"><span class="ruby">  - 参数模式，参数名，参数类型</span></span><br><span class="line"><span class="ruby">  - 如，IN stu_name VARCHAR(<span class="number">20</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="ruby">- 参数模式</span></span><br><span class="line"></span><br><span class="line"><span class="ruby">  - <span class="keyword">in</span>：该参数只能作为输入，也就是该参数需要调用方传入值</span></span><br><span class="line"><span class="ruby">  - out：该参数只能作为输出，也就是该参数只能作为返回值</span></span><br><span class="line"><span class="ruby">  - inout：该参数既可以作为输入又可以作为输出，也就是该参数既需要传入值，又可以作为返回值</span></span><br><span class="line"></span><br><span class="line"><span class="ruby">- 如果存储过程体仅一句，<span class="keyword">begin</span> <span class="keyword">end</span> 可以省略</span></span><br><span class="line"></span><br><span class="line"><span class="ruby">- 存储过程体中的每条sql 语句的结尾要求必须加分号</span></span><br><span class="line"></span><br><span class="line"><span class="ruby">- 存储过程的结尾可以使用 DELIMITER 重新设置</span></span><br><span class="line"></span><br><span class="line"><span class="ruby">  - 语法，DELIMITER 结束标记</span></span><br><span class="line"><span class="ruby">  - 如：DELIMITER $</span></span><br><span class="line"></span><br><span class="line"><span class="ruby"><span class="comment">### 调用存储过程</span></span></span><br><span class="line"></span><br><span class="line"><span class="ruby">- 调用语法</span></span><br><span class="line"></span><br><span class="line"><span class="ruby">- <span class="string">``</span><span class="string">`sql</span></span></span><br><span class="line"><span class="ruby">  CALL 存储过程名(实参列表)</span></span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
+<h3 id="函数与存储过程"><a href="#函数与存储过程" class="headerlink" title="函数与存储过程"></a>函数与存储过程</h3><ul>
+<li>存储过程：可以有0个返回，也可以有多个返回，适合做批量插入，批量更新</li>
+<li>函数：有且仅有一个返回，适合做处理数据后返回一个结果</li>
 </ul>
-<h3 id="创建空参列表存储过程"><a href="#创建空参列表存储过程" class="headerlink" title="创建空参列表存储过程"></a>创建空参列表存储过程</h3>
+<h3 id="创建函数"><a href="#创建函数" class="headerlink" title="创建函数"></a>创建函数</h3>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%AD%98%E5%82%A8%E8%BF%87%E7%A8%8B/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%A0%87%E8%AF%86%E5%88%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%A0%87%E8%AF%86%E5%88%97/" class="post-title-link" itemprop="url">标识列</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-20 00:00:00 / 修改时间：12:48:15" itemprop="dateCreated datePublished" datetime="2020-09-20T00:00:00+08:00">2020-09-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%A0%87%E8%AF%86%E5%88%97/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%A0%87%E8%AF%86%E5%88%97/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="标识列"><a href="#标识列" class="headerlink" title="标识列"></a>标识列</h3><ul>
-<li>又称为自增长列，可以不用手动插入值，系统提供默认的序列值</li>
-<li>标识列不一定和主键搭配，但要求是一个 key</li>
-<li>一个表至多一个标识列</li>
-<li>标识列的类型只能是数值型</li>
-<li>标识列可以通过 set auto increment_increment = 3 设置步长</li>
-<li>标识列可以通过手动插入值，设置起始值</li>
-</ul>
-<h3 id="创建表时设置标识列"><a href="#创建表时设置标识列" class="headerlink" title="创建表时设置标识列"></a>创建表时设置标识列</h3><blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#设置id列为自增长列</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> table_identity(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span> AUTO_INCREMENT,</span><br><span class="line">	stu_name <span class="built_in">VARCHAR</span>(<span class="number">20</span>)</span><br><span class="line">);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_identity(<span class="keyword">id</span>,stu_name) <span class="keyword">VALUES</span>(<span class="string">&#x27;1&#x27;</span>,<span class="string">&#x27;jack&#x27;</span>);</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_identity(stu_name) <span class="keyword">VALUES</span>(<span class="string">&#x27;lucy&#x27;</span>);</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> table_identity;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看自增长列起始值和步长</span></span><br><span class="line"><span class="keyword">SHOW</span> <span class="keyword">VARIABLES</span> <span class="keyword">LIKE</span> <span class="string">&#x27;%auto_increment%&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">#  设置自增长列步长</span></span><br><span class="line"><span class="keyword">SET</span> auto_increment_increment=<span class="number">3</span>;</span><br></pre></td></tr></table></figure>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%A0%87%E8%AF%86%E5%88%97/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/" class="post-title-link" itemprop="url">流程控制结构</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-20 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-20T00:00:00+08:00">2020-09-20</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-21 00:35:29" itemprop="dateModified" datetime="2020-09-21T00:35:29+08:00">2020-09-21</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="流程控制结构"><a href="#流程控制结构" class="headerlink" title="流程控制结构"></a>流程控制结构</h3><ul>
-<li>顺序结构，分支结构，循环结构</li>
-</ul>
-<h3 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h3><ul>
-<li><p>if函数</p>
-<ul>
-<li>语法：if(条件，值1，值2)</li>
-<li>功能：实现双分支</li>
-<li>应用在 begin end中或外面</li>
-</ul>
-</li>
-<li><p>case结构</p>
-<ul>
-<li><p>作为表达式</p>
-<ul>
-<li><p>情况1：</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CASE</span> 表达式</span><br><span class="line"><span class="keyword">WHEN</span> 值<span class="number">1</span> <span class="keyword">THEN</span> 值<span class="number">1</span>；</span><br><span class="line"><span class="keyword">WHEN</span> 值<span class="number">2</span> <span class="keyword">THEN</span> 值<span class="number">2</span>；</span><br><span class="line">...</span><br><span class="line"><span class="keyword">ELSE</span> 值n;</span><br><span class="line"><span class="keyword">END</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>情况2：</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CASE</span> </span><br><span class="line"><span class="keyword">WHEN</span> 条件<span class="number">1</span> <span class="keyword">THEN</span> 值<span class="number">1</span>；</span><br><span class="line"><span class="keyword">WHEN</span> 条件<span class="number">2</span> <span class="keyword">THEN</span> 值<span class="number">2</span>；</span><br><span class="line">...</span><br><span class="line"><span class="keyword">ELSE</span> 值n;</span><br><span class="line"><span class="keyword">END</span>;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>作为独立的语句（只能在 begin end 中)</p>
-<ul>
-<li><p>情况1：</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CASE</span> 表达式</span><br><span class="line"><span class="keyword">WHEN</span> 值<span class="number">1</span> <span class="keyword">THEN</span> 语句<span class="number">1</span>；</span><br><span class="line"><span class="keyword">WHEN</span> 值<span class="number">2</span> <span class="keyword">THEN</span> 语句<span class="number">2</span>；</span><br><span class="line">...</span><br><span class="line"><span class="keyword">ELSE</span> 语句n;</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">CASE</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>情况2：</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CASE</span> </span><br><span class="line"><span class="keyword">WHEN</span> 条件<span class="number">1</span> <span class="keyword">THEN</span> 语句<span class="number">1</span>；</span><br><span class="line"><span class="keyword">WHEN</span> 条件<span class="number">2</span> <span class="keyword">THEN</span> 语句<span class="number">2</span>；</span><br><span class="line">...</span><br><span class="line"><span class="keyword">ELSE</span> 语句n;</span><br><span class="line"><span class="keyword">END</span> <span class="keyword">CASE</span>;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建函数，实现传入成绩，如果成绩&gt;90,返回A，如果成绩&gt;80,返回B，如果成绩&gt;60,返回C，否则返回D</span></span><br><span class="line"></span><br><span class="line">DELIMITER $;</span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">FUNCTION</span> fn(score <span class="built_in">FLOAT</span>) <span class="keyword">RETURNS</span> <span class="built_in">CHAR</span></span><br><span class="line"><span class="keyword">BEGIN</span> </span><br><span class="line">	<span class="keyword">DECLARE</span> ch <span class="built_in">CHAR</span> <span class="keyword">DEFAULT</span> <span class="string">&#x27;A&#x27;</span>;</span><br><span class="line">	CASE </span><br><span class="line">	WHEN score&gt;90 THEN SET ch=&#x27;A&#x27;;</span><br><span class="line">	WHEN score&gt;80 THEN SET ch=&#x27;B&#x27;;</span><br><span class="line">	WHEN score&gt;60 THEN SET ch=&#x27;C&#x27;;</span><br><span class="line">	ELSE <span class="keyword">SET</span> ch=<span class="string">&#x27;D&#x27;</span>;</span><br><span class="line">	<span class="keyword">END</span> <span class="keyword">CASE</span>;</span><br><span class="line">	RETURN ch;</span><br><span class="line"><span class="keyword">END</span> </span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> fn(<span class="number">56</span>)	</span><br></pre></td></tr></table></figure>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%E7%BB%93%E6%9E%84/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E7%BA%A6%E6%9D%9F/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E7%BA%A6%E6%9D%9F/" class="post-title-link" itemprop="url">约束</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-20 00:00:00 / 修改时间：21:08:43" itemprop="dateCreated datePublished" datetime="2020-09-20T00:00:00+08:00">2020-09-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E7%BA%A6%E6%9D%9F/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E7%BA%A6%E6%9D%9F/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="常见约束"><a href="#常见约束" class="headerlink" title="常见约束"></a>常见约束</h3><ul>
-<li>约束：一种限制，用于限制表中的数据，为了保证表中的数据的一致性和完整性</li>
-<li>分类：六大约束<ul>
-<li>NOT NUL：非空约束，用于保证该字段的值不能为空，比如姓名，学号等</li>
-<li>DEFAULT：默认值约束，用于保证该字段有默认值，比如性别</li>
-<li>PEIMARY KEY：主键约束，用于保证该字段的值具有唯一性，并且非空，如学号，员工编号等<ul>
-<li>非空+唯一，不允许重复，不允许出现空值</li>
-<li>MySQL的主键名总是PRMARY，当创建主键约束时，系统默认会在所在的列和列组合上建立对应的唯一索引</li>
-</ul>
-</li>
-<li>UNIQUE：唯一约束，用于保证该字段的值在整个表中是唯一的，可为空，比如座位号<ul>
-<li>同一个表可以有多个唯一约束，多个列组合的约束</li>
-<li>在创建唯一约束的时候，如果不给唯一约束命名，就默认和列名相同</li>
-<li>MySQL会给唯一约束的列上默认创建一个唯一索引</li>
-</ul>
-</li>
-<li>CHECK：检查约束，mysql 中不支持，比如年龄，性别</li>
-<li>FOREIGN KEY：外键约束，用于限制两个表的关系，在从表中添加外键约束，用于引用主表中某列的值；<ul>
-<li>保证一个或两个表之间的参照完整性</li>
-<li>构建于一个表的两个字段或是两个表的两个字段之间的参照关系</li>
-<li>从表的外键值必须在主表中能找到或者为空</li>
-<li>当主表的记录被从表参照时，主表的记录将不允许删除，如果要删除数据，需要先删除从表中依赖该记录的数据，然后才可以删除主表的数据。</li>
-<li>外键约束的参照列，在主表中引用的只能是主键或唯一键约束的列。</li>
-<li>同一个表可以有多个外键约束。</li>
-<li>FOREIGN KEY：在表级指定子表中的列</li>
-<li>REFERENCES：标识在父表中的列</li>
-<li>ON DELETE CASCADE：级联删除，当父表中的列被删除时，子表中相应的列也被删除</li>
-<li>ON DELETE SET NULL：级联置空，子表中相应的列置空</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>添加约束时机：<ul>
-<li>创建表时</li>
-<li>修改表时</li>
-</ul>
-</li>
-<li>添加约束分类<ul>
-<li>列级约束：六大约束均支持，外键约束没有效果</li>
-<li>表级约束：除非空约束和默认值约束外，其他约束均支持</li>
-</ul>
-</li>
-<li>主键约束和唯一键约束<ul>
-<li>主键：保证唯一性，不允许为空，一个表中至多一个主键，允许组合主键</li>
-<li>唯一键，保证唯一性，允许为空，一个表中可以有多个唯一键，允许组合的唯一键。</li>
-</ul>
-</li>
-<li>外键<ul>
-<li>要求在从表中设置外键关系</li>
-<li>从表的外键列的类型和主表的关联列的类型要求一致或兼容，对名称没有要求</li>
-<li>主表的关联类必须是一个key，一般是主键或唯一键</li>
-<li>插入数据时，先插入主表，再插入从表</li>
-<li>删除数据时，先删除从表，再删除主表</li>
-</ul>
-</li>
-</ul>
-<h3 id="创建表时添加约束"><a href="#创建表时添加约束" class="headerlink" title="创建表时添加约束"></a>创建表时添加约束</h3><ul>
-<li><p>语法</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> 表名(</span><br><span class="line">	字段名 字段类型 列级约束,</span><br><span class="line">	字段名 字段类型,</span><br><span class="line">	表级约束</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加表级约束</p>
-<ul>
-<li><p>语法</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment"># 在各个字段的最下面</span></span><br><span class="line">【constraint 约束名】约束类型(字段名)</span><br></pre></td></tr></table></figure>
-</li>
-<li><pre><code class="sql">CREATE TABLE stuinfo(
-    id INT,
-    stuname VARCHAR(20),
-    gender CHAR(1),
-    seat INT,
-    age INT,
-    majorid INT,
-    CONSTRAINT pk PRIMARY KEY(id),#主键
-    CONSTRAINT uq UNIQUE(seat),#唯一键
-    CONSTRAINT ck CHECK(gender =&#39;男&#39; OR gender  = &#39;女&#39;),#检查
-    CONSTRAINT fk_stuinfo_major FOREIGN KEY(majorid) REFERENCES major(id)#外键
-);
-CREATE TABLE major(
-    id INT PRIMARY KEY,#主键
-    majorName VARCHAR(20)
-);
-
-SHOW INDEX FROM stuinfo;
-SHOW INDEX FROM major;
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">- 添加列级约束</span><br><span class="line"></span><br><span class="line">  - 语法：直接在字段名和类型后面追加约束类型即可。</span><br><span class="line"></span><br><span class="line">  - 只支持默认约束，非空约束，主键约束，唯一约束</span><br><span class="line"></span><br><span class="line">    ```sql</span><br><span class="line">    <span class="keyword">CREATE</span> <span class="keyword">TABLE</span> stuinfo(</span><br><span class="line">    	<span class="keyword">id</span> <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span>,<span class="comment">#主键</span></span><br><span class="line">    	stuName <span class="built_in">VARCHAR</span>(<span class="number">20</span>) <span class="keyword">NOT</span> <span class="literal">NULL</span> <span class="keyword">UNIQUE</span>,<span class="comment">#非空，唯一</span></span><br><span class="line">    	gender <span class="built_in">CHAR</span>(<span class="number">1</span>) <span class="keyword">CHECK</span>(gender=<span class="string">&#x27;男&#x27;</span> <span class="keyword">OR</span> gender =<span class="string">&#x27;女&#x27;</span>),<span class="comment">#检查</span></span><br><span class="line">    	seat <span class="built_in">INT</span> <span class="keyword">UNIQUE</span>,<span class="comment">#唯一</span></span><br><span class="line">    	age <span class="built_in">INT</span> <span class="keyword">DEFAULT</span>  <span class="number">18</span>,<span class="comment">#默认约束</span></span><br><span class="line">    	majorId <span class="built_in">INT</span> <span class="keyword">REFERENCES</span> major(<span class="keyword">id</span>)<span class="comment">#外键，stuinfo表的majorId是major表的外键</span></span><br><span class="line">    );</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">CREATE</span> <span class="keyword">TABLE</span> major(</span><br><span class="line">    	<span class="keyword">id</span> <span class="built_in">INT</span> PRIMARY <span class="keyword">KEY</span>,<span class="comment">#主键</span></span><br><span class="line">    	majorName <span class="built_in">VARCHAR</span>(<span class="number">20</span>)</span><br><span class="line">    );</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#查看stuinfo中的所有索引，包括主键、外键、唯一</span></span><br><span class="line">    <span class="keyword">SHOW</span> <span class="keyword">INDEX</span> <span class="keyword">FROM</span> stuinfo;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#查看major中的所有索引</span></span><br><span class="line">    <span class="keyword">SHOW</span> <span class="keyword">INDEX</span> <span class="keyword">FROM</span> major;</span><br></pre></td></tr></table></figure>
-</code></pre>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="修改表时添加约束"><a href="#修改表时添加约束" class="headerlink" title="修改表时添加约束"></a>修改表时添加约束</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E7%BA%A6%E6%9D%9F/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E8%A7%86%E5%9B%BE/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E8%A7%86%E5%9B%BE/" class="post-title-link" itemprop="url">视图</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-20 00:00:00 / 修改时间：21:35:47" itemprop="dateCreated datePublished" datetime="2020-09-20T00:00:00+08:00">2020-09-20</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-        </span>
-    </span>
-
-  
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E8%A7%86%E5%9B%BE/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E8%A7%86%E5%9B%BE/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="视图"><a href="#视图" class="headerlink" title="视图"></a>视图</h3><ul>
-<li>一种虚拟表，行和列的数据来自定义视图的查询中使用的表，并且是在使用视图时动态生成的</li>
-<li>只保存了sql逻辑，不保存查询结果。</li>
-<li>应用场景<ul>
-<li>多个地方用到同样的查询结果</li>
-<li>该查询结果使用的 sql 语句较复杂</li>
-</ul>
-</li>
-<li>好处<ul>
-<li>重用 sql 语句</li>
-<li>简化复杂的 sql 操作，不必知道它的查询细节</li>
-<li>保护数据，提高安全性</li>
-</ul>
-</li>
-</ul>
-<h3 id="视图和表"><a href="#视图和表" class="headerlink" title="视图和表"></a>视图和表</h3><blockquote>
-<table>
-<thead>
-<tr>
-<th align="center"></th>
-<th align="center">创建语法的关键字</th>
-<th align="center">是否实际占用物理空间</th>
-<th align="center">使用</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">视图</td>
-<td align="center">CREATE VIEW</td>
-<td align="center">不占用，只是保存了sql逻辑</td>
-<td align="center">可以进行增删改查，但一般只用做查询</td>
-</tr>
-<tr>
-<td align="center">表</td>
-<td align="center">CREATE TABLE</td>
-<td align="center">占用，保存数据</td>
-<td align="center">增删改查</td>
-</tr>
-</tbody></table>
-</blockquote>
-<h3 id="创建视图"><a href="#创建视图" class="headerlink" title="创建视图"></a>创建视图</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E8%A7%86%E5%9B%BE/#more" rel="contents">
+              <a class="btn" href="/2020/09/20/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%87%BD%E6%95%B0/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1556,7 +1417,7 @@ SHOW INDEX FROM major;
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/9/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
