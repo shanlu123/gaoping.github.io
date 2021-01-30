@@ -5,10 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
 <meta name="generator" content="Hexo 5.1.1">
+<meta name="baidu-site-verification" content="code-hkfwkpUecU" />
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <meta name="baidu-site-verification" content="true">
 
 <link rel="stylesheet" href="/css/main.css">
 
@@ -241,7 +243,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">122</span>
+          <span class="site-state-item-count">127</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -254,7 +256,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-count">11</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -324,6 +326,794 @@
       
 
       
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2021/01/30/PTA/7-22%20%E5%A0%86%E6%A0%88%E6%A8%A1%E6%8B%9F%E9%98%9F%E5%88%97/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/30/PTA/7-22%20%E5%A0%86%E6%A0%88%E6%A8%A1%E6%8B%9F%E9%98%9F%E5%88%97/" class="post-title-link" itemprop="url">7-22 堆栈模拟队列 (25point(s))</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-01-30 00:00:00 / 修改时间：17:55:54" itemprop="dateCreated datePublished" datetime="2021-01-30T00:00:00+08:00">2021-01-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/PTA%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">PTA刷题</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2021/01/30/PTA/7-22%20%E5%A0%86%E6%A0%88%E6%A8%A1%E6%8B%9F%E9%98%9F%E5%88%97/" class="post-meta-item leancloud_visitors" data-flag-title="7-22 堆栈模拟队列 (25point(s))" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/01/30/PTA/7-22%20%E5%A0%86%E6%A0%88%E6%A8%A1%E6%8B%9F%E9%98%9F%E5%88%97/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/30/PTA/7-22%20%E5%A0%86%E6%A0%88%E6%A8%A1%E6%8B%9F%E9%98%9F%E5%88%97/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.1k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//</span>pintia.cn<span class="regexp">/problem-sets/</span><span class="number">15</span><span class="regexp">/problems/</span><span class="number">837</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><ol>
+<li>首先比较两个堆栈的大小，小的栈为输入栈，大的栈为输出栈</li>
+<li>如果输入栈满了，而输出栈为空，则将输入栈中的所有元素全部转移到输出栈中（如果还有输入这时就不能再转移了）</li>
+<li>如果输入栈满了，而输出栈不为空，则此时栈满（因此可以得知整个栈的最大容量为输入栈的两倍）</li>
+<li>输出：<ol>
+<li>输出栈不为空时，则输出栈的栈顶元素为队头元素</li>
+<li>输出栈为空，而输入栈不为空时，则将输入栈中的元素全部转入输出栈中，再输出栈顶元素</li>
+<li>如果输出栈和输入栈中的元素均为空时，则栈空</li>
+</ol>
+</li>
+</ol>
+<h3 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/30/PTA/7-22%20%E5%A0%86%E6%A0%88%E6%A8%A1%E6%8B%9F%E9%98%9F%E5%88%97/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2021/01/28/PTA/1002%20A+B%20for%20Polynomials/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/28/PTA/1002%20A+B%20for%20Polynomials/" class="post-title-link" itemprop="url">1002 A+B for Polynomials(25point(s))</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-01-28 00:00:00" itemprop="dateCreated datePublished" datetime="2021-01-28T00:00:00+08:00">2021-01-28</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2021-01-29 00:15:31" itemprop="dateModified" datetime="2021-01-29T00:15:31+08:00">2021-01-29</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/PTA%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">PTA刷题</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2021/01/28/PTA/1002%20A+B%20for%20Polynomials/" class="post-meta-item leancloud_visitors" data-flag-title="1002 A+B for Polynomials(25point(s))" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/01/28/PTA/1002%20A+B%20for%20Polynomials/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/28/PTA/1002%20A+B%20for%20Polynomials/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//</span>pintia.cn<span class="regexp">/problem-sets/</span><span class="number">994805342720868352</span><span class="regexp">/problems/</span><span class="number">994805526272000000</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol>
+<li>每个单项式的指数和系数是一一对应的，可以开一个整数型的哈希数组表示单项式，如 hash[key] = value，key是指数，value是系数</li>
+<li>每个多项式就是一个hash数组，故需要开三个哈希表，分别表示多项式A，多项式B，以及多项式A+B</li>
+<li>计算A+B时，只需将A和B的指数相同的单项式进行合并即可。</li>
+<li>最后打印哈希表C，即A+B的结果中的系数不为0的项的指数和系数。</li>
+</ol>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/28/PTA/1002%20A+B%20for%20Polynomials/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2021/01/28/PTA/7-1%20%E6%9C%80%E5%A4%A7%E5%AD%90%E5%88%97%E5%92%8C%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/28/PTA/7-1%20%E6%9C%80%E5%A4%A7%E5%AD%90%E5%88%97%E5%92%8C%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">最大子列和问题（20分）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-01-28 00:00:00 / 修改时间：23:57:50" itemprop="dateCreated datePublished" datetime="2021-01-28T00:00:00+08:00">2021-01-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/PTA%E5%88%B7%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">PTA刷题</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2021/01/28/PTA/7-1%20%E6%9C%80%E5%A4%A7%E5%AD%90%E5%88%97%E5%92%8C%E9%97%AE%E9%A2%98/" class="post-meta-item leancloud_visitors" data-flag-title="最大子列和问题（20分）" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/01/28/PTA/7-1%20%E6%9C%80%E5%A4%A7%E5%AD%90%E5%88%97%E5%92%8C%E9%97%AE%E9%A2%98/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/28/PTA/7-1%20%E6%9C%80%E5%A4%A7%E5%AD%90%E5%88%97%E5%92%8C%E9%97%AE%E9%A2%98/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//</span>pintia.cn<span class="regexp">/problem-sets/</span><span class="number">15</span><span class="regexp">/problems/</span><span class="number">709</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol>
+<li>先让第一个数成为最大子列和，然后依次判断后面的数，</li>
+<li>后面的数是正数，加上它就一定比当前的结果大，更新当前求出的结果。否则不更新当前的结果值</li>
+<li>比如 -2 11，11 &gt; 0，所以 -2+11 一定大于 -2</li>
+<li>定义一个函数，传两个参数 a和b，如果b大于0，返回a+b，否则返回 a</li>
+<li>依次从第一个数开始遍历调用该函数，最后得到的结果值就是要计算的最大子列和。</li>
+<li>需要注意的是，最大子列和必须是连续的子序列的求和。故需要记录当前最大子序列和的位置。</li>
+</ol>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/28/PTA/7-1%20%E6%9C%80%E5%A4%A7%E5%AD%90%E5%88%97%E5%92%8C%E9%97%AE%E9%A2%98/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2021/01/04/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E9%80%92%E5%BD%92/PAT%20B1020%E6%9C%88%E9%A5%BC%20(25point(s))/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/01/04/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E9%80%92%E5%BD%92/PAT%20B1020%E6%9C%88%E9%A5%BC%20(25point(s))/" class="post-title-link" itemprop="url">PAT B1020月饼 (25*point(s))</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2021-01-04 00:00:00 / 修改时间：13:56:37" itemprop="dateCreated datePublished" datetime="2021-01-04T00:00:00+08:00">2021-01-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OJ-%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B/" itemprop="url" rel="index"><span itemprop="name">OJ--《算法笔记》</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2021/01/04/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E9%80%92%E5%BD%92/PAT%20B1020%E6%9C%88%E9%A5%BC%20(25point(s))/" class="post-meta-item leancloud_visitors" data-flag-title="PAT B1020月饼 (25*point(s))" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/01/04/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E9%80%92%E5%BD%92/PAT%20B1020%E6%9C%88%E9%A5%BC%20(25point(s))/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/04/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E9%80%92%E5%BD%92/PAT%20B1020%E6%9C%88%E9%A5%BC%20(25point(s))/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>3.4k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//</span>pintia.cn<span class="regexp">/problem-sets/</span><span class="number">994805260223102976</span><span class="regexp">/problems/</span><span class="number">994805301562163200</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol>
+<li>这里采用“总是选择单价最高的月饼出售，可以获得最大的利润”的策略</li>
+<li>因此，对每种月饼，都根据其库存量和总售价来计算出该种月饼的单价，之后<strong>将所有月饼按单价从高到低排序</strong>。</li>
+<li>从单价高的月饼开始枚举，①如果该种月饼的库存量小于需求量，则将该种月饼全部卖出，此时需求量减去该种月饼的库存量大小，收益增加该种月饼的总售价大小。②如果该种月饼的库存量大于等于需求量，则只提供需求量大小的月饼，此时收益值增加当前需求量乘以该种月饼的单价，而需求量减为零。</li>
+<li>这样，最后得到的收益值即为所求的最大收益值。</li>
+</ol>
+<h3 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/01/04/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E9%80%92%E5%BD%92/PAT%20B1020%E6%9C%88%E9%A5%BC%20(25point(s))/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/12/30/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E5%93%88%E5%B8%8C/codeup%20%E5%88%86%E7%BB%84%E7%BB%9F%E8%AE%A1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/30/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E5%93%88%E5%B8%8C/codeup%20%E5%88%86%E7%BB%84%E7%BB%9F%E8%AE%A1/" class="post-title-link" itemprop="url">分组统计</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-12-30 00:00:00 / 修改时间：11:29:16" itemprop="dateCreated datePublished" datetime="2020-12-30T00:00:00+08:00">2020-12-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OJ-%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B/" itemprop="url" rel="index"><span itemprop="name">OJ--《算法笔记》</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/12/30/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E5%93%88%E5%B8%8C/codeup%20%E5%88%86%E7%BB%84%E7%BB%9F%E8%AE%A1/" class="post-meta-item leancloud_visitors" data-flag-title="分组统计" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/12/30/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E5%93%88%E5%B8%8C/codeup%20%E5%88%86%E7%BB%84%E7%BB%9F%E8%AE%A1/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/30/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E5%93%88%E5%B8%8C/codeup%20%E5%88%86%E7%BB%84%E7%BB%9F%E8%AE%A1/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.9k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">http</span>://codeup.cn/problem.php?cid=<span class="number">100000582</span>&amp;pid=<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol>
+<li><p>从输入结果出发，使用 hashTable，输出格式可以写为：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">hashTable[<span class="number">1</span>][<span class="number">2</span>]=<span class="number">0</span> <span class="comment">//第一组中2出现了0次</span></span><br><span class="line">hashTable[<span class="number">1</span>][<span class="number">3</span>]=<span class="number">2</span></span><br><span class="line">hashTable[<span class="number">1</span>][<span class="number">8</span>]=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">hashTable[<span class="number">2</span>][<span class="number">2</span>]=<span class="number">1</span></span><br><span class="line">hashTable[<span class="number">2</span>][<span class="number">3</span>]=<span class="number">0</span></span><br><span class="line">hashTable[<span class="number">2</span>][<span class="number">8</span>]=<span class="number">1</span></span><br><span class="line"></span><br><span class="line">hashTable[<span class="number">3</span>][<span class="number">2</span>]=<span class="number">1</span></span><br><span class="line">hashTable[<span class="number">3</span>][<span class="number">3</span>]=<span class="number">1</span></span><br><span class="line">hashTable[<span class="number">3</span>][<span class="number">8</span>]=<span class="number">0</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>于是创建一个哈希表，二维</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> hashTable[<span class="number">200</span>][<span class="number">200</span>] = &#123; &#123;&#125; &#125;;</span><br></pre></td></tr></table></figure>
+
+<p>第一维表示组编号，第二维是值，哈希值是出现次数。</p>
+<p>注意哈希表要开得足够大，一般放在主函数外面，防止程序异常退出。</p>
+</li>
+<li><p>开一个数组 arr，一开始读入两行中的全部数</p>
+</li>
+<li><p>然后使用两个set集合，将 arr 数组中的全部元素重新组织，第一行输入的数字放置到 values 集合中，第二行对应的组编号放置到 keys 集合中，这样便可以自动对 组编号和其中的值进行自动排序并去重。</p>
+</li>
+<li><p>输出打印时可以直接遍历两个set集合即可。</p>
+</li>
+<li><p>最后要重置哈希表和其他数组以及集合。</p>
+</li>
+</ol>
+<h3 id="50分代码"><a href="#50分代码" class="headerlink" title="50分代码"></a>50分代码</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/30/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E5%93%88%E5%B8%8C/codeup%20%E5%88%86%E7%BB%84%E7%BB%9F%E8%AE%A1/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/12/25/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E6%8E%92%E5%BA%8F/PAT%20A1025%20Ranking/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/25/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E6%8E%92%E5%BA%8F/PAT%20A1025%20Ranking/" class="post-title-link" itemprop="url">PAT A1025 Ranking</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-12-25 00:00:00 / 修改时间：22:27:06" itemprop="dateCreated datePublished" datetime="2020-12-25T00:00:00+08:00">2020-12-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OJ-%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B/" itemprop="url" rel="index"><span itemprop="name">OJ--《算法笔记》</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/12/25/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E6%8E%92%E5%BA%8F/PAT%20A1025%20Ranking/" class="post-meta-item leancloud_visitors" data-flag-title="PAT A1025 Ranking" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/12/25/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E6%8E%92%E5%BA%8F/PAT%20A1025%20Ranking/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/25/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E6%8E%92%E5%BA%8F/PAT%20A1025%20Ranking/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>2.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//</span>pintia.cn<span class="regexp">/problem-sets/</span><span class="number">994805342720868352</span><span class="regexp">/problems/</span><span class="number">994805474338127872</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol>
+<li><h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3></li>
+</ol>
+<blockquote>
+<p><strong>先把一个考场的所有考生排序并进行排名</strong></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Student</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> id;</span><br><span class="line">	<span class="keyword">int</span> rank;</span><br><span class="line">	<span class="keyword">int</span> score;</span><br><span class="line">	<span class="keyword">int</span> examRoomId;</span><br><span class="line">	<span class="keyword">int</span> localRank;</span><br><span class="line">&#125;stu[<span class="number">30010</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">(Student s1,Student s2)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (s1.score != s2.score) <span class="keyword">return</span> s1.score &gt; s2.score;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> s1.id &lt; s2.id;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> k; <span class="comment">//k个考生</span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;k); </span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++) &#123; <span class="comment">//输入k个考生的准考证号和分数</span></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;stu[i].id, &amp;stu[i].score);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//将k个考生排序</span></span><br><span class="line">	sort(stu, stu + k, cmp);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//排序后将k个考生的排序记录到结构体信息中</span></span><br><span class="line">	<span class="comment">//①先将第一个个体的排名记为1</span></span><br><span class="line">	stu[<span class="number">0</span>].localRank = <span class="number">1</span>;</span><br><span class="line">	<span class="comment">//②然后遍历剩余个体</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; k; i++) &#123;</span><br><span class="line">		<span class="keyword">if</span> (stu[i].score == stu[i - <span class="number">1</span>].score) stu[i].localRank = stu[i - <span class="number">1</span>].localRank; <span class="comment">//如果当前个体的分数和前面一个个体的分数相同，排名和上一个相同</span></span><br><span class="line">		<span class="keyword">else</span> stu[i].localRank = i + <span class="number">1</span>; <span class="comment">//否则，当前个体的排名等于数组下标加1</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//打印</span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; k; i++) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d,%d，%d\n&quot;</span>, stu[i].id,stu[i].score,stu[i].localRank);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输入：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span></span><br><span class="line"><span class="number">1234567890001</span> <span class="number">95</span></span><br><span class="line"><span class="number">1234567890005</span> <span class="number">100</span></span><br><span class="line"><span class="number">1234567890003</span> <span class="number">95</span></span><br><span class="line"><span class="number">1234567890002</span> <span class="number">77</span></span><br><span class="line"><span class="number">1234567890004</span> <span class="number">85</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>输出：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1912276053</span>,<span class="number">100</span>，<span class="number">1</span></span><br><span class="line"><span class="number">1912276049</span>,<span class="number">95</span>，<span class="number">2</span></span><br><span class="line"><span class="number">1912276051</span>,<span class="number">95</span>，<span class="number">2</span></span><br><span class="line"><span class="number">1912276052</span>,<span class="number">85</span>，<span class="number">4</span></span><br><span class="line"><span class="number">1912276050</span>,<span class="number">77</span>，<span class="number">5</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/12/25/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E6%8E%92%E5%BA%8F/PAT%20A1025%20Ranking/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -429,6 +1219,120 @@
             </div>
           <!--/noindex-->
         
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/12/13/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/PAT%20B1046%20%E5%88%92%E6%8B%B3%20(15point(s))/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/12/13/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/PAT%20B1046%20%E5%88%92%E6%8B%B3%20(15point(s))/" class="post-title-link" itemprop="url">PAT B1046划拳(15*point(s)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-12-13 00:00:00 / 修改时间：10:24:30" itemprop="dateCreated datePublished" datetime="2020-12-13T00:00:00+08:00">2020-12-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/OJ-%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B/" itemprop="url" rel="index"><span itemprop="name">OJ--《算法笔记》</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/12/13/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/PAT%20B1046%20%E5%88%92%E6%8B%B3%20(15point(s))/" class="post-meta-item leancloud_visitors" data-flag-title="PAT B1046划拳(15*point(s)" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/12/13/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/PAT%20B1046%20%E5%88%92%E6%8B%B3%20(15point(s))/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/13/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/PAT%20B1046%20%E5%88%92%E6%8B%B3%20(15point(s))/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>537</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//</span>pintia.cn<span class="regexp">/problem-sets/</span><span class="number">994805260223102976</span><span class="regexp">/problems/</span><span class="number">994805277847568384</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">	<span class="keyword">int</span> win1 = <span class="number">0</span>, win2 = <span class="number">0</span>, nowin = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> arr[<span class="number">4</span>] = &#123;<span class="number">0</span>&#125;; <span class="comment">//用一个数组保存每一局的情况</span></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%d&quot;</span>, &amp;arr[<span class="number">0</span>], &amp;arr[<span class="number">1</span>], &amp;arr[<span class="number">2</span>], &amp;arr[<span class="number">3</span>]);</span><br><span class="line">		<span class="keyword">if</span> (arr[<span class="number">1</span>] == arr[<span class="number">0</span>] + arr[<span class="number">2</span>] &amp;&amp; arr[<span class="number">1</span>]!=arr[<span class="number">3</span>]) win1++; <span class="comment">//甲赢</span></span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (arr[<span class="number">3</span>] == arr[<span class="number">0</span>] + arr[<span class="number">2</span>] &amp;&amp; arr[<span class="number">1</span>] != arr[<span class="number">3</span>]) win2++;</span><br><span class="line">		<span class="keyword">else</span> nowin++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//输出打印</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>, win2, win1);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
       
     </div>
 
@@ -576,120 +1480,6 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/12/13/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/PAT%20B1046%20%E5%88%92%E6%8B%B3%20(15point(s))/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/13/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/PAT%20B1046%20%E5%88%92%E6%8B%B3%20(15point(s))/" class="post-title-link" itemprop="url">PAT B1046划拳(15*point(s)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-12-13 00:00:00 / 修改时间：10:24:30" itemprop="dateCreated datePublished" datetime="2020-12-13T00:00:00+08:00">2020-12-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/OJ-%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B/" itemprop="url" rel="index"><span itemprop="name">OJ--《算法笔记》</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/12/13/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/PAT%20B1046%20%E5%88%92%E6%8B%B3%20(15point(s))/" class="post-meta-item leancloud_visitors" data-flag-title="PAT B1046划拳(15*point(s)" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/12/13/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/PAT%20B1046%20%E5%88%92%E6%8B%B3%20(15point(s))/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/13/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/PAT%20B1046%20%E5%88%92%E6%8B%B3%20(15point(s))/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>537</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//</span>pintia.cn<span class="regexp">/problem-sets/</span><span class="number">994805260223102976</span><span class="regexp">/problems/</span><span class="number">994805277847568384</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">	<span class="keyword">int</span> win1 = <span class="number">0</span>, win2 = <span class="number">0</span>, nowin = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> arr[<span class="number">4</span>] = &#123;<span class="number">0</span>&#125;; <span class="comment">//用一个数组保存每一局的情况</span></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d%d%d%d&quot;</span>, &amp;arr[<span class="number">0</span>], &amp;arr[<span class="number">1</span>], &amp;arr[<span class="number">2</span>], &amp;arr[<span class="number">3</span>]);</span><br><span class="line">		<span class="keyword">if</span> (arr[<span class="number">1</span>] == arr[<span class="number">0</span>] + arr[<span class="number">2</span>] &amp;&amp; arr[<span class="number">1</span>]!=arr[<span class="number">3</span>]) win1++; <span class="comment">//甲赢</span></span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">if</span> (arr[<span class="number">3</span>] == arr[<span class="number">0</span>] + arr[<span class="number">2</span>] &amp;&amp; arr[<span class="number">1</span>] != arr[<span class="number">3</span>]) win2++;</span><br><span class="line">		<span class="keyword">else</span> nowin++;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//输出打印</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d %d\n&quot;</span>, win2, win1);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/12/13/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/PAT%20B1026%20%20%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -808,699 +1598,6 @@
   
   
 
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/Untitled/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/Untitled/" class="post-title-link" itemprop="url">未命名</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-12-12 19:35:51" itemprop="dateCreated datePublished" datetime="2020-12-12T19:35:51+08:00">2020-12-12</time>
-    </span>
-
-  
-    <span id="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/Untitled/" class="post-meta-item leancloud_visitors" data-flag-title="" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/Untitled/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/Untitled/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>0</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/A+B/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/A+B/" class="post-title-link" itemprop="url">A+B</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-12-12 00:00:00 / 修改时间：16:38:47" itemprop="dateCreated datePublished" datetime="2020-12-12T00:00:00+08:00">2020-12-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/OJ-%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">OJ--《算法笔记</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/A+B/" class="post-meta-item leancloud_visitors" data-flag-title="A+B" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/A+B/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/A+B/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>55</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">http</span>://codeup.cn/problem.php?cid=<span class="number">100000575</span>&amp;pid=<span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/A+B%E5%92%8CC%20(15)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/A+B%E5%92%8CC%20(15)/" class="post-title-link" itemprop="url">PAT B1011  A+B 和 C</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-12-12 00:00:00 / 修改时间：16:57:44" itemprop="dateCreated datePublished" datetime="2020-12-12T00:00:00+08:00">2020-12-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/OJ-%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B/" itemprop="url" rel="index"><span itemprop="name">OJ--《算法笔记》</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/A+B%E5%92%8CC%20(15)/" class="post-meta-item leancloud_visitors" data-flag-title="PAT B1011  A+B 和 C" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/A+B%E5%92%8CC%20(15)/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/A+B%E5%92%8CC%20(15)/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>921</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">http</span>://codeup.cn/problem.php?cid=<span class="number">100000575</span>&amp;pid=<span class="number">5</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="错误代码：50分"><a href="#错误代码：50分" class="headerlink" title="错误代码：50分"></a>错误代码：50分</h3><blockquote>
-<p>错误原因：没有将A B C 定义为 long long 类型</p>
-<figure class="highlight perl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#include&lt;cstdio&gt;</span></span><br><span class="line"></span><br><span class="line">//答案错误<span class="number">50</span>分，错误原因 long long型应该定义为</span><br><span class="line"><span class="keyword">int</span> main() &#123;</span><br><span class="line">	<span class="keyword">int</span>  A, B, C;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	scanf(<span class="string">&quot;%d&quot;</span>, &amp;n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		scanf(<span class="string">&quot;%d%d%d&quot;</span>, &amp;A, &amp;B, &amp;C);</span><br><span class="line">		//<span class="keyword">printf</span>(<span class="string">&quot;A=%d,B=%d,C=%d\n&quot;</span>, A, B, C);</span><br><span class="line">		<span class="keyword">if</span> (A + B &gt; C) <span class="keyword">printf</span>(<span class="string">&quot;Case #%d: true\n&quot;</span>, i);</span><br><span class="line">		<span class="keyword">else</span> <span class="keyword">printf</span>(<span class="string">&quot;Case #%d: false\n&quot;</span>, i);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h3 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/A+B%E5%92%8CC%20(15)/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/B1018%20%E9%94%A4%E5%AD%90%E5%89%AA%E5%88%80%E5%B8%83%20(20)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/B1018%20%E9%94%A4%E5%AD%90%E5%89%AA%E5%88%80%E5%B8%83%20(20)/" class="post-title-link" itemprop="url">PAT甲 1018 锤子剪刀布 (20point(s))</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-12-12 00:00:00 / 修改时间：16:34:47" itemprop="dateCreated datePublished" datetime="2020-12-12T00:00:00+08:00">2020-12-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/OJ-%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B/" itemprop="url" rel="index"><span itemprop="name">OJ--《算法笔记》</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/B1018%20%E9%94%A4%E5%AD%90%E5%89%AA%E5%88%80%E5%B8%83%20(20)/" class="post-meta-item leancloud_visitors" data-flag-title="PAT甲 1018 锤子剪刀布 (20point(s))" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/B1018%20%E9%94%A4%E5%AD%90%E5%89%AA%E5%88%80%E5%B8%83%20(20)/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/B1018%20%E9%94%A4%E5%AD%90%E5%89%AA%E5%88%80%E5%B8%83%20(20)/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>3.1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>3 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//</span>pintia.cn<span class="regexp">/problem-sets/</span><span class="number">994805260223102976</span><span class="regexp">/problems/</span><span class="number">994805304020025344</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="运行错误：71分代码"><a href="#运行错误：71分代码" class="headerlink" title="运行错误：71分代码"></a>运行错误：71分代码</h3><p><strong>思路</strong></p>
-<ol>
-<li>分别为甲方和乙方设置两个数组保存每一局双方的胜负情况，赢了就用对应的手势表示，输了用F表示，平局用N表示</li>
-<li>按照样例中的输入得到的 jiaArr[] 和yiArr[] 应该是：【 C J F N B N F J B N 】 和 【F F B N F N B F F N】</li>
-<li>定义一个judge函数用来处理这两个数组，通过传参的方式处理</li>
-<li>接下来仅需遍历 jiaArr数组即可得到甲和乙双方胜的次数，输的次数，以及平局次数</li>
-<li>另外需要打印双方获胜局中出现最多的手势，则定义一个 Most函数，接收三个参数，分别是 用C字符，B字符，J字符获胜的次数，次数最高者，返回对应的字符。</li>
-<li>最后打印出所有的结果即可。</li>
-</ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/B1018%20%E9%94%A4%E5%AD%90%E5%89%AA%E5%88%80%E5%B8%83%20(20)/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/%E6%95%B0%E5%AD%97%E5%88%86%E7%B1%BB%20(20)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/%E6%95%B0%E5%AD%97%E5%88%86%E7%B1%BB%20(20)/" class="post-title-link" itemprop="url">PAT B1012  数字分类</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-12-12 00:00:00 / 修改时间：16:59:52" itemprop="dateCreated datePublished" datetime="2020-12-12T00:00:00+08:00">2020-12-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/OJ-%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B/" itemprop="url" rel="index"><span itemprop="name">OJ--《算法笔记》</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/%E6%95%B0%E5%AD%97%E5%88%86%E7%B1%BB%20(20)/" class="post-meta-item leancloud_visitors" data-flag-title="PAT B1012  数字分类" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/%E6%95%B0%E5%AD%97%E5%88%86%E7%B1%BB%20(20)/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/%E6%95%B0%E5%AD%97%E5%88%86%E7%B1%BB%20(20)/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.1k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https:<span class="regexp">//</span>pintia.cn<span class="regexp">/problem-sets/</span><span class="number">994805260223102976</span><span class="regexp">/problems/</span><span class="number">994805311146147840</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">output</span><span class="params">(<span class="keyword">int</span> count,<span class="keyword">int</span> A)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (count == <span class="number">0</span>) &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;N &quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d &quot;</span>, A);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;n) != EOF) &#123;</span><br><span class="line">		<span class="keyword">int</span> A1 = <span class="number">0</span>, A2 = <span class="number">0</span>, A3 = <span class="number">0</span>, A5 = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">double</span> A4 = <span class="number">0.0</span>;</span><br><span class="line">		<span class="keyword">int</span>  count1 = <span class="number">0</span>, count2 = <span class="number">0</span>, count3 = <span class="number">0</span>, count4 = <span class="number">0</span>, count5 = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">			<span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>, &amp;num);</span><br><span class="line">			<span class="keyword">if</span> (num % <span class="number">5</span> == <span class="number">0</span> &amp;&amp; num % <span class="number">2</span> == <span class="number">0</span>) &#123;</span><br><span class="line">				A1 += num;</span><br><span class="line">				count1++;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (num % <span class="number">5</span> == <span class="number">1</span>) &#123;</span><br><span class="line">				count2++;</span><br><span class="line">				<span class="keyword">if</span> (count2 % <span class="number">2</span> != <span class="number">0</span>) &#123;</span><br><span class="line">					A2 += num;</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span> &#123;</span><br><span class="line">					A2 -= num;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (num % <span class="number">5</span> == <span class="number">2</span>) &#123;</span><br><span class="line">				A3 += <span class="number">1</span>;</span><br><span class="line">				count3++;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (num % <span class="number">5</span> == <span class="number">3</span>) &#123;</span><br><span class="line">				A4 += num;</span><br><span class="line">				count4++;</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">else</span> <span class="keyword">if</span> (num % <span class="number">5</span> == <span class="number">4</span>) &#123;</span><br><span class="line">				<span class="keyword">if</span> (A5 &lt; num) A5 = num;</span><br><span class="line">				count5++;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="comment">//打印输出</span></span><br><span class="line">		output(count1, A1);</span><br><span class="line">		output(count2, A2);</span><br><span class="line">		output(count3, A3);</span><br><span class="line">		<span class="keyword">if</span> (count4 == <span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">&quot;N &quot;</span>);</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;%.1f &quot;</span>, A4 / count4);</span><br><span class="line">		<span class="keyword">if</span> (count5 == <span class="number">0</span>) <span class="built_in">printf</span>(<span class="string">&quot;N\n&quot;</span>);</span><br><span class="line">		<span class="keyword">else</span> <span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, A5);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/%E5%89%A9%E4%B8%8B%E7%9A%84%E6%A0%91/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/%E5%89%A9%E4%B8%8B%E7%9A%84%E6%A0%91/" class="post-title-link" itemprop="url">剩下的树</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-12-12 00:00:00 / 修改时间：16:37:23" itemprop="dateCreated datePublished" datetime="2020-12-12T00:00:00+08:00">2020-12-12</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/OJ-%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B/" itemprop="url" rel="index"><span itemprop="name">OJ--《算法笔记》</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/%E5%89%A9%E4%B8%8B%E7%9A%84%E6%A0%91/" class="post-meta-item leancloud_visitors" data-flag-title="剩下的树" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/%E5%89%A9%E4%B8%8B%E7%9A%84%E6%A0%91/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/12/12/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0/%E3%80%8A%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0%E3%80%8B3.1%E5%B0%8F%E8%8A%82%E2%80%94%E2%80%94%E5%85%A5%E9%97%A8%E6%A8%A1%E6%8B%9F-%E7%AE%80%E5%8D%95%E6%A8%A1%E6%8B%9F/%E5%89%A9%E4%B8%8B%E7%9A%84%E6%A0%91/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>607</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">http</span>://codeup.cn/problem.php?cid=<span class="number">100000575</span>&amp;pid=<span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h3><blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> Max = <span class="number">10001</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> L, M;</span><br><span class="line">	<span class="keyword">int</span> arr[Max]; <span class="comment">//注意考虑最大值，最多有10001课树</span></span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;L, &amp;M), L || M) &#123;</span><br><span class="line">		<span class="comment">//1,在L长度的马路上每个坐标点放一颗树</span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= L; i++) &#123;</span><br><span class="line">			arr[i] = <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//2,处理M个区间</span></span><br><span class="line">		<span class="keyword">int</span> a, b; <span class="comment">//区间左端点和右端点</span></span><br><span class="line">		<span class="keyword">while</span> (M--) &#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%d%d&quot;</span>, &amp;a, &amp;b);</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = a; i &lt;= b; i++) &#123;</span><br><span class="line">				arr[i] = <span class="number">0</span>;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="comment">//3,打印剩下几棵树</span></span><br><span class="line">		<span class="keyword">int</span> left = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= L; i++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (arr[i] == <span class="number">1</span>) left++;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, left);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</blockquote>
-
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1545,7 +1642,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2020</span>
+  <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -1556,13 +1653,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">210k</span>
+    <span title="站点总字数">225k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">3:11</span>
+    <span title="站点阅读时长">3:25</span>
   </span>
 </div>
 <div class="busuanzi-count">
@@ -1598,6 +1695,15 @@
 <script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
   
+  <script>
+    (function(){
+      var bp = document.createElement('script');
+      var curProtocol = window.location.protocol.split(':')[0];
+      bp.src = (curProtocol === 'https') ? 'https://zz.bdstatic.com/linksubmit/push.js' : 'http://push.zhanzhang.baidu.com/push.js';
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(bp, s);
+    })();
+  </script>
 
 
 
