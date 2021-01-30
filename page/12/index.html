@@ -266,7 +266,7 @@
         <a href="https://github.com/shanlu123" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;shanlu123"><i class="fab fa-github fa-fw"></i>GitHub</a>
       </span>
       <span class="links-of-author-item">
-        <a href="https://www.cnblogs.com/" title="博客园 → https:&#x2F;&#x2F;www.cnblogs.com&#x2F;" rel="noopener" target="_blank"><i class="fa fa-blog fa-fw"></i>博客园</a>
+        <a href="https://www.cnblogs.com/shanlu0000/p/11478994.html" title="博客园 → https:&#x2F;&#x2F;www.cnblogs.com&#x2F;shanlu0000&#x2F;p&#x2F;11478994.html" rel="noopener" target="_blank"><i class="fa fa-blog fa-fw"></i>博客园</a>
       </span>
       <span class="links-of-author-item">
         <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
@@ -326,6 +326,136 @@
       
 
       
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/19/%E6%95%B0%E6%8D%AE%E5%BA%93/DDL/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/19/%E6%95%B0%E6%8D%AE%E5%BA%93/DDL/" class="post-title-link" itemprop="url">数据定义语言DDL</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2020-09-19 00:00:00 / 修改时间：17:54:38" itemprop="dateCreated datePublished" datetime="2020-09-19T00:00:00+08:00">2020-09-19</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/19/%E6%95%B0%E6%8D%AE%E5%BA%93/DDL/" class="post-meta-item leancloud_visitors" data-flag-title="数据定义语言DDL" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/19/%E6%95%B0%E6%8D%AE%E5%BA%93/DDL/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/19/%E6%95%B0%E6%8D%AE%E5%BA%93/DDL/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.3k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="库和表的管理"><a href="#库和表的管理" class="headerlink" title="库和表的管理"></a>库和表的管理</h3><ul>
+<li>创建(CREATE)，修改(ALTER)，删除(DROP)</li>
+</ul>
+<p><strong>库的创建</strong></p>
+<ul>
+<li><p>语法：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span>  [<span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span>] 库名;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建库Books</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> books ;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p><strong>库的修改</strong></p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/19/%E6%95%B0%E6%8D%AE%E5%BA%93/DDL/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -473,136 +603,6 @@
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2020/09/19/%E6%95%B0%E6%8D%AE%E5%BA%93/DML/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/19/%E6%95%B0%E6%8D%AE%E5%BA%93/DDL/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/19/%E6%95%B0%E6%8D%AE%E5%BA%93/DDL/" class="post-title-link" itemprop="url">数据定义语言DDL</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-      
-
-      <time title="创建时间：2020-09-19 00:00:00 / 修改时间：17:54:38" itemprop="dateCreated datePublished" datetime="2020-09-19T00:00:00+08:00">2020-09-19</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/19/%E6%95%B0%E6%8D%AE%E5%BA%93/DDL/" class="post-meta-item leancloud_visitors" data-flag-title="数据定义语言DDL" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/19/%E6%95%B0%E6%8D%AE%E5%BA%93/DDL/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/19/%E6%95%B0%E6%8D%AE%E5%BA%93/DDL/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>1.3k</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="库和表的管理"><a href="#库和表的管理" class="headerlink" title="库和表的管理"></a>库和表的管理</h3><ul>
-<li>创建(CREATE)，修改(ALTER)，删除(DROP)</li>
-</ul>
-<p><strong>库的创建</strong></p>
-<ul>
-<li><p>语法：</p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span>  [<span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span>] 库名;</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#创建库Books</span></span><br><span class="line"><span class="keyword">CREATE</span> <span class="keyword">DATABASE</span> <span class="keyword">IF</span> <span class="keyword">NOT</span> <span class="keyword">EXISTS</span> books ;</span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<p><strong>库的修改</strong></p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/19/%E6%95%B0%E6%8D%AE%E5%BA%93/DDL/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1338,6 +1338,144 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/18/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0(%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="shanlu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="shanlu的博客">
+    </span>
+
+    
+    
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/09/18/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0(%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0)/" class="post-title-link" itemprop="url">常见函数(分组函数)</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-09-18 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-18T00:00:00+08:00">2020-09-18</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新于</span>
+        <time title="修改时间：2020-09-19 00:27:40" itemprop="dateModified" datetime="2020-09-19T00:27:40+08:00">2020-09-19</time>
+      </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/2020/09/18/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0(%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0)/" class="post-meta-item leancloud_visitors" data-flag-title="常见函数(分组函数)" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/09/18/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0(%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0)/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/18/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0(%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>925</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li>分组函数：用作统计使用，又称为聚合函数、统计函数、组函数。分组函数作用于一组数据，并对一组数据返回一个值</li>
+<li>分类：sum 求和，avg 求平均，max 求最大值，min 求最小值，count 求个数</li>
+<li>使用：<ul>
+<li>sum，avg 一般用于处理数值型，max，min，count 可以处理任何类型</li>
+<li>除了 count(*)，其他分组函数都忽略 null 值，即 null 值不参与运算</li>
+<li>可以和 distinct 搭配实现去重的运算</li>
+<li>和分组函数一同查询的字段要求是 group by 后的字段</li>
+</ul>
+</li>
+</ul>
+<h3 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h3><blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUM</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">AVG</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MIN</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUM</span>(salary) 和,<span class="keyword">ROUND</span>(<span class="keyword">AVG</span>(salary),<span class="number">2</span>) 平均,<span class="keyword">MAX</span>(salary) 最高,<span class="keyword">MIN</span>(salary) 最低,<span class="keyword">COUNT</span>(salary) 个数</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="和-distinct-搭配"><a href="#和-distinct-搭配" class="headerlink" title="和 distinct 搭配"></a>和 distinct 搭配</h3>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/09/18/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0(%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0)/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/18/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0(%E5%8D%95%E8%A1%8C%E5%87%BD%E6%95%B0)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1541,144 +1679,6 @@
 </li>
 </ol>
 
-      
-    </div>
-
-    
-    
-    
-
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://github.com/shanlu123/2020/09/18/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0(%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="shanlu">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="shanlu的博客">
-    </span>
-
-    
-    
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/09/18/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0(%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0)/" class="post-title-link" itemprop="url">常见函数(分组函数)</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-09-18 00:00:00" itemprop="dateCreated datePublished" datetime="2020-09-18T00:00:00+08:00">2020-09-18</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新于</span>
-        <time title="修改时间：2020-09-19 00:27:40" itemprop="dateModified" datetime="2020-09-19T00:27:40+08:00">2020-09-19</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
-        </span>
-    </span>
-
-  
-    <span id="/2020/09/18/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0(%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0)/" class="post-meta-item leancloud_visitors" data-flag-title="常见函数(分组函数)" title="阅读次数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-eye"></i>
-      </span>
-      <span class="post-meta-item-text">阅读次数：</span>
-      <span class="leancloud-visitors-count"></span>
-    </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/09/18/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0(%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0)/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/09/18/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0(%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0)/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>925</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
-<li>分组函数：用作统计使用，又称为聚合函数、统计函数、组函数。分组函数作用于一组数据，并对一组数据返回一个值</li>
-<li>分类：sum 求和，avg 求平均，max 求最大值，min 求最小值，count 求个数</li>
-<li>使用：<ul>
-<li>sum，avg 一般用于处理数值型，max，min，count 可以处理任何类型</li>
-<li>除了 count(*)，其他分组函数都忽略 null 值，即 null 值不参与运算</li>
-<li>可以和 distinct 搭配实现去重的运算</li>
-<li>和分组函数一同查询的字段要求是 group by 后的字段</li>
-</ul>
-</li>
-</ul>
-<h3 id="简单使用"><a href="#简单使用" class="headerlink" title="简单使用"></a>简单使用</h3><blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUM</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">AVG</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MIN</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">MAX</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">COUNT</span>(salary) <span class="keyword">FROM</span> employees;</span><br><span class="line"><span class="keyword">SELECT</span> <span class="keyword">SUM</span>(salary) 和,<span class="keyword">ROUND</span>(<span class="keyword">AVG</span>(salary),<span class="number">2</span>) 平均,<span class="keyword">MAX</span>(salary) 最高,<span class="keyword">MIN</span>(salary) 最低,<span class="keyword">COUNT</span>(salary) 个数</span><br><span class="line"><span class="keyword">FROM</span> employees;</span><br></pre></td></tr></table></figure>
-</blockquote>
-<h3 id="和-distinct-搭配"><a href="#和-distinct-搭配" class="headerlink" title="和 distinct 搭配"></a>和 distinct 搭配</h3>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/09/18/%E6%95%B0%E6%8D%AE%E5%BA%93/%E5%B8%B8%E8%A7%81%E5%87%BD%E6%95%B0(%E5%88%86%E7%BB%84%E5%87%BD%E6%95%B0)/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
